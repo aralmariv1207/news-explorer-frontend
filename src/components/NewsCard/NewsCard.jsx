@@ -6,7 +6,7 @@ function NewsCard({ article }) {
   return (
     <div className="news-card">
       <h1>NewsCard</h1>
-      <Preloader />
+
       <div className="news-item">
         <h2>{article.title}</h2>
         <p>{article.description}</p>

@@ -1,0 +1,119 @@
+/* Styles for the modal overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden; /* Hidden by default */
+  opacity: 0; /* Hidden by default */
+  transition: visibility 0s, opacity 0.3s ease;
+}
+
+/* Class to make the modal visible when opened */
+.modal_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Styles for the modal container (the white box) */
+.modal__container {
+  position: relative;
+  background-color: #fff;
+  padding: 34px 36px 30px; /* Adjust padding as needed based on design */
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  max-width: 430px; /* Maximum width of the modal */
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width calculation */
+  z-index: 100; /* Ensure it's above other content */
+}
+
+/* Styles for the close button (the 'X' icon) */
+.modal__close-button {
+  position: absolute;
+  top: -40px; /* Position above the container */
+  right: -40px; /* Position to the right of the container */
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-image: url("../../images/close-icon.svg"); /* You'll need a close icon SVG */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.modal__close-button:hover {
+  opacity: 0.6;
+}
+
+/* Basic styling for title, form, and buttons inside the modal */
+.modal__title {
+  font-family: "Roboto Slab", sans-serif; /* Adjust font as per design */
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000;
+  margin-bottom: 25px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__submit-button {
+  width: 100%;
+  height: 64px;
+  background-color: #2f71e5;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.modal__submit-button:hover {
+  background-color: #347eff;
+}
+
+.modal__form-close-button {
+  /* A second 'Close' button inside the form, if needed */
+  background: none;
+  border: none;
+  color: #2f71e5;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 500px) {
+  .modal__container {
+    max-width: 100%; /* Take full width on small screens */
+    width: 100%;
+    height: 100%;
+    border-radius: 0; /* No border-radius on full screen */
+    padding: 16px; /* Smaller padding */
+  }
+
+  .modal__close-button {
+    top: 16px; /* Adjust position for small screens */
+    right: 16px;
+    width: 24px;
+    height: 24px;
+  }
+}

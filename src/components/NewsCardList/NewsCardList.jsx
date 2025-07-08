@@ -1,5 +1,5 @@
 import React from "react";
-import NewsCard from "./NewsCard"; // Adjust path if your NewsCard is elsewhere
+import NewsCard from "../NewsCard/NewsCard"; // Adjust path if your NewsCard is elsewhere
 import "./NewsCardList.css"; // You'll create this CSS file
 
 function NewsCardList({ articles, savedArticles }) {

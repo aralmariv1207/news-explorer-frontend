@@ -9,43 +9,43 @@ import SearchForm from "./components/SearchForm/SearchForm";
 import RegisterModal from "./components/RegisterModal/RegisterModal";
 import LoginModal from "./components/LoginModal/LoginModal";
 
-import { searchNews } from "./api/newsApi";
+import { searchNews } from "./api/newsApi"; // Your newsApi utility
+import newsData from "./api/newsData.js"; // REMINDER: Import your mock data here with .js extension for debugging UI
+console.log("Value of newsData in App.jsx:", newsData);
 
 import "./App.css";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
-  const [newsData, setNewsData] = useState([]);
+  const [newsData, setNewsData] = useState([]); // This will hold ALL fetched articles
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false); // Make sure this is present
-  const [apiError, setApiError] = useState(null);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [apiError, setApiError] = useState(null); // Will store specific error messages
+  const [hasSearched, setHasSearched] = useState(false); // To know if a search has been attempted
+  const [articlesToShow, setArticlesToShow] = useState(3); // State for "Show more" functionality
+  const [savedArticles, setSavedArticles] = useState([]); // State for saved articles
 
   const handleSearch = async (query) => {
-    console.log("handleSearch: Setting isLoading to TRUE");
     setIsLoading(true);
-    setApiError(null);
-    setNewsData([]);
-
+    setApiError(null); // Clear previous errors
+    setNewsData([]); // Clear previous results
+    setHasSearched(true); // Indicate a search has started
+    setArticlesToShow(3); // Reset articlesToShow when a new search begins
+    setSavedArticles([]); // Reset saved articles when a new search begins
     try {
-      const articles = await searchNews(query);
-      console.log("handleSearch: Data received and parsed.");
-
-      setNewsData(articles);
+      const articles = await searchNews(query); // Your newsApi utility
 
       if (articles.length === 0) {
-        console.log("handleSearch: No results found.");
-        setApiError(
-          "No results found for your search. Please try a different query."
-        );
+        setApiError("Nothing found"); // No articles returned for the query
+      } else {
+        setNewsData(articles); // Set data only if articles are found
       }
     } catch (error) {
-      console.error("handleSearch: Caught an error during fetch:", error);
+      console.error("API Error:", error);
       setApiError(
-        error.message ||
-          "Failed to fetch news. Please check your internet connection or try again."
-      );
+        "Server error: Could not connect the News API. Please try again later."
+      ); // General server error
     } finally {
-      console.log("handleSearch: Finally block - Setting isLoading to FALSE");
       setIsLoading(false);
     }
   };
@@ -65,6 +65,21 @@ function App() {
     setIsRegisterModalOpen(false);
   };
 
+  // --- NEW: Logic for data to display and "Show more" functionality in App.jsx ---
+  // Temporarily use mockData if no API data and a search has occurred.
+  // We'll replace this with actual newsData once the API key issue is resolved.
+  const dataToProcess =
+    newsData.length > 0 ? newsData : hasSearched ? newsData : [];
+
+  // Slice the articles based on articlesToShow state
+  const articlesForDisplay = dataToProcess.slice(0, articlesToShow);
+
+  // Condition to show the "Show more" button
+  const showMoreButtonVisible =
+    articlesForDisplay.length > 0 &&
+    articlesForDisplay.length < dataToProcess.length;
+  // --- END NEW LOGIC ---
+
   return (
     <BrowserRouter>
       <div className="app-container">
@@ -72,16 +87,8 @@ function App() {
         <Navigation />
 
         <SearchForm onSearch={handleSearch} />
-        <Main isLoading={isLoading} newsData={newsData} />
 
-        {apiError && (
-          <div className="api-error-message">
-            <p>{apiError}</p>
-          </div>
-        )}
-
-        {/* Temporary buttons to open specific modals for testing */}
-        {/* ADD THESE BUTTONS FOR TESTING */}
+        {/* Temporary buttons to open specific modals for testing (keep for now) */}
         <button
           onClick={handleLoginClick}
           style={{
@@ -132,10 +139,34 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Main isLoading={isLoading} newsData={newsData} />}
+            element={
+              <Main
+                isLoading={isLoading}
+                newsData={articlesForDisplay} // Pass the SLICED articles
+                apiError={apiError}
+                hasSearched={hasSearched}
+                savedArticles={savedArticles} // Pass saved articles state
+              />
+            }
           />
           <Route path="/saved-news" element={<SavedNews />} />
         </Routes>
+
+        {/* NEW: "Show more" button in App.jsx */}
+        {!isLoading && hasSearched && showMoreButtonVisible && (
+          <section className="results__button-container">
+            {" "}
+            {/* Optional: Add a container for styling */}
+            <button
+              className="results__show-more-button"
+              onClick={() => setArticlesToShow(articlesToShow + 3)}
+              // Disable if all articles are already shown or if there are no more to show
+              disabled={articlesToShow >= dataToProcess.length}
+            >
+              Show more
+            </button>
+          </section>
+        )}
 
         <Footer />
       </div>

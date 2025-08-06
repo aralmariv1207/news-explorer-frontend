@@ -4,11 +4,21 @@ import "./Navigation.css";
 
 function Navigation() {
   return (
-    <div className="navigation">
-      <h1>Navigation</h1>
-      <Link to="/">Home</Link>
-      <Link to="/saved-news">Saved News</Link>
-    </div>
+    <nav className="navigation">
+      <h1 className="navigation__logo">NewsExplorer</h1>
+      <div className="navigation__menu">
+        <Link to="/" className="navigation__link">
+          Home
+        </Link>
+        <button
+          className="navigation__signin-button"
+          onClick={() => console.log("Sign in clicked")}
+        >
+          Sign in
+        </button>
+      </div>
+    </nav>
   );
 }
+
 export default Navigation;

@@ -1,15 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .navigation {
   display: flex;
+  align-items: center;
   width: 100%;
-  margin: 0;
-  padding: 0;
-  background: red;
+  height: 100%; /* Make navigation fill header height */
 }
 
 .navigation__logo {
@@ -18,12 +11,14 @@
   font-weight: 700;
   color: white;
   text-decoration: none;
+  flex-grow: 1;
 }
 
 .navigation__menu {
   display: flex;
   align-items: center;
   gap: 34px;
+  height: 100%; /* Make menu fill navigation height */
 }
 
 .navigation__link {
@@ -31,16 +26,74 @@
   text-decoration: none;
   font-size: 18px;
   line-height: 1.33;
+  transition: opacity 0.3s ease;
+  border-bottom: 3px solid transparent; /* Default transparent border */
+  height: 100%; /* Make link fill menu height */
+  display: flex; /* Use flexbox to center content */
+  align-items: center; /* Vertically center text */
+  justify-content: center; /* Horizontally center text (if needed, or remove for left align) */
+  box-sizing: border-box; /* Include padding/border in height */
+  /* padding-top and padding-bottom removed as height:100% and flex handle it */
+}
+
+.navigation__link:hover {
+  opacity: 0.7;
+}
+
+.navigation__link_active {
+  border-bottom: 3px solid white; /* Permanent white line for active link */
 }
 
 .navigation__signin-button {
   background: transparent;
   border: 1px solid white;
   color: white;
-  padding: 17px 20px;
+  width: 176px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 100px;
   font-size: 18px;
   line-height: 1.33;
   cursor: pointer;
   white-space: nowrap;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navigation__signin-button:hover {
+  background-color: white;
+  color: #1a1b22;
+}
+
+/* Responsive adjustments for navigation */
+@media screen and (max-width: 1024px) {
+  .navigation__link {
+    /* Adjust height/padding for responsiveness if needed */
+  }
+  .navigation__signin-button {
+    width: auto;
+    height: auto;
+    padding: 8px 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__menu {
+    gap: 20px;
+  }
+  .navigation__link {
+    font-size: 16px;
+    /* Adjust height/padding for responsiveness if needed */
+  }
+  .navigation__signin-button {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .navigation__menu {
+    /* This section would typically handle mobile menu toggle */
+  }
 }

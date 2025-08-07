@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom"; // Import NavLink instead of Link
 import "./Navigation.css";
 
 function Navigation() {
@@ -7,9 +7,16 @@ function Navigation() {
     <nav className="navigation">
       <h1 className="navigation__logo">NewsExplorer</h1>
       <div className="navigation__menu">
-        <Link to="/" className="navigation__link">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "navigation__link navigation__link_active"
+              : "navigation__link"
+          }
+        >
           Home
-        </Link>
+        </NavLink>
         <button
           className="navigation__signin-button"
           onClick={() => console.log("Sign in clicked")}

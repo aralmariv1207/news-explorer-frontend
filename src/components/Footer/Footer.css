@@ -1,0 +1,114 @@
+.footer {
+  background-color: #ffffff;
+  padding: 30px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* Spreads copyright to left, right-section to right */
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 104px;
+}
+
+/* .footer__content class removed as it's no longer in JSX */
+
+.footer__copyright {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+  text-decoration: none;
+  font-weight: 400;
+  white-space: nowrap;
+  /* margin-right removed */
+}
+
+.footer__right-section {
+  /* New class for the group of nav links and social icons */
+  display: flex;
+  align-items: center;
+  gap: 40px; /* This creates the gap between TripleTen and GitHub icon */
+}
+
+.footer__nav-links {
+  /* Existing class for Home and TripleTen group */
+  display: flex;
+  gap: 40px; /* Gap between Home and TripleTen */
+}
+
+.footer__link {
+  color: #1a1b22;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+
+.footer__link:hover {
+  opacity: 0.7;
+}
+
+.footer__social-icons {
+  display: flex;
+  gap: 24px;
+  /* margin-left removed as gap on .footer__right-section handles spacing */
+}
+
+.footer__social-icon-link {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity 0.3s ease;
+}
+
+.footer__social-icon-link:hover {
+  opacity: 0.7;
+}
+
+.footer__social-icon-github {
+  background-image: url("../../assets/images/github_icon.svg");
+}
+
+.footer__social-icon-facebook {
+  background-image: url("../../assets/images/facebook_icon.svg");
+}
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    padding: 0 40px;
+  }
+  .footer__right-section {
+    gap: 30px; /* Adjust gap for smaller screens */
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .footer-container {
+    flex-direction: column;
+    padding: 0 16px;
+    gap: 16px;
+    text-align: center;
+  }
+  .footer__right-section {
+    flex-direction: column; /* Stack vertically on mobile */
+    gap: 12px; /* Adjust gap for mobile */
+  }
+  .footer__nav-links {
+    gap: 12px;
+  }
+  .footer__social-icons {
+    margin-top: 16px; /* Add space above social icons when stacked */
+  }
+  .footer__copyright,
+  .footer__link {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

@@ -4,6 +4,7 @@ import Main from "./components/Main/Main";
 import SavedNews from "./components/SavedNews/SavedNews";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import About from "./components/About/About";
 import LoginModal from "./components/LoginModal/LoginModal";
 import RegisterModal from "./components/RegisterModal/RegisterModal";
 
@@ -68,14 +69,17 @@ function App() {
           <Route
             path="/"
             element={
-              <Main
-                isLoading={isLoading}
-                newsData={articlesForDisplay}
-                apiError={apiError}
-                hasSearched={hasSearched}
-                savedArticles={savedArticles}
-                onSearch={handleSearch}
-              />
+              <>
+                <Main
+                  isLoading={isLoading}
+                  newsData={articlesForDisplay}
+                  apiError={apiError}
+                  hasSearched={hasSearched}
+                  savedArticles={savedArticles}
+                  onSearch={handleSearch}
+                />
+                <About />
+              </>
             }
           />
           <Route path="/saved-news" element={<SavedNews />} />

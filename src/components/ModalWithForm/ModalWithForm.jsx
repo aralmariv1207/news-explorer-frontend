@@ -1,7 +1,17 @@
 import React, { useEffect } from "react";
 import "./ModalWithForm.css";
 
-function ModalWithForm({ isOpen, onClose, title, name, children, onSubmit }) {
+function ModalWithForm({
+  isOpen,
+  onClose,
+  title,
+  name,
+  children,
+  onSubmit,
+  submitButtonText,
+  alternateTextContent,
+}) {
+  // Added alternateTextContent prop
   useEffect(() => {
     const handleEscape = (evt) => {
       if (evt.key === "Escape") {
@@ -42,17 +52,13 @@ function ModalWithForm({ isOpen, onClose, title, name, children, onSubmit }) {
         />
         <h3 className="modal__title">{title}</h3>
         <form className="modal__form" name={name} onSubmit={onSubmit}>
-          {children}
+          {children} {/* This will now be only the input fields */}
           <button type="submit" className="modal__submit-button">
-            Submit
+            {submitButtonText || "Submit"}
           </button>
-          <button
-            type="button"
-            className="modal__form-close-button"
-            onClick={onClose}
-          >
-            Close
-          </button>
+          {alternateTextContent && ( // Render alternate content if provided
+            <p className="modal__link-option">{alternateTextContent}</p>
+          )}
         </form>
       </div>
     </div>

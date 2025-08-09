@@ -7,11 +7,14 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start; /* Adjusted: Aligns to the left horizontally */
+  align-items: flex-start; /* Aligns to the top vertically */
+  padding-top: 210px; /* Vertical position (adjust this to move up/down) */
+  padding-left: 1000px; /* Added: Pushes the modal to the right from the left edge */
   visibility: hidden; /* Hidden by default */
   opacity: 0; /* Hidden by default */
   transition: visibility 0s, opacity 0.3s ease;
+  z-index: 9999; /* Ensure it's on top of everything */
 }
 
 /* Class to make the modal visible when opened */
@@ -22,33 +25,35 @@
 
 /* Styles for the modal container (the white box) */
 .modal__container {
-  position: relative;
+  position: relative; /* Essential for absolute positioning of its children */
   background-color: #fff;
-  padding: 34px 36px 30px; /* Adjust padding as needed based on design */
-  border-radius: 10px;
+  padding: 10px 36px 30px; /* Top padding (adjust this for space above title) */
+  border-radius: 10px; /* Adjust this for corner roundness */
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-  max-width: 430px; /* Maximum width of the modal */
+  max-width: 480px; /* Modal width (adjust this for width) */
   width: 100%;
   box-sizing: border-box; /* Include padding in width calculation */
+  overflow: visible; /* Ensures nothing inside is clipped if it goes outside padding */
   z-index: 100; /* Ensure it's above other content */
 }
 
 /* Styles for the close button (the 'X' icon) */
 .modal__close-button {
   position: absolute;
-  top: -40px; /* Position above the container */
-  right: -40px; /* Position to the right of the container */
+  top: -46px; /* Positioned outside the container */
+  right: -65px; /* Positioned further to the right */
   width: 40px;
   height: 40px;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  background-image: url("../../images/close-icon.svg"); /* You'll need a close icon SVG */
+  background-image: url("../../assets/images/close_icon.svg"); /* Confirmed: close_icon.svg with underscore */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   opacity: 1;
   transition: opacity 0.3s ease;
+  z-index: 101; /* Make sure it's above the modal container's default content */
 }
 
 .modal__close-button:hover {
@@ -57,12 +62,12 @@
 
 /* Basic styling for title, form, and buttons inside the modal */
 .modal__title {
-  font-family: "Roboto Slab", sans-serif; /* Adjust font as per design */
-  font-weight: 900;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700; /* Already 700 for bold as per Figma */
   font-size: 24px;
   line-height: 28px;
   color: #000;
-  margin-bottom: 25px;
+  margin-bottom: 25px; /* Consistent margin below title */
 }
 
 .modal__form {
@@ -70,18 +75,55 @@
   flex-direction: column;
 }
 
+/* Styles for labels within the modal forms */
+.modal__label {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #2f71e5; /* Blue color as per Figma */
+  margin-bottom: 8px; /* Space between label and input */
+  display: block; /* Ensures label takes full width */
+}
+
+/* Styles for input fields within the modal forms */
+.modal__input {
+  width: 100%; /* Full width within container */
+  height: 56px; /* Height to precisely match Figma's input field height */
+  padding: 0 16px; /* Horizontal padding to precisely match Figma */
+  background-color: transparent; /* Make background transparent */
+  border: none; /* Removed full border */
+  border-bottom: 1px solid #e6e8eb; /* Added only bottom border for the line effect */
+  border-radius: 0; /* Remove rounded corners for line effect */
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #1a1b22; /* Dark text color */
+  box-sizing: border-box; /* Include padding/border in width/height */
+  margin-bottom: 16px; /* Space below each input field */
+  outline: none; /* Remove default outline */
+}
+
+.modal__input::placeholder {
+  color: #b6bcbf; /* Lighter placeholder text color */
+}
+
+.modal__input:focus {
+  border-bottom-color: #2f71e5; /* Highlight bottom border on focus */
+}
+
+/* Styles for the submit button */
 .modal__submit-button {
   width: 100%;
-  height: 64px;
+  height: 64px; /* Height as per Figma */
   background-color: #2f71e5;
   color: #fff;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
   border: none;
-  border-radius: 100px;
+  border-radius: 100px; /* Rounded corners as per Figma */
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 20px; /* Space from last input to button */
   transition: background-color 0.3s ease;
 }
 
@@ -89,31 +131,67 @@
   background-color: #347eff;
 }
 
-.modal__form-close-button {
-  /* A second 'Close' button inside the form, if needed */
-  background: none;
-  border: none;
-  color: #2f71e5;
-  cursor: pointer;
-  margin-top: 10px;
-  font-size: 16px;
+/* Styling for the "or" link at the bottom of the modals */
+.modal__link-option {
+  font-family: "Inter", sans-serif; /* Use Inter as per Figma for this text */
+  font-size: 14px; /* Adjusted font size for "or" text (the smaller part) */
+  line-height: 22px;
+  color: #000; /* Default text color for "or" part */
   text-align: center;
+  margin-top: 10px; /* Adjusted: Reduced space from submit button to 'or' text */
+  cursor: default; /* Default cursor for "or" text */
+}
+
+.modal__link-option .modal__link-text {
+  color: #2f71e5; /* Blue color for the clickable link part */
+  cursor: pointer;
+  text-decoration: none; /* No underline by default, will add on hover */
+  transition: opacity 0.3s ease, text-decoration 0.3s ease;
+  margin-left: 5px; /* Small space between "or" and "Sign in/up" */
+  font-size: 18px; /* Explicitly set font size for the clickable link part */
+}
+
+.modal__link-option .modal__link-text:hover {
+  opacity: 0.7;
+  text-decoration: underline; /* Underline on hover */
 }
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 500px) {
   .modal__container {
-    max-width: 100%; /* Take full width on small screens */
+    max-width: 100%;
     width: 100%;
-    height: 100%;
-    border-radius: 0; /* No border-radius on full screen */
-    padding: 16px; /* Smaller padding */
+    height: 100%; /* Full height on small screens */
+    border-radius: 0;
+    padding: 16px;
   }
 
   .modal__close-button {
-    top: 16px; /* Adjust position for small screens */
+    top: 16px;
     right: 16px;
     width: 24px;
     height: 24px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .modal__submit-button {
+    height: 60px; /* Slight adjustment for mobile */
+  }
+
+  .modal__label {
+    font-size: 10px; /* Smaller font for mobile labels */
+  }
+
+  .modal__input {
+    height: 48px; /* Smaller height for mobile inputs */
+    padding: 0 10px;
+  }
+
+  .modal__link-option {
+    font-size: 12px; /* Smaller font for mobile "or" text */
   }
 }

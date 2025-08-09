@@ -1,0 +1,11 @@
+/* No specific styles needed here yet, relies on ModalWithForm.css */
+/* If you need specific styles for just the Login Modal, add them here */
+
+.modal__link-text {
+  cursor: pointer;
+  text-decoration: underline; /* To make it look clickable */
+}
+
+.modal__link-text:hover {
+  opacity: 0.7;
+}

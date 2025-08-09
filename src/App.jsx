@@ -22,6 +22,10 @@ function App() {
   const [articlesToShow, setArticlesToShow] = useState(3);
   const [savedArticles, setSavedArticles] = useState([]);
 
+  // Authentication state
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Start as false
+  const [currentUser, setCurrentUser] = useState(null); // No user initially
+
   const handleSearch = async (query) => {
     setIsLoading(true);
     setApiError(null);
@@ -47,9 +51,42 @@ function App() {
     }
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setCurrentUser(null);
+    console.log("User logged out");
+  };
+
   const closeAllModals = () => {
     setIsLoginModalOpen(false);
     setIsRegisterModalOpen(false);
+  };
+
+  const handleLoginClick = () => {
+    closeAllModals();
+    setIsLoginModalOpen(true);
+  };
+
+  const handleRegisterClick = () => {
+    closeAllModals();
+    setIsRegisterModalOpen(true);
+  };
+
+  const handleLoginSubmit = () => {
+    // Placeholder for actual login logic
+    setIsLoggedIn(true);
+    setCurrentUser({ name: "Elise" }); // Mock user
+    closeAllModals();
+  };
+
+  const handleRegisterSubmit = () => {
+    // Placeholder for actual registration logic
+    // After successful registration, usually automatically log in or prompt for login
+    setIsLoggedIn(true);
+    setCurrentUser({ name: "New User" }); // Mock new user
+    closeAllModals();
+    // You might want to switch to login modal after successful registration, e.g.:
+    // handleLoginClick();
   };
 
   const dataToProcess =
@@ -64,7 +101,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app-container">
-        <Header />
+        <Header
+          isLoggedIn={isLoggedIn}
+          currentUser={currentUser}
+          onLogout={handleLogout}
+          onSignInClick={handleLoginClick} // This now opens the LoginModal
+        />
         <Routes>
           <Route
             path="/"
@@ -97,21 +139,19 @@ function App() {
         )}
         <Footer />
       </div>
+
+      {/* Render Modals */}
       <LoginModal
         isOpen={isLoginModalOpen}
         onClose={closeAllModals}
-        onLogin={() => {
-          console.log("Login attempt");
-          closeAllModals();
-        }}
+        onLogin={handleLoginSubmit} // Pass the submit handler
+        onRegisterClick={handleRegisterClick} // Pass handler to switch to Register
       />
       <RegisterModal
         isOpen={isRegisterModalOpen}
         onClose={closeAllModals}
-        onRegister={() => {
-          console.log("Register attempt");
-          closeAllModals();
-        }}
+        onRegister={handleRegisterSubmit} // Pass the submit handler
+        onLoginClick={handleLoginClick} // Pass handler to switch to Login
       />
     </BrowserRouter>
   );

@@ -1,25 +1,32 @@
 import React from "react";
-import ModalWithForm from "../ModalWithForm/ModalWithForm"; // Adjust path if necessary
-import "./RegisterModal.css"; // Don't forget to create this CSS file if it doesn't exist
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "./RegisterModal.css";
 
-function RegisterModal({ isOpen, onClose, onRegister }) {
-  // onRegister will be for form submission later
-  // For now, let's just create placeholder form elements
+function RegisterModal({ isOpen, onClose, onRegister, onLoginClick }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     console.log("Register form submitted!");
-    onRegister(); // Call the passed onRegister function (will handle API later)
+    onRegister();
   };
 
   return (
     <ModalWithForm
       isOpen={isOpen}
       onClose={onClose}
-      name="register" // Unique name for this modal type
-      title="Sign up" // Specific title for the registration modal
+      name="register"
+      title="Sign up"
       onSubmit={handleSubmit}
+      submitButtonText="Sign up"
+      alternateTextContent={
+        // Entire content for the 'or' line, including "or "
+        <>
+          or{" "}
+          <span onClick={onLoginClick} className="modal__link-text">
+            Sign in
+          </span>
+        </>
+      }
     >
-      {/* Registration form content (children for ModalWithForm) */}
       <label className="modal__label">
         Email
         <input
@@ -50,7 +57,6 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
           required
         />
       </label>
-      {/* The submit and close buttons are already in ModalWithForm */}
     </ModalWithForm>
   );
 }

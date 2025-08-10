@@ -2,26 +2,120 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 104px; /* Removed vertical padding from header */
-  height: 80px; /* Explicitly set header height */
-  position: fixed;
+  padding: 0 104px; /* Removed top/bottom padding to control height more precisely */
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  height: 60px; /* Adjusted: Smaller height to bring border up */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Default thin white border */
+}
+
+/* Dark theme for main page (transparent background, white text) */
+.header_theme_dark {
+  background-color: transparent;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-sizing: border-box;
-  background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Thin white border for dark theme */
+}
+
+.header_theme_dark .header__logo {
+  color: #fff;
+}
+
+/* Light theme for other pages (solid background, dark text) */
+.header_theme_light {
+  background-color: #fff;
+  position: static;
+  border-bottom-color: rgba(
+    26,
+    27,
+    34,
+    0.2
+  ); /* Thin dark border for light theme */
+}
+
+.header_theme_light .header__logo {
+  color: #1a1b22;
+}
+
+/* --- Navigation Link and Button Styling --- */
+/* These rules target elements inside the header with specific theme classes
+   They set the *default* color/border for links and buttons. */
+
+.header_theme_dark .navigation__link,
+.header_theme_dark .navigation__signin-button,
+.header_theme_dark .navigation__button_user {
+  color: #fff; /* White for dark theme */
+  border-color: #fff; /* White border for buttons */
+}
+
+.header_theme_dark .navigation__logout-icon {
+  background-image: url("../../assets/images/logout_icon.svg"); /* White logout icon */
+}
+
+.header_theme_light .navigation__link,
+.header_theme_light .navigation__signin-button,
+.header_theme_light .navigation__button_user {
+  color: #1a1b22; /* Dark text for light theme */
+  border-color: #1a1b22; /* Dark border for buttons */
+}
+
+.header_theme_light .navigation__logout-icon {
+  background-image: url("../../assets/images/logout_icon_dark.svg"); /* Dark logout icon */
+}
+
+/* Common active link styling (border color will be overridden by theme-specific rules below) */
+.navigation__link_active {
+  border-bottom-style: solid;
+  border-bottom-width: 3px; /* THICKER border */
+}
+
+/* Theme-specific active link border color */
+.header_theme_dark .navigation__link.navigation__link_active {
+  border-bottom-color: #fff; /* White underline for dark theme active */
+}
+
+.header_theme_light .navigation__link.navigation__link_active {
+  border-bottom-color: #1a1b22; /* Dark underline for light theme active */
+}
+
+.header__logo {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 0 40px;
+    height: 56px; /* Adjusted height for tablet */
+  }
 }
 
 @media screen and (max-width: 768px) {
   .header {
-    padding: 0 40px; /* Adjust horizontal padding */
+    padding: 0 24px;
+    height: 48px; /* Adjusted height for mobile */
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
   .header {
-    padding: 0 16px; /* Adjust horizontal padding */
+    padding: 0 16px;
+    height: auto; /* Allow height to adjust when menu stacks */
+    flex-direction: column; /* Stack logo and navigation */
+    align-items: flex-start;
   }
 }

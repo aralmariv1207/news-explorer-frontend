@@ -1,0 +1,20 @@
+/* Specific styles for the Register Success Modal's Sign in link */
+/* This overrides/supplements the generic modal__link-option styles */
+
+.modal__link-text.modal__link-text_center {
+  display: block; /* Make it a block element so padding/margin-left works */
+  width: 100%; /* Take full width to allow text-align left to apply */
+  text-align: left; /* Aligns the text to the left */
+  margin-left: auto; /* NEW: Adjust this value to align with "completed" text. Matches the padding of the modal container. */
+  margin-top: auto; /* NEW: Adjusted margin from title */
+  color: #2f71e5; /* Ensure it's blue as per Figma for "Sign in" link */
+  cursor: pointer;
+  font-size: 18px; /* Ensure font size is consistent with design */
+  text-decoration: none; /* No underline by default */
+  transition: opacity 0.3s ease, text-decoration 0.3s ease;
+}
+
+.modal__link-text.modal__link-text_center:hover {
+  opacity: 0.7;
+  text-decoration: underline; /* Underline on hover */
+}

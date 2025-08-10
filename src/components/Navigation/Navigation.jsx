@@ -1,49 +1,72 @@
 import React from "react";
-import { NavLink } from "react-router-dom"; // 'Link' is not used, so it's removed from import
+import { NavLink } from "react-router-dom"; // Removed useLocation import as it's not directly used for active links here
 import "./Navigation.css";
 
-function Navigation({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
+function Navigation({
+  isLoggedIn,
+  currentUser,
+  onLogout,
+  onSignInClick,
+  isMainPage,
+}) {
+  // const location = useLocation(); // REMOVED: This line is no longer needed as NavLink's isActive prop is sufficient.
+
   return (
     <nav className="navigation">
-      <h1 className="navigation__logo">NewsExplorer</h1>
       <div className="navigation__menu">
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive
-              ? "navigation__link navigation__link_active"
-              : "navigation__link"
+            `navigation__link ${
+              isMainPage
+                ? "navigation__link_theme_dark"
+                : "navigation__link_theme_light"
+            } ${isActive ? "navigation__link_active" : ""}`
           }
         >
           Home
         </NavLink>
-
-        {isLoggedIn ? ( // Conditional rendering for logged-in state
-          <>
-            <NavLink
-              to="/saved-news" // Assuming this is the path for saved articles
-              className={({ isActive }) =>
-                isActive
-                  ? "navigation__link navigation__link_active"
-                  : "navigation__link"
-              }
-            >
-              Saved articles
-            </NavLink>
-            <button
-              className="navigation__button navigation__button_user" // You'll need to define this style in Navigation.css
-            >
-              {currentUser?.name || "User"}{" "}
-              {/* Use currentUser, with a fallback */}
-              <span
-                className="navigation__logout-icon"
-                onClick={onLogout}
-              ></span>{" "}
-              {/* onLogout is used here */}
-            </button>
-          </>
+        {isLoggedIn && (
+          <NavLink
+            to="/saved-news"
+            className={({ isActive }) =>
+              `navigation__link ${
+                isMainPage
+                  ? "navigation__link_theme_dark"
+                  : "navigation__link_theme_light"
+              } ${isActive ? "navigation__link_active" : ""}`
+            }
+          >
+            Saved articles
+          </NavLink>
+        )}
+        {isLoggedIn ? (
+          <button
+            className={`navigation__button_user ${
+              isMainPage
+                ? "navigation__button_user_theme_dark"
+                : "navigation__button_user_theme_light"
+            }`}
+            onClick={onLogout}
+          >
+            {currentUser?.name || "User"}
+            <span
+              className={`navigation__logout-icon ${
+                isMainPage
+                  ? "navigation__logout-icon_theme_dark"
+                  : "navigation__logout-icon_theme_light"
+              }`}
+            ></span>
+          </button>
         ) : (
-          <button className="navigation__signin-button" onClick={onSignInClick}>
+          <button
+            className={`navigation__signin-button ${
+              isMainPage
+                ? "navigation__signin-button_theme_dark"
+                : "navigation__signin-button_theme_light"
+            }`}
+            onClick={onSignInClick}
+          >
             Sign in
           </button>
         )}

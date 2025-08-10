@@ -1,17 +1,44 @@
 import React from "react";
-import NewsCard from "../NewsCard/NewsCard"; // Adjust path if your NewsCard is elsewhere
-import "./NewsCardList.css"; // You'll create this CSS file
+import NewsCard from "../NewsCard/NewsCard";
+import "./NewsCardList.css";
 
-function NewsCardList({ articles, savedArticles }) {
+function NewsCardList({
+  articles,
+  isLoggedIn,
+  onShowMoreClick,
+  showMoreButtonVisible,
+  isSavedNewsPage,
+  onSaveArticle,
+  onDeleteArticle,
+}) {
   return (
-    <div className="news-card-list">
-      {articles.map((article, index) => (
-        // It's good practice to use a unique key for list items.
-        // If articles have a unique ID, use that. Otherwise, index is acceptable for static lists.
-
-        <NewsCard key={index} article={article} savedArticles={savedArticles} />
-      ))}
-    </div>
+    <section className="news-card-list">
+      <h2 className="news-card-list__title">
+        {isSavedNewsPage ? "Saved articles" : "Search results"}
+      </h2>
+      <div className="news-card-list__grid">
+        {articles.map((article, index) => (
+          <NewsCard
+            key={article.url || index}
+            article={article}
+            isLoggedIn={isLoggedIn}
+            isSavedNewsPage={isSavedNewsPage}
+            onSaveArticle={onSaveArticle}
+            onDeleteArticle={onDeleteArticle}
+          />
+        ))}
+      </div>
+      {showMoreButtonVisible && (
+        <div className="news-card-list__button-container">
+          <button
+            className="news-card-list__show-more-button"
+            onClick={onShowMoreClick}
+          >
+            Show more
+          </button>
+        </div>
+      )}
+    </section>
   );
 }
 

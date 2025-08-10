@@ -1,99 +1,183 @@
 .navigation {
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 100%; /* Make navigation fill header height */
-}
-
-.navigation__logo {
-  font-family: "Roboto Slab", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-  flex-grow: 1;
 }
 
 .navigation__menu {
   display: flex;
   align-items: center;
-  gap: 34px;
-  height: 100%; /* Make menu fill navigation height */
+  gap: 30px;
 }
 
 .navigation__link {
-  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
   text-decoration: none;
-  font-size: 18px;
-  line-height: 1.33;
-  transition: opacity 0.3s ease;
-  border-bottom: 3px solid transparent; /* Default transparent border */
-  height: 100%; /* Make link fill menu height */
-  display: flex; /* Use flexbox to center content */
-  align-items: center; /* Vertically center text */
-  justify-content: center; /* Horizontally center text (if needed, or remove for left align) */
-  box-sizing: border-box; /* Include padding/border in height */
-  /* padding-top and padding-bottom removed as height:100% and flex handle it */
+  padding: 0; /* No padding here. Parent .header handles vertical space. */
+  border-bottom: 2px solid transparent; /* Default thin transparent border */
+  border-radius: 0;
+  transition: opacity 0.3s ease, color 0.3s ease, border-bottom-color 0.3s ease; /* Transition border-bottom-color */
+  height: 48px; /* Match button height for vertical alignment */
+  display: flex;
+  align-items: center; /* Vertically center text within link height */
+  box-sizing: border-box;
 }
 
-.navigation__link:hover {
-  opacity: 0.7;
-}
-
+/* Active link styling (border width and style defined here, color in Header.css) */
+/* The padding-bottom on active link in Header.css helps adjust alignment */
 .navigation__link_active {
-  border-bottom: 3px solid white; /* Permanent white line for active link */
+  /* border-bottom-style and width defined in Header.css */
 }
 
+/* Styles for the "Sign in" button */
 .navigation__signin-button {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  width: 176px;
   height: 48px;
+  min-width: 176px;
+  padding: 0 20px;
+  background-color: transparent;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, opacity 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 100px;
-  font-size: 18px;
-  line-height: 1.33;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: none;
 }
 
-.navigation__signin-button:hover {
-  background-color: white;
+/* Theme specific sign-in button colors */
+.navigation__signin-button_theme_dark {
+  color: #fff;
+  border: 1px solid #fff;
+}
+.navigation__signin-button_theme_dark:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navigation__signin-button_theme_light {
   color: #1a1b22;
+  border: 1px solid #1a1b22;
+}
+.navigation__signin-button_theme_light:hover {
+  background-color: rgba(26, 27, 34, 0.1);
 }
 
-/* Responsive adjustments for navigation */
+/* Styles for the user button (logged in state) */
+.navigation__button_user {
+  height: 48px;
+  min-width: unset;
+  padding: 0 16px;
+  background-color: transparent;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Theme specific user button colors */
+.navigation__button_user_theme_dark {
+  color: #fff;
+  border: 1px solid #fff;
+}
+.navigation__button_user_theme_dark:hover {
+  opacity: 0.8;
+}
+
+.navigation__button_user_theme_light {
+  color: #1a1b22;
+  border: 1px solid #1a1b22;
+}
+.navigation__button_user_theme_light:hover {
+  opacity: 0.8;
+}
+
+/* Styles for the logout icon within the user button */
+.navigation__logout-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Theme specific logout icon images */
+.navigation__logout-icon_theme_dark {
+  background-image: url("../../assets/images/logout_icon.svg"); /* White logout icon */
+}
+
+.navigation__logout-icon_theme_light {
+  background-image: url("../../assets/images/logout_icon_dark.svg"); /* Dark logout icon */
+}
+
+.navigation__logout-icon:hover {
+  opacity: 0.6;
+}
+
+/* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
-  .navigation__link {
-    /* Adjust height/padding for responsiveness if needed */
+  .navigation__menu {
+    gap: 20px; /* Slightly reduce gap for tablets */
   }
-  .navigation__signin-button {
-    width: auto;
-    height: auto;
-    padding: 8px 16px;
+  .navigation__link {
+    height: 40px; /* Adjust height for tablet, to match adjusted header height */
   }
 }
 
 @media screen and (max-width: 768px) {
   .navigation__menu {
-    gap: 20px;
+    gap: 15px; /* Adjust gap for tablets */
+  }
+
+  .navigation__link,
+  .navigation__signin-button,
+  .navigation__button_user {
+    font-size: 16px;
+    height: 40px;
   }
   .navigation__link {
-    font-size: 16px;
-    /* Adjust height/padding for responsiveness if needed */
+    /* Adjusted padding for active link for smaller header heights */
+    padding: 0; /* Keep consistent with desktop, let Header.css handle padding */
   }
-  .navigation__signin-button {
-    padding: 12px 16px;
-    font-size: 16px;
+
+  .navigation__signin-button,
+  .navigation__button_user {
+    min-width: unset;
+    padding: 0 10px;
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
   .navigation__menu {
-    /* This section would typically handle mobile menu toggle */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 5px;
+  }
+
+  .navigation__link,
+  .navigation__signin-button,
+  .navigation__button_user {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navigation__logout-icon {
+    margin-left: auto;
+    margin-right: 5px;
   }
 }

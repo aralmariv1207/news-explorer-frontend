@@ -1,93 +1,105 @@
 .about {
+  padding: 80px 104px; /* Consistent padding with other sections */
+  background-color: #fff; /* White background */
+}
+
+.about__content {
+  max-width: 1232px; /* Match main content width */
+  margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 104px; /* Reduced top and bottom padding even further */
-  background-color: #ffffff;
-  gap: 56px;
+  gap: 56px; /* Space between image and text */
+  align-items: center; /* Vertically center content */
 }
 
 .about__image-container {
-  width: 464px;
-  height: 464px;
-  border-radius: 50%;
-  background-image: url("../../assets/images/avatar-image__evert-van-duijn-J6Z9IifdDD0-unsplash.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Prevent image from shrinking */
+  width: 464px; /* Adjusted: Larger width for image container as per Figma */
+  height: 464px; /* Adjusted: Larger height for image container as per Figma */
+  border-radius: 50%; /* Make it round */
+  overflow: hidden; /* Ensure image stays within bounds */
+  background-color: #f0f0f0; /* Placeholder background */
 }
 
-.about__text-content {
-  max-width: 600px;
+.about__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the container */
+}
+
+.about__text-container {
+  flex-grow: 1; /* Allow text to take remaining space */
 }
 
 .about__title {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
   font-size: 40px;
   line-height: 46px;
-  font-weight: 400;
   color: #1a1b22;
-  margin: 0;
-  text-align: left;
+  margin-bottom: 24px;
 }
 
 .about__text {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   line-height: 24px;
-  font-weight: 400;
   color: #1a1b22;
-  margin: 24px 0 0;
-  text-align: left;
+  margin-bottom: 16px; /* Space between paragraphs */
 }
 
-/* Responsive styles */
+.about__text:last-child {
+  margin-bottom: 0;
+}
+
+/* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
   .about {
-    padding: 15px 40px; /* Adjusted padding for tablet */
+    padding: 40px 40px;
+  }
+  .about__content {
     gap: 40px;
   }
   .about__image-container {
-    width: 280px;
-    height: 280px;
+    width: 180px; /* Adjust for tablet */
+    height: 180px; /* Adjust for tablet */
+  }
+  .about__title {
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 16px;
+  }
+  .about__text {
+    font-size: 16px;
+    line-height: 22px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .about {
-    flex-direction: column;
+    padding: 24px 16px;
+  }
+  .about__content {
+    flex-direction: column; /* Stack image and text vertically */
     text-align: center;
-    padding: 10px 24px; /* Adjusted padding for smaller tablet */
     gap: 24px;
   }
   .about__image-container {
-    width: 200px;
-    height: 200px;
+    width: 140px; /* Adjust for mobile */
+    height: 140px; /* Adjust for mobile */
   }
   .about__title {
-    text-align: center;
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 10px;
   }
   .about__text {
-    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
   .about {
-    padding: 5px 16px; /* Adjusted padding for mobile */
-  }
-  .about__image-container {
-    width: 120px;
-    height: 120px;
-  }
-  .about__title {
-    font-size: 30px;
-    line-height: 34px;
-  }
-  .about__text {
-    font-size: 16px;
-    line-height: 22px;
-    margin-top: 16px;
+    padding: 16px;
   }
 }

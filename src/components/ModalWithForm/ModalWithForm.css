@@ -7,10 +7,10 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
   display: flex;
-  justify-content: flex-start; /* Adjusted: Aligns to the left horizontally */
+  justify-content: center; /* Adjusted: Perfectly centers the modal horizontally */
   align-items: flex-start; /* Aligns to the top vertically */
-  padding-top: 210px; /* Vertical position (adjust this to move up/down) */
-  padding-left: 1000px; /* Added: Pushes the modal to the right from the left edge */
+  padding-top: 150px; /* Vertical position of the entire modal */
+  /* Removed padding-left as justify-content: center handles horizontal centering */
   visibility: hidden; /* Hidden by default */
   opacity: 0; /* Hidden by default */
   transition: visibility 0s, opacity 0.3s ease;
@@ -27,10 +27,10 @@
 .modal__container {
   position: relative; /* Essential for absolute positioning of its children */
   background-color: #fff;
-  padding: 10px 36px 30px; /* Top padding (adjust this for space above title) */
-  border-radius: 10px; /* Adjust this for corner roundness */
+  padding: 24px 36px 30px; /* Top padding for title space */
+  border-radius: 16px; /* Matches Figma's 16px radius for the modal container */
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-  max-width: 480px; /* Modal width (adjust this for width) */
+  max-width: 430px; /* Back to Figma's exact 430px width */
   width: 100%;
   box-sizing: border-box; /* Include padding in width calculation */
   overflow: visible; /* Ensures nothing inside is clipped if it goes outside padding */
@@ -41,7 +41,7 @@
 .modal__close-button {
   position: absolute;
   top: -46px; /* Positioned outside the container */
-  right: -65px; /* Positioned further to the right */
+  right: -80px; /* Moved further to the right to match Figma's exact position */
   width: 40px;
   height: 40px;
   background-color: transparent;
@@ -63,7 +63,7 @@
 /* Basic styling for title, form, and buttons inside the modal */
 .modal__title {
   font-family: "Roboto Slab", sans-serif;
-  font-weight: 700; /* Already 700 for bold as per Figma */
+  font-weight: 700;
   font-size: 24px;
   line-height: 28px;
   color: #000;
@@ -88,18 +88,18 @@
 /* Styles for input fields within the modal forms */
 .modal__input {
   width: 100%; /* Full width within container */
-  height: 56px; /* Height to precisely match Figma's input field height */
+  height: 60px; /* Figma shows 60px height for inputs */
   padding: 0 16px; /* Horizontal padding to precisely match Figma */
   background-color: transparent; /* Make background transparent */
   border: none; /* Removed full border */
-  border-bottom: 1px solid #e6e8eb; /* Added only bottom border for the line effect */
-  border-radius: 0; /* Remove rounded corners for line effect */
+  border-bottom: 1px solid #e6e8eb; /* Added only bottom border with gray color */
+  border-radius: 0; /* Removed border-radius for line effect */
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   line-height: 1.2;
   color: #1a1b22; /* Dark text color */
   box-sizing: border-box; /* Include padding/border in width/height */
-  margin-bottom: 16px; /* Space below each input field */
+  margin-bottom: 20px; /* Space below each input field to match Figma */
   outline: none; /* Remove default outline */
 }
 
@@ -108,7 +108,10 @@
 }
 
 .modal__input:focus {
-  border-bottom-color: #2f71e5; /* Highlight bottom border on focus */
+  border-bottom-color: #000000; /* Black bottom border color on focus */
+  border-top-color: transparent; /* Ensure only bottom border is affected on focus */
+  border-left-color: transparent; /* Ensure only bottom border is affected on focus */
+  border-right-color: transparent; /* Ensure only bottom border is affected on focus */
 }
 
 /* Styles for the submit button */
@@ -131,14 +134,22 @@
   background-color: #347eff;
 }
 
-/* Styling for the "or" link at the bottom of the modals */
+/* New style for disabled submit button */
+.modal__submit-button:disabled {
+  background-color: #e6e8eb; /* Lighter background as per Figma for inactive */
+  color: #b6bcbf; /* Lighter text color */
+  cursor: not-allowed; /* Indicate it's not clickable */
+}
+
+/* Styling for the "or" link at the bottom of the modals (generic, centered) */
 .modal__link-option {
   font-family: "Inter", sans-serif; /* Use Inter as per Figma for this text */
-  font-size: 14px; /* Adjusted font size for "or" text (the smaller part) */
+  font-size: 14px;
   line-height: 22px;
   color: #000; /* Default text color for "or" part */
-  text-align: center;
-  margin-top: 10px; /* Adjusted: Reduced space from submit button to 'or' text */
+  text-align: center; /* Default to center for generic "or" link */
+  padding-left: 0; /* No specific padding here */
+  margin-top: 14px; /* Default margin-top */
   cursor: default; /* Default cursor for "or" text */
 }
 
@@ -154,6 +165,40 @@
 .modal__link-option .modal__link-text:hover {
   opacity: 0.7;
   text-decoration: underline; /* Underline on hover */
+}
+
+/* New style for error messages (client-side, per input) */
+.modal__error-message {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000; /* Red color for errors as per Figma */
+  margin-top: -15px; /* Adjust to position correctly below input */
+  margin-bottom: 10px; /* Space after error message */
+  text-align: left;
+  min-height: 15px; /* Reserve space to prevent layout shift */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal__error-message_visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* NEW STYLE: For server-side error messages (at bottom of form) */
+.modal__server-message {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000; /* Red color for errors as per Figma */
+  text-align: center; /* Adjusted: Centered as per Figma */
+  margin-top: 5px; /* Adjusted: Reduced top margin for tight fit */
+  margin-bottom: 5px; /* Adjusted: Reduced bottom margin for tight fit */
+  min-height: 15px; /* Reserve space to prevent layout shift */
+  display: block; /* Ensures it takes full width for centering */
+  opacity: 1; /* Always visible when present */
 }
 
 /* Media queries for responsiveness */

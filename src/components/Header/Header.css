@@ -1,30 +1,38 @@
 /* src/components/Header/Header.css */
 
+/* Base Header Styles */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 104px; /* Desktop padding */
+  padding: 0 88px; /* Adjusted padding to match Figma */
   box-sizing: border-box;
   width: 100%;
-  height: 80px; /* Explicit height */
-  position: relative;
-  z-index: 10;
+  height: 80px; /* Adjusted height to match Figma */
+  position: fixed; /* Fix header at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it appears above other elements */
+  border-bottom: 4px solid #fff; /* Thick white line as part of the border */
   transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
-  border-bottom: 1px solid; /* For active link underline alignment */
+  background-color: rgba(0, 0, 0, 0.8); /* Ensure visibility */
+  color: #fff; /* Ensure text is visible */
 }
 
-/* Header themes - Define backgrounds and general border color */
+/* Header Theme: Dark (Home Page) */
 .header_theme_dark {
-  background-color: transparent; /* Allows hero image to show */
+  background-color: transparent;
   border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Header Theme: Light (Saved Articles Page) */
 .header_theme_light {
   background-color: #fff;
   border-bottom-color: rgba(26, 27, 34, 0.2);
 }
 
+/* Logo */
 .header__logo {
   font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
@@ -32,29 +40,31 @@
   line-height: 24px;
   text-decoration: none;
   margin: 0;
+  display: flex;
+  align-items: center; /* Center logo vertically */
+  color: #fff; /* Ensure logo is visible */
 }
 
-/* Logo colors based on theme */
+/* Logo Colors by Theme */
 .header_theme_dark .header__logo {
-  color: #fff; /* White for dark theme */
+  color: #fff;
 }
-
 .header_theme_light .header__logo {
-  color: #1a1b22; /* Dark for light theme */
+  color: #1a1b22;
 }
 
-/* Mobile menu icon (CSS-ONLY HAMBURGER) */
+/* Mobile Menu Icon (Hamburger/Close) */
 .header__menu-icon {
-  display: none; /* Hidden by default on desktop; will be flex on mobile */
+  display: none; /* Hidden on desktop */
   width: 24px;
   height: 24px;
   cursor: pointer;
   z-index: 11;
   position: relative;
-  transition: opacity 0.3s ease;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.3s ease;
 }
 
 .header__menu-icon::before,
@@ -71,34 +81,31 @@
 .header__menu-icon::before {
   top: 7px;
 }
-
 .header__menu-icon::after {
   bottom: 7px;
 }
 
-/* Menu icon line colors based on theme */
+/* Menu Icon Colors by Theme */
 .header_theme_dark .header__menu-icon::before,
 .header_theme_dark .header__menu-icon::after {
   background-color: #fff;
 }
-
 .header_theme_light .header__menu-icon::before,
 .header_theme_light .header__menu-icon::after {
   background-color: #1a1b22;
 }
 
-/* Close icon for mobile menu (CSS-ONLY 'X') */
+/* Close Icon State */
 .header__menu-icon_close::before {
   transform: translateY(calc(50% - 7px)) rotate(45deg);
   top: 50%;
 }
-
 .header__menu-icon_close::after {
   transform: translateY(calc(-50% + 7px)) rotate(-45deg);
   bottom: 50%;
 }
 
-/* Mobile overlay for open menu */
+/* Mobile Overlay */
 .header__mobile-overlay {
   display: none;
   position: fixed;
@@ -109,130 +116,130 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9;
 }
-
-/* When mobile menu is open, show the overlay */
 .header_mobile-menu-open .header__mobile-overlay {
   display: block;
 }
 
-/* Navigation (desktop and mobile container) */
+/* Navigation Container */
 .navigation {
   display: flex;
   align-items: center;
 }
 
 .navigation__menu {
-  display: flex;
-  align-items: center;
-  gap: 30px;
+  display: flex; /* Ensure navigation menu is visible */
+  align-items: center; /* Center navigation links vertically */
+  gap: 60px; /* Increased gap between navigation items for better spacing */
   height: 100%;
-  list-style: none; /* Remove bullet points */
+  list-style: none;
   margin: 0;
   padding: 0;
+  margin-right: auto; /* Push navigation menu to the left */
 }
-
 .navigation__menu li {
   margin: 0;
   padding: 0;
 }
 
+/* Navigation Links */
 .navigation__link {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 24px; /* Adjust font size for "Home" to match Figma */
   line-height: 20px;
-  text-decoration: none !important; /* Force no underline for all states */
+  text-decoration: none !important; /* Force no underline */
   padding: 0;
   border-radius: 0;
-  transition: opacity 0.3s ease, color 0.3s ease;
   height: 100%;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   position: relative;
+  transition: opacity 0.3s ease, color 0.3s ease;
 }
 
-/* Navigation Link Colors - Directly tied to header theme for direct styling */
+/* Navigation Link Colors by Theme */
 .header_theme_dark .navigation__link {
-  color: rgba(255, 255, 255, 0.6); /* Figma: Lighter grey for inactive */
+  color: rgba(255, 255, 255, 0.6);
 }
 .header_theme_dark .navigation__link:hover {
-  color: #fff; /* White on hover */
+  color: #fff;
 }
 .header_theme_dark .navigation__link.navigation__link_active {
-  color: #fff; /* White for active */
+  color: #fff;
 }
 
 .header_theme_light .navigation__link {
-  color: rgba(26, 27, 34, 0.6); /* Figma: Lighter grey for inactive */
+  color: rgba(26, 27, 34, 0.6);
 }
 .header_theme_light .navigation__link:hover {
-  color: #1a1b22; /* Black on hover */
+  color: #1a1b22;
 }
 .header_theme_light .navigation__link.navigation__link_active {
-  color: #1a1b22; /* Dark for active */
+  color: #1a1b22;
 }
 
-/* Underline for active link */
+/* Active Link Underline */
 .navigation__link_active::after {
   content: "";
   position: absolute;
-  bottom: -1px;
+  bottom: -30px; /* Align the underline with the header border */
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 4px; /* Ensure the thickness matches the header border */
 }
-/* Underline color based on theme */
+/* Underline Colors by Theme */
 .header_theme_dark .navigation__link_active::after {
-  background-color: #fff; /* White underline for active in dark theme */
+  background-color: #fff;
 }
 .header_theme_light .navigation__link_active::after {
-  background-color: #1a1b22; /* Dark underline for active in light theme */
+  background-color: #1a1b22;
 }
 
-/* Styles for the "Sign in" button */
+/* Sign-in Button */
 .navigation__signin-button {
   height: 48px;
   min-width: 176px;
-  padding: 0 20px;
-  background-color: transparent; /* Always transparent initially */
+  padding: 12px 24px; /* Adjust padding to match Figma button design */
+  background-color: transparent;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
-  border-radius: 100px;
+  border: 2px solid #fff; /* Match Figma button border */
+  border-radius: 50px; /* Rounded corners for button */
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease, opacity 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: none;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, opacity 0.3s ease;
+  margin-left: 40px; /* Ensure spacing between "Saved articles" and "Sign in" */
 }
 
-/* Sign-in button colors based on theme */
+/* Sign-in Button Colors by Theme */
 .header_theme_dark .navigation__signin-button {
-  /* Explicitly target button within dark theme */
-  color: #fff; /* Figma: White text for dark theme */
-  border: 1px solid #fff; /* Figma: White border for dark theme */
+  color: #fff;
+  border: 1px solid #fff;
 }
 .header_theme_dark .navigation__signin-button:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Subtle white hover */
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .header_theme_light .navigation__signin-button {
-  color: #1a1b22; /* Black text for light theme */
-  border: 1px solid #1a1b22; /* Black border for light theme */
+  color: #1a1b22;
+  border: 1px solid #1a1b22;
 }
 .header_theme_light .navigation__signin-button:hover {
-  background-color: rgba(26, 27, 34, 0.1); /* Subtle dark hover */
+  background-color: rgba(26, 27, 34, 0.1);
 }
 
-/* Styles for the user button (logged in state) */
+/* User Button (Logged In) */
 .navigation__button_user {
   height: 48px;
   min-width: unset;
   padding: 0 16px;
-  background-color: transparent; /* Always transparent */
+  background-color: transparent;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -241,13 +248,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px; /* Space between text and icon */
+  gap: 8px;
   transition: border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
-/* User button colors based on theme */
+/* User Button Colors by Theme */
 .header_theme_dark .navigation__button_user {
-  /* Explicitly target user button within dark theme */
   color: #fff;
   border: 1px solid #fff;
 }
@@ -263,7 +269,7 @@
   opacity: 0.8;
 }
 
-/* Styles for the logout icon within the user button */
+/* Logout Icon */
 .navigation__logout-icon {
   display: block;
   width: 24px;
@@ -277,41 +283,49 @@
   transition: opacity 0.3s ease;
 }
 
-/* Apply correct background-image for dark theme (white icon) */
+/* Logout Icon Images by Theme */
 .navigation__logout-icon_theme_white {
   background-image: url("../../assets/images/logout_icon_white.svg");
 }
-/* Apply correct background-image for light theme (black icon) */
 .navigation__logout-icon_theme_black {
   background-image: url("../../assets/images/logout_icon_black.svg");
 }
-
 .navigation__logout-icon:hover {
   opacity: 0.6;
 }
 
-/* Mobile overlay for open menu */
-.header__mobile-overlay {
-  display: none;
+/* Mobile Menu Specific Styles */
+.navigation_open {
+  transform: translateX(0);
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9;
+  background-color: #1a1b22; /* Dark overlay for mobile menu */
+  z-index: 10;
+  justify-content: flex-start;
+  padding-top: 56px;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* When mobile menu is open, show the overlay */
-.header_mobile-menu-open .header__mobile-overlay {
-  display: block;
+/* Hide desktop navigation on mobile by default */
+@media screen and (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+  .header__menu-icon {
+    display: block;
+  }
 }
 
-/* Media queries for responsiveness */
+/* Media Queries for Responsiveness */
 @media screen and (max-width: 1024px) {
   .header {
-    height: 60px; /* Tablet height */
     padding: 0 40px;
+    height: 60px;
   }
   .header__logo {
     font-size: 18px;
@@ -320,10 +334,10 @@
     gap: 20px;
   }
   .navigation__link {
-    height: 40px; /* Match header height adjustment for tablet */
+    height: 40px;
   }
   .navigation__link_active::after {
-    bottom: -1px; /* Re-adjust for smaller header height */
+    bottom: -1px;
   }
   .navigation__signin-button,
   .navigation__button_user {
@@ -334,39 +348,10 @@
 
 @media screen and (max-width: 768px) {
   .header {
-    height: 56px; /* Mobile height */
     padding: 0 16px;
+    height: 56px;
     flex-direction: row;
   }
-
-  /* Show menu icon on mobile */
-  .header__menu-icon {
-    display: block;
-  }
-
-  /* Hide desktop navigation on mobile by default */
-  .navigation {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1a1b22;
-    z-index: 10;
-    justify-content: flex-start;
-    padding-top: 56px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  /* When mobile menu is open, slide it in */
-  .navigation_open {
-    transform: translateX(0);
-    display: flex;
-  }
-
   .navigation__menu {
     flex-direction: column;
     width: 100%;
@@ -374,12 +359,10 @@
     gap: 5px;
     align-items: center;
   }
-
   .navigation__menu li {
     margin: 5px 0;
     padding: 0;
   }
-
   .navigation__link,
   .navigation__signin-button,
   .navigation__button_user {
@@ -387,13 +370,9 @@
     text-align: center;
     margin: 8px 16px;
   }
-
   .navigation__link {
-    height: 48px;
     justify-content: center;
-  }
-  .navigation__link_active::after {
-    bottom: -1px;
+    height: 48px;
   }
 }
 

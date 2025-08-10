@@ -4,7 +4,6 @@ import Main from "./components/Main/Main";
 import SavedNews from "./components/SavedNews/SavedNews";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-// Ensure 'About' is NOT imported here. It's handled by Main.jsx.
 import LoginModal from "./components/LoginModal/LoginModal";
 import RegisterModal from "./components/RegisterModal/RegisterModal";
 import RegisterSuccessModal from "./components/RegisterSuccessModal/RegisterSuccessModal";
@@ -23,31 +22,38 @@ function App() {
   const [apiError, setApiError] = useState(null);
   const [hasSearched, setHasSearched] = useState(false);
   const [articlesToShow, setArticlesToShow] = useState(3);
-  const [savedArticles, setSavedArticles] = useState([]); // 'setSavedArticles' will now be used
+  const [savedArticles, setSavedArticles] = useState([]);
 
-  // Authentication state
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [registrationServerError, setRegistrationServerError] = useState(null);
+  const [currentSearchQuery, setCurrentSearchQuery] = useState("");
 
   const handleSearch = async (query) => {
     setIsLoading(true);
     setApiError(null);
     setNewsData([]);
     setHasSearched(true);
-    setArticlesToShow(3); // Reset articles to show on new search
+    setArticlesToShow(3);
+    setCurrentSearchQuery(query);
+
     try {
       const articles = await searchNews(query);
 
-      if (articles.length === 0) {
-        setApiError("Nothing found"); // This is a specific message, not a general server error
+      const processedArticles = articles.map((article) => ({
+        ...article,
+        id: article.url,
+      }));
+
+      if (processedArticles.length === 0) {
+        setApiError("Nothing found");
       } else {
-        setNewsData(articles);
+        setNewsData(processedArticles);
       }
     } catch (error) {
       console.error("API Error:", error);
       setApiError(
-        "Server error: Could not connect the News API. Please try again later." // Generic API error
+        "Server error: Could not connect to the News API. Please try again later."
       );
     } finally {
       setIsLoading(false);
@@ -57,6 +63,7 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     setCurrentUser(null);
+    setSavedArticles([]);
     console.log("User logged out");
   };
 
@@ -100,32 +107,40 @@ function App() {
     setRegistrationServerError(null);
   };
 
-  // Function to handle saving an article
   const handleSaveArticle = (articleToSave) => {
     console.log("Saving article:", articleToSave.title);
     const isAlreadySaved = savedArticles.some(
       (saved) => saved.url === articleToSave.url
     );
     if (!isAlreadySaved) {
-      const articleWithKeyword = { ...articleToSave, keyword: "General" }; // Example keyword
+      const articleWithKeyword = {
+        ...articleToSave,
+        keyword: currentSearchQuery,
+      };
       setSavedArticles((prevSavedArticles) => [
         ...prevSavedArticles,
         articleWithKeyword,
       ]);
+      console.log(
+        "Article saved:",
+        articleToSave.title,
+        "with keyword:",
+        currentSearchQuery
+      );
     } else {
-      console.log("Article already saved:", articleToSave.title);
+      console.log("Article already saved. Unsaving it.");
+      handleDeleteArticle(articleToSave.url);
     }
   };
 
-  // Function to handle deleting an article (for Saved News page)
   const handleDeleteArticle = (articleToDeleteUrl) => {
     console.log("Deleting article with URL:", articleToDeleteUrl);
     setSavedArticles((prevSavedArticles) =>
       prevSavedArticles.filter((article) => article.url !== articleToDeleteUrl)
     );
+    console.log("Article deleted:", articleToDeleteUrl);
   };
 
-  // Logic for "Show more" button visibility
   const articlesForDisplay = newsData.slice(0, articlesToShow);
   const showMoreButtonVisible =
     articlesForDisplay.length > 0 &&
@@ -134,6 +149,16 @@ function App() {
   const handleShowMoreClick = () => {
     setArticlesToShow((prevCount) => prevCount + 3);
   };
+
+  // --- REMOVED ESLint Fix for no-unused-vars that was causing this error ---
+  // The 'showMoreButtonVisible' and 'handleShowMoreClick' are passed as props to Main,
+  // which is how they are "used". ESLint's default configuration might sometimes
+  // flag props as unused variables if not explicitly consumed within the component
+  // where they are defined. However, the 'if (false)' workaround caused a new,
+  // more direct ESLint warning. It's better to remove it and accept the
+  // 'no-unused-vars' if it reappears, or adjust the ESLint config if you have access.
+  // For now, removing the problematic constant condition.
+  // --- END REMOVED ESLint Fix for no-unused-vars ---
 
   return (
     <BrowserRouter>
@@ -150,14 +175,15 @@ function App() {
             element={
               <Main
                 isLoading={isLoading}
-                newsData={articlesForDisplay} // Pass sliced data for display
+                newsData={articlesForDisplay}
                 apiError={apiError}
                 hasSearched={hasSearched}
                 onSearch={handleSearch}
                 isLoggedIn={isLoggedIn}
-                onShowMoreClick={handleShowMoreClick} // Pass the handler
-                showMoreButtonVisible={showMoreButtonVisible} // Pass the visibility boolean
-                onSaveArticle={handleSaveArticle} // Pass the save article handler
+                onSaveArticle={handleSaveArticle}
+                savedArticles={savedArticles}
+                showMoreButtonVisible={showMoreButtonVisible}
+                onShowMoreClick={handleShowMoreClick}
               />
             }
           />
@@ -165,10 +191,10 @@ function App() {
             path="/saved-news"
             element={
               <SavedNews
-                savedArticles={savedArticles} // This prop is now actively used
+                savedArticles={savedArticles}
                 isLoggedIn={isLoggedIn}
                 currentUser={currentUser}
-                onDeleteArticle={handleDeleteArticle} // Pass delete handler
+                onDeleteArticle={handleDeleteArticle}
               />
             }
           />

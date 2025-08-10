@@ -6,6 +6,8 @@ const newsApiBaseUrl =
 // Function to search for news articles
 export const searchNews = async (query) => {
   const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+  console.log("API Key value:", apiKey);
+  console.log("API Key type:", typeof apiKey);
 
   // Validate API key upfront
   // If the API key is invalid or missing, we'll return an empty array

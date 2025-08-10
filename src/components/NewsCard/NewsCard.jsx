@@ -4,88 +4,100 @@ import "./NewsCard.css";
 function NewsCard({
   article,
   isLoggedIn,
-  isSavedNewsPage,
   onSaveArticle,
   onDeleteArticle,
+  isSavedNewsPage,
+  savedArticles,
 }) {
+  const { urlToImage, publishedAt, title, description, source, url, keyword } =
+    article;
+
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
+  const formattedDate = formatDate(publishedAt);
+
+  const isBookmarked =
+    isSavedNewsPage ||
+    (isLoggedIn &&
+      savedArticles.some((savedArticle) => savedArticle.url === article.url));
+
   const handleBookmarkClick = () => {
-    if (onSaveArticle) {
+    if (!isLoggedIn && !isSavedNewsPage) {
+      console.log("Please sign in to save articles.");
+      return;
+    }
+
+    if (isBookmarked && !isSavedNewsPage) {
+      // If bookmarked on main page, unsave it
+      onDeleteArticle(url);
+    } else if (isSavedNewsPage) {
+      // If on saved page, clicking the button means delete
+      onDeleteArticle(url);
+    } else {
+      // If not bookmarked and logged in (on main page), save it
       onSaveArticle(article);
     }
-    console.log("Bookmark clicked for article:", article.title);
-  };
-
-  const handleDeleteClick = () => {
-    if (onDeleteArticle) {
-      // Pass article URL to identify which article to delete from saved list
-      onDeleteArticle(article.url);
-    }
-    console.log("Delete clicked for article:", article.title);
   };
 
   return (
     <div className="news-card">
       <img
         src={
-          article.urlToImage ||
-          "https://placehold.co/300x200/cccccc/333333?text=Image+Not+Found"
+          urlToImage ||
+          "https://placehold.co/400x272/cccccc/333333?text=Image+Missing"
         }
-        alt={article.title}
+        alt={title}
         className="news-card__image"
         onError={(e) => {
           e.target.onerror = null;
           e.target.src =
-            "https://placehold.co/300x200/cccccc/333333?text=Image+Not+Found";
+            "https://placehold.co/400x272/cccccc/333333?text=Image+Missing";
         }}
       />
 
       {isSavedNewsPage ? (
+        // For Saved News page: Keyword tooltip and Delete button
         <>
-          {/* Keyword tooltip for saved articles */}
-          <button
-            className="news-card__icon news-card__icon_keyword-tooltip"
-            aria-label="Article Category"
-          >
-            <span className="news-card__tooltip-text news-card__tooltip-text_category">
-              {article.keyword || "Category"}
+          <div className="news-card__icon news-card__icon_keyword-tooltip">
+            <span className="news-card__tooltip-text_category">
+              {keyword || "Keyword"}
             </span>
-          </button>
-          {/* Delete button for saved articles */}
+          </div>
           <button
+            type="button"
             className="news-card__icon news-card__icon_delete"
-            onClick={handleDeleteClick}
-            aria-label="Delete article"
-          ></button>
+            onClick={handleBookmarkClick}
+          >
+            {/* Tooltip for delete button */}
+            <span className="news-card__tooltip-text">Remove from saved</span>
+          </button>
         </>
-      ) : isLoggedIn ? (
-        // Bookmark button for logged-in users on main page
-        <button
-          className="news-card__icon news-card__icon_bookmark"
-          onClick={handleBookmarkClick}
-          aria-label="Bookmark article"
-        ></button>
       ) : (
-        // Tooltip button for non-logged-in users on main page
+        // For Main (search results) page: Bookmark button and tooltip
         <button
-          className="news-card__icon news-card__icon_tooltip"
-          aria-label="Sign in to save articles"
+          type="button"
+          className={`news-card__icon news-card__icon_bookmark ${
+            isBookmarked ? "news-card__icon_bookmark_active" : ""
+          }`}
+          onClick={handleBookmarkClick}
         >
-          <span className="news-card__tooltip-text">
-            Sign in to save articles
-          </span>
+          {/* Tooltip text depends on login status */}
+          {!isLoggedIn && (
+            <span className="news-card__tooltip-text">
+              Sign in to save articles
+            </span>
+          )}
         </button>
       )}
 
       <div className="news-card__content">
-        <p className="news-card__date">{formatDate(article.publishedAt)}</p>
-        <h3 className="news-card__title">{article.title}</h3>
-        <p className="news-card__text">{article.description}</p>
-        <p className="news-card__source">{article.source.name}</p>
+        <p className="news-card__date">{formattedDate}</p>
+        <h3 className="news-card__title">{title}</h3>
+        <p className="news-card__text">{description}</p>
+        <p className="news-card__source">{source.name}</p>
       </div>
     </div>
   );

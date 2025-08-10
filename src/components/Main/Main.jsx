@@ -1,40 +1,52 @@
 import React from "react";
-import About from "../About/About"; // Only import About here
+import About from "../About/About";
 import NewsCardList from "../NewsCardList/NewsCardList";
-import Hero from "../Hero/Hero"; // NEW IMPORT: Hero component
+import Hero from "../Hero/Hero";
+import Preloader from "../Preloader/Preloader"; // Imports the Preloader component
 
 import "./Main.css";
 
-function Main({ isLoading, newsData, apiError, hasSearched, onSearch, isLoggedIn, onShowMoreClick, showMoreButtonVisible, onSaveArticle }) {
+function Main({
+  isLoading,
+  newsData,
+  apiError,
+  hasSearched,
+  onSearch,
+  isLoggedIn,
+  onShowMoreClick,
+  showMoreButtonVisible,
+  onSaveArticle,
+  savedArticles,
+}) {
   return (
     <main className="main">
-      <Hero onSearch={onSearch} /> {/* Render Hero component first */}
+      <Hero onSearch={onSearch} />
 
-      {/* Conditional rendering for results area (including loading, error, and actual results) */}
-      {hasSearched && ( // Show this entire section ONLY if a search has been performed
-        <section className="results-section"> {/* A single container for all search result states */}
-          {isLoading ? ( // If loading, show preloader
-            <div className="preloader">
-              <i className="circle-preloader"></i>
-              <p className="preloader__text">Searching for news...</p>
+      {hasSearched && ( // Only show search results/loading/nothing found if a search has been initiated
+        <section className="results-section">
+          {isLoading ? ( // If isLoading is true, show preloader
+            <div className="preloader-container">
+              <Preloader /> {/* Renders the Preloader component */}
+              <p className="preloader-container__text">Searching for news...</p>
             </div>
-          ) : apiError ? ( // If not loading, but there's an API error
+          ) : apiError && apiError !== "Nothing found" ? ( // If there's a general API error
             <div className="not-found">
-              <img src="https://placehold.co/150x150/ffffff/000000?text=!?" alt="Not Found Icon" className="not-found__image" />
+              <div className="not-found__image"></div>{" "}
+              {/* Image loaded via CSS */}
+              <h2 className="not-found__title">Error</h2>
+              <p className="not-found__text">{apiError}</p>
+            </div>
+          ) : newsData.length === 0 && !isLoading ? ( // If no results found after search completes
+            <div className="not-found">
+              <div className="not-found__image"></div>{" "}
+              {/* Image loaded via CSS */}
               <h2 className="not-found__title">Nothing found</h2>
               <p className="not-found__text">
-                {apiError}
+                Sorry, but nothing matched your search terms.
               </p>
             </div>
-          ) : newsData.length === 0 ? ( // If not loading, no API error, but no news data
-            <div className="not-found">
-              <img src="https://placehold.co/150x150/ffffff/000000?text=!?" alt="Not Found Icon" className="not-found__image" />
-              <h2 className="not-found__title">Nothing found</h2>
-              <p className="not-found__text">
-                Sorry, but nothing matched your search queries.
-              </p>
-            </div>
-          ) : ( // Otherwise, if there's newsData, show the list
+          ) : (
+            // If search results are available
             <NewsCardList
               articles={newsData}
               isLoggedIn={isLoggedIn}
@@ -42,12 +54,12 @@ function Main({ isLoading, newsData, apiError, hasSearched, onSearch, isLoggedIn
               showMoreButtonVisible={showMoreButtonVisible}
               isSavedNewsPage={false}
               onSaveArticle={onSaveArticle}
+              savedArticles={savedArticles}
             />
           )}
         </section>
       )}
 
-      {/* The About component is a distinct section that always appears after the search functionality */}
       <About />
     </main>
   );

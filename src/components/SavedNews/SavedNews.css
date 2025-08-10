@@ -1,82 +1,56 @@
+/* src/components/SavedNews/SavedNews.css */
+
 .saved-news {
-  background-color: #fff; /* White background for the saved news page */
-  padding: 40px 104px 80px; /* Adjust padding as per Figma */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.saved-news__header {
-  max-width: 1232px; /* Match content width */
-  margin: 0 auto 56px; /* Center and add space below header */
+.saved-news__no-articles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  text-align: center;
+  width: 100%;
+  background-color: #f5f6f7;
+  min-height: 300px; /* Ensure some vertical space */
 }
 
-.saved-news__title {
+.saved-news__no-articles-title {
   font-family: "Roboto Slab", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
-  color: rgba(26, 27, 34, 0.5); /* Semi-transparent black */
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1a1b22;
   margin-bottom: 16px;
 }
 
-.saved-news__count {
-  font-family: "Roboto Slab", sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 46px;
-  color: #1a1b22;
-  margin-bottom: 28px;
-}
-
-.saved-news__keywords {
+.saved-news__no-articles-text {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  color: #1a1b22;
-}
-
-.saved-news__keywords b {
-  font-weight: 700; /* Bold keywords */
+  color: #b6bcbf;
+  margin-top: 0;
 }
 
 /* Media queries for responsiveness */
-@media screen and (max-width: 1024px) {
-  .saved-news {
-    padding: 32px 40px 64px;
-  }
-
-  .saved-news__header {
-    margin-bottom: 40px;
-  }
-
-  .saved-news__count {
-    font-size: 32px;
-    line-height: 38px;
-    margin-bottom: 24px;
-  }
-}
-
 @media screen and (max-width: 768px) {
-  .saved-news {
-    padding: 24px 16px 40px;
-  }
-
-  .saved-news__header {
-    margin-bottom: 32px;
-  }
-
-  .saved-news__count {
-    font-size: 26px;
-    line-height: 30px;
-    margin-bottom: 16px;
-  }
-
-  .saved-news__keywords {
-    font-size: 16px;
+  .saved-news__no-articles {
+    padding: 40px 0;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .saved-news {
-    padding: 16px 16px 32px;
+  .saved-news__no-articles {
+    padding: 30px 0;
+  }
+  .saved-news__no-articles-title {
+    font-size: 22px;
+  }
+  .saved-news__no-articles-text {
+    font-size: 16px;
   }
 }

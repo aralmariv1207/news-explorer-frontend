@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   gap: 30px;
+  height: 100%;
 }
 
 .navigation__link {
@@ -15,20 +16,72 @@
   font-size: 16px;
   line-height: 20px;
   text-decoration: none;
-  padding: 0; /* No padding here. Parent .header handles vertical space. */
-  border-bottom: 2px solid transparent; /* Default thin transparent border */
+  padding: 0;
   border-radius: 0;
-  transition: opacity 0.3s ease, color 0.3s ease, border-bottom-color 0.3s ease; /* Transition border-bottom-color */
-  height: 48px; /* Match button height for vertical alignment */
+  transition: opacity 0.3s ease, color 0.3s ease;
+  height: 100%;
   display: flex;
-  align-items: center; /* Vertically center text within link height */
+  align-items: center;
   box-sizing: border-box;
+  position: relative; /* For precise ::after pseudo-element positioning */
 }
 
-/* Active link styling (border width and style defined here, color in Header.css) */
-/* The padding-bottom on active link in Header.css helps adjust alignment */
+/* Default (non-active) link colors based on theme */
+/* Using :not(.navigation__link_active) to explicitly target non-active links */
+.navigation__link_theme_dark:not(.navigation__link_active) {
+  color: rgba(
+    255,
+    255,
+    255,
+    0.6
+  ); /* Grey-white for non-active links in dark header */
+}
+.navigation__link_theme_dark:not(.navigation__link_active):hover {
+  color: #fff; /* White on hover for non-active links */
+}
+
+.navigation__link_theme_light:not(.navigation__link_active) {
+  color: rgba(
+    26,
+    27,
+    34,
+    0.6
+  ); /* Grey-black for non-active links in light header */
+}
+.navigation__link_theme_light:not(.navigation__link_active):hover {
+  color: #1a1b22; /* Black on hover for non-active links */
+}
+
+/* Active link styling - this will override default color and add the thick line */
 .navigation__link_active {
-  /* border-bottom-style and width defined in Header.css */
+  font-weight: 500; /* Active link text is bold in Figma */
+}
+
+/* Pseudo-element for the thick active line */
+.navigation__link_active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px; /* Adjust this value to align precisely with the header's border */
+  left: 0;
+  width: 100%;
+  height: 3px; /* Match the desired thickness */
+}
+
+/* Theme-specific active link text color */
+/* These rules must be more specific than the default rules to override them */
+.header_theme_dark .navigation__link.navigation__link_active {
+  color: #fff; /* White text for active link in dark theme */
+}
+.header_theme_light .navigation__link.navigation__link_active {
+  color: #1a1b22; /* Dark text for active link in light theme */
+}
+
+/* Theme-specific active link border colors (via ::after) */
+.header_theme_dark .navigation__link.navigation__link_active::after {
+  background-color: #fff; /* White border for active link in dark theme */
+}
+.header_theme_light .navigation__link.navigation__link_active::after {
+  background-color: #1a1b22; /* Dark border for active link in light theme */
 }
 
 /* Styles for the "Sign in" button */
@@ -131,16 +184,19 @@
 /* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
   .navigation__menu {
-    gap: 20px; /* Slightly reduce gap for tablets */
+    gap: 20px;
   }
   .navigation__link {
-    height: 40px; /* Adjust height for tablet, to match adjusted header height */
+    height: 40px;
+  }
+  .navigation__link_active::after {
+    bottom: -1px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .navigation__menu {
-    gap: 15px; /* Adjust gap for tablets */
+    gap: 15px;
   }
 
   .navigation__link,
@@ -150,8 +206,11 @@
     height: 40px;
   }
   .navigation__link {
-    /* Adjusted padding for active link for smaller header heights */
-    padding: 0; /* Keep consistent with desktop, let Header.css handle padding */
+    padding: 0;
+  }
+
+  .navigation__link_active::after {
+    bottom: -1px;
   }
 
   .navigation__signin-button,

@@ -1,9 +1,10 @@
 .news-card-list {
-  padding: 80px 104px; /* Top/bottom padding and side padding */
-  background-color: #f5f6f7; /* Light gray background for the results section */
+  padding: 80px 104px; /* Figma: Section padding */
+  background-color: #f5f6f7; /* Light gray background */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content horizontally */
+  align-items: center;
+  margin-bottom: 0; /* Ensure no extra space below the section */
 }
 
 .news-card-list__title {
@@ -13,9 +14,9 @@
   line-height: 46px;
   color: #1a1b22;
   margin-bottom: 64px; /* Space below the title */
-  text-align: left; /* Aligns title to left as per Figma */
-  width: 100%; /* Ensure title takes full width to align left with content */
-  max-width: 1232px; /* Match grid max-width for alignment */
+  text-align: left;
+  width: 100%;
+  max-width: 1232px; /* Max width to align with grid */
 }
 
 .news-card-list__grid {
@@ -23,30 +24,32 @@
   grid-template-columns: repeat(
     auto-fit,
     minmax(350px, 1fr)
-  ); /* Responsive grid */
-  gap: 16px; /* Space between cards */
+  ); /* Figma: 3 columns (roughly 350px each) */
+  gap: 16px; /* Figma: 16px gap between cards */
   width: 100%;
-  max-width: 1232px; /* Max width for the grid to keep content aligned */
+  max-width: 1232px; /* Max width for the grid */
   margin-bottom: 64px; /* Space before the show more button */
   justify-content: center; /* Center cards if they don't fill a row */
 }
 
 .news-card-list__button-container {
   width: 100%;
-  max-width: 288px; /* Width for the show more button container */
-  margin-top: 20px; /* Space above the button */
+  max-width: 288px; /* Figma: Button width */
+  margin-top: 20px; /* Space above button */
+  margin-bottom: 0; /* Ensure no extra margin */
+  text-align: center; /* Center the button in its container */
 }
 
 .news-card-list__show-more-button {
   width: 100%;
-  height: 64px;
+  height: 64px; /* Figma: 64px height */
   background-color: #fff; /* White background */
   color: #1a1b22; /* Dark text */
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
   border: none;
-  border-radius: 100px;
+  border-radius: 100px; /* Pill shape */
   cursor: pointer;
   box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.15); /* Subtle shadow */
   transition: background-color 0.3s ease, opacity 0.3s ease;
@@ -84,16 +87,16 @@
     font-size: 26px;
     line-height: 30px;
     margin-bottom: 24px;
-    text-align: center; /* Center title on mobile as per some designs */
+    text-align: center;
   }
 
   .news-card-list__grid {
-    grid-template-columns: 1fr; /* Single column on very small screens */
+    grid-template-columns: 1fr; /* Single column on very small screens (phones) */
     gap: 16px;
   }
 
   .news-card-list__button-container {
-    max-width: 100%; /* Full width button on mobile */
+    max-width: 100%;
   }
 }
 

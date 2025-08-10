@@ -1,0 +1,75 @@
+/* src/components/SavedNewsHeader/SavedNewsHeader.css */
+
+.saved-news-header {
+  background-color: #fff; /* Figma: White background */
+  padding: 40px 104px 56px; /* Figma: 40px top, 104px sides, 56px bottom */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.saved-news-header__title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(
+    26,
+    27,
+    34,
+    0.5
+  ); /* Figma: Light grey text (50% opacity of dark text) */
+  margin-bottom: 14px;
+}
+
+.saved-news-header__heading {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 40px; /* Figma: 40px */
+  line-height: 46px; /* Figma: 46px */
+  color: #1a1b22; /* Figma: Dark text */
+  margin-bottom: 24px;
+}
+
+.saved-news-header__keywords {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1a1b22; /* Figma: Dark text */
+}
+
+.saved-news-header__keywords-bold {
+  font-weight: 700; /* Figma: Bold keywords */
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px) {
+  .saved-news-header {
+    padding: 30px 40px 40px; /* Tablet padding */
+  }
+  .saved-news-header__heading {
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 16px;
+  }
+  .saved-news-header__title,
+  .saved-news-header__keywords {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .saved-news-header {
+    padding: 24px 16px 28px; /* Mobile padding */
+  }
+  .saved-news-header__heading {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 12px;
+  }
+  .saved-news-header__title,
+  .saved-news-header__keywords {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

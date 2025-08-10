@@ -7,30 +7,36 @@ function NewsCardList({
   isLoggedIn,
   onShowMoreClick,
   showMoreButtonVisible,
-  isSavedNewsPage,
   onSaveArticle,
+  savedArticles,
+  isSavedNewsPage,
   onDeleteArticle,
 }) {
+  // NEW: added onDeleteArticle prop
   return (
-    <section className="news-card-list">
-      <h2 className="news-card-list__title">
-        {isSavedNewsPage ? "Saved articles" : "Search results"}
-      </h2>
+    <div className="news-card-list">
+      {/* Conditionally show "Search results" title only on main page */}
+      {!isSavedNewsPage && articles.length > 0 && (
+        <h2 className="news-card-list__title">Search results</h2>
+      )}
       <div className="news-card-list__grid">
         {articles.map((article, index) => (
           <NewsCard
-            key={article.url || index}
+            key={article.url + index} // Use URL + index for unique key if URL might repeat
             article={article}
             isLoggedIn={isLoggedIn}
-            isSavedNewsPage={isSavedNewsPage}
             onSaveArticle={onSaveArticle}
+            // Pass onDeleteArticle for both pages, NewsCard will decide when to use it
             onDeleteArticle={onDeleteArticle}
+            isSavedNewsPage={isSavedNewsPage}
+            savedArticles={savedArticles}
           />
         ))}
       </div>
       {showMoreButtonVisible && (
         <div className="news-card-list__button-container">
           <button
+            type="button"
             className="news-card-list__show-more-button"
             onClick={onShowMoreClick}
           >
@@ -38,7 +44,7 @@ function NewsCardList({
           </button>
         </div>
       )}
-    </section>
+    </div>
   );
 }
 

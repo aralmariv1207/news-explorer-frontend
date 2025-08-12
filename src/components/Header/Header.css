@@ -17,15 +17,13 @@
 
 /* Header Theme: Dark (Home Page) - Transparent background, white border-bottom */
 .header.header_theme_dark {
-  /* Target the header element with both classes for highest specificity on header properties */
-  background-color: transparent !important; /* Force transparent background */
+  background-color: transparent !important;
   border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Header Theme: Light (Saved Articles Page) - White background, dark border-bottom */
 .header.header_theme_light {
-  /* Target the header element with both classes */
-  background-color: #fff !important; /* Force white background */
+  background-color: #fff !important;
   border-bottom-color: rgba(26, 27, 34, 0.2);
 }
 
@@ -39,23 +37,21 @@
   margin: 0;
 }
 
-/* Logo Colors by Theme - APPLYING INVERT FILTER */
+/* Logo Colors by Theme - DIRECT COLOR SETTING */
 a.header__logo.header_theme_dark {
-  /* Target <a> element with both classes */
-  color: #fff !important; /* Re-apply intended color */
-  filter: invert(100%) !important; /* INVERT COLOR FOR VISIBILITY */
-  -webkit-filter: invert(100%) !important; /* For Safari/old Chrome */
+  color: #fff !important; /* Set directly to white */
+  filter: none !important; /* REMOVE INVERT */
+  -webkit-filter: none !important;
 }
 a.header__logo.header_theme_light {
-  /* Target <a> element with both classes */
   color: #1a1b22 !important;
-  filter: none !important; /* Ensure no invert on light theme */
+  filter: none !important;
   -webkit-filter: none !important;
 }
 
 /* Mobile Menu Icon (Hamburger/Close) - PURE CSS */
 .header__menu-icon {
-  display: none; /* Hidden on desktop, shown by media query */
+  display: none;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -86,19 +82,17 @@ a.header__logo.header_theme_light {
   bottom: 7px;
 }
 
-/* Menu Icon Colors by Theme - APPLYING INVERT FILTER */
+/* Menu Icon Colors by Theme - DIRECT COLOR SETTING */
 div.header__menu-icon.header_theme_dark::before,
 div.header__menu-icon.header_theme_dark::after {
-  /* Target div with both classes */
-  background-color: #fff !important; /* Intended white */
-  filter: invert(100%) !important; /* INVERT COLOR */
-  -webkit-filter: invert(100%) !important;
+  background-color: #fff !important; /* Set directly to white */
+  filter: none !important; /* REMOVE INVERT */
+  -webkit-filter: none !important;
 }
 div.header__menu-icon.header_theme_light::before,
 div.header__menu-icon.header_theme_light::after {
-  /* Target div with both classes */
   background-color: #1a1b22 !important;
-  filter: none !important; /* Ensure no invert on light theme */
+  filter: none !important;
   -webkit-filter: none !important;
 }
 
@@ -167,37 +161,33 @@ div.header__menu-icon.header_theme_light::after {
   transition: opacity 0.3s ease, color 0.3s ease;
 }
 
-/* Navigation Link Color Overrides by Theme - APPLYING INVERT FILTER */
+/* Navigation Link Color Overrides by Theme - DIRECT COLOR SETTING */
 a.navigation__link.header_theme_dark {
-  /* Target <a> with both classes */
   color: rgba(
     255,
     255,
     255,
     0.6
   ) !important; /* Lighter grey for inactive (Figma) */
-  filter: invert(100%) !important; /* INVERT COLOR */
-  -webkit-filter: invert(100%) !important;
+  filter: none !important; /* REMOVE INVERT */
+  -webkit-filter: none !important;
 }
 a.navigation__link.header_theme_dark:hover {
   color: #fff !important; /* White on hover (Figma) */
 }
 a.navigation__link.navigation__link_active.header_theme_dark {
-  /* Target <a> with all classes */
   color: #fff !important; /* White for active (Figma) */
 }
 
 a.navigation__link.header_theme_light {
-  /* Target <a> with both classes */
   color: rgba(26, 27, 34, 0.6) !important;
-  filter: none !important; /* Ensure no invert on light theme */
+  filter: none !important;
   -webkit-filter: none !important;
 }
 a.navigation__link.header_theme_light:hover {
   color: #1a1b22 !important;
 }
 a.navigation__link.navigation__link_active.header_theme_light {
-  /* Target <a> with all classes */
   color: #1a1b22 !important;
 }
 
@@ -237,23 +227,21 @@ a.navigation__link.navigation__link_active.header_theme_light {
     border-color 0.3s ease, opacity 0.3s ease;
 }
 
-/* Sign-in Button Colors by Theme - APPLYING INVERT FILTER */
+/* Sign-in Button Colors by Theme - DIRECT COLOR SETTING */
 button.navigation__signin-button.header_theme_dark {
-  /* Target button with both classes */
-  color: #fff !important; /* Re-apply intended white text */
-  border: 1px solid #fff !important; /* Force white border */
-  filter: invert(100%) !important; /* INVERT COLOR */
-  -webkit-filter: invert(100%) !important;
+  color: #fff !important; /* Set directly to white */
+  border: 1px solid #fff !important; /* Set directly to white */
+  filter: none !important; /* REMOVE INVERT */
+  -webkit-filter: none !important;
 }
 button.navigation__signin-button.header_theme_dark:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 button.navigation__signin-button.header_theme_light {
-  /* Target button with both classes */
   color: #1a1b22 !important;
   border: 1px solid #1a1b22 !important;
-  filter: none !important; /* Ensure no invert on light theme */
+  filter: none !important;
   -webkit-filter: none !important;
 }
 button.navigation__signin-button.header_theme_light:hover {
@@ -278,30 +266,28 @@ button.navigation__signin-button.header_theme_light:hover {
   transition: border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
-/* User Button Colors by Theme - APPLYING INVERT FILTER */
+/* User Button Colors by Theme - DIRECT COLOR SETTING */
 button.navigation__button_user.header_theme_dark {
-  /* Target button with both classes */
-  color: #fff !important; /* Re-apply intended white text */
-  border: 1px solid #fff !important; /* Force white border */
-  filter: invert(100%) !important; /* INVERT COLOR */
-  -webkit-filter: invert(100%) !important;
+  color: #fff !important; /* Set directly to white */
+  border: 1px solid #fff !important; /* Set directly to white */
+  filter: none !important; /* REMOVE INVERT */
+  -webkit-filter: none !important;
 }
 button.navigation__button_user.header_theme_dark:hover {
   opacity: 0.8 !important;
 }
 
 button.navigation__button_user.header_theme_light {
-  /* Target button with both classes */
   color: #1a1b22 !important;
   border: 1px solid #1a1b22 !important;
-  filter: none !important; /* Ensure no invert on light theme */
+  filter: none !important;
   -webkit-filter: none !important;
 }
 button.navigation__button_user.header_theme_light:hover {
   opacity: 0.8 !important;
 }
 
-/* Logout Icon - Using background-image for SVGs as preferred */
+/* Logout Icon - Using background-image for SVGs */
 .navigation__logout-icon {
   display: block;
   width: 24px;
@@ -315,15 +301,15 @@ button.navigation__button_user.header_theme_light:hover {
   transition: opacity 0.3s ease;
 }
 
-/* Logout Icon Images by Theme - APPLYING INVERT FILTER TO BACKGROUND IMAGE */
+/* Logout Icon Images by Theme - DIRECTLY SETTING BACKGROUND IMAGE */
 .navigation__logout-icon_theme_white {
-  background-image: url("../../assets/images/logout_icon_white.svg") !important;
-  filter: invert(100%) !important; /* INVERT COLOR OF SVG IMAGE */
-  -webkit-filter: invert(100%) !important;
+  background-image: url("../../assets/images/logout_icon_white.svg") !important; /* Use white SVG */
+  filter: none !important; /* REMOVE INVERT */
+  -webkit-filter: none !important;
 }
 .navigation__logout-icon_theme_black {
-  background-image: url("../../assets/images/logout_icon_black.svg") !important;
-  filter: none !important; /* Ensure no invert on light theme */
+  background-image: url("../../assets/images/logout_icon_black.svg") !important; /* Use black SVG */
+  filter: none !important;
   -webkit-filter: none !important;
 }
 .navigation__logout-icon:hover {

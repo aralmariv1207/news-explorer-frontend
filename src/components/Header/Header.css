@@ -5,30 +5,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 88px; /* Adjusted padding to match Figma */
+  padding: 0 104px;
   box-sizing: border-box;
   width: 100%;
-  height: 80px; /* Adjusted height to match Figma */
-  position: fixed; /* Fix header at the top */
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000; /* Ensure it appears above other elements */
-  border-bottom: 4px solid #fff; /* Thick white line as part of the border */
+  height: 80px;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid;
   transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
-  background-color: rgba(0, 0, 0, 0.8); /* Ensure visibility */
-  color: #fff; /* Ensure text is visible */
 }
 
-/* Header Theme: Dark (Home Page) */
-.header_theme_dark {
-  background-color: transparent;
+/* Header Theme: Dark (Home Page) - Transparent background, white border-bottom */
+.header.header_theme_dark {
+  /* Target the header element with both classes for highest specificity on header properties */
+  background-color: transparent !important; /* Force transparent background */
   border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Header Theme: Light (Saved Articles Page) */
-.header_theme_light {
-  background-color: #fff;
+/* Header Theme: Light (Saved Articles Page) - White background, dark border-bottom */
+.header.header_theme_light {
+  /* Target the header element with both classes */
+  background-color: #fff !important; /* Force white background */
   border-bottom-color: rgba(26, 27, 34, 0.2);
 }
 
@@ -40,22 +37,25 @@
   line-height: 24px;
   text-decoration: none;
   margin: 0;
-  display: flex;
-  align-items: center; /* Center logo vertically */
-  color: #fff; /* Ensure logo is visible */
 }
 
-/* Logo Colors by Theme */
-.header_theme_dark .header__logo {
-  color: #fff;
+/* Logo Colors by Theme - APPLYING INVERT FILTER */
+a.header__logo.header_theme_dark {
+  /* Target <a> element with both classes */
+  color: #fff !important; /* Re-apply intended color */
+  filter: invert(100%) !important; /* INVERT COLOR FOR VISIBILITY */
+  -webkit-filter: invert(100%) !important; /* For Safari/old Chrome */
 }
-.header_theme_light .header__logo {
-  color: #1a1b22;
+a.header__logo.header_theme_light {
+  /* Target <a> element with both classes */
+  color: #1a1b22 !important;
+  filter: none !important; /* Ensure no invert on light theme */
+  -webkit-filter: none !important;
 }
 
-/* Mobile Menu Icon (Hamburger/Close) */
+/* Mobile Menu Icon (Hamburger/Close) - PURE CSS */
 .header__menu-icon {
-  display: none; /* Hidden on desktop */
+  display: none; /* Hidden on desktop, shown by media query */
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -67,6 +67,7 @@
   transition: opacity 0.3s ease;
 }
 
+/* Hamburger lines */
 .header__menu-icon::before,
 .header__menu-icon::after {
   content: "";
@@ -85,24 +86,33 @@
   bottom: 7px;
 }
 
-/* Menu Icon Colors by Theme */
-.header_theme_dark .header__menu-icon::before,
-.header_theme_dark .header__menu-icon::after {
-  background-color: #fff;
+/* Menu Icon Colors by Theme - APPLYING INVERT FILTER */
+div.header__menu-icon.header_theme_dark::before,
+div.header__menu-icon.header_theme_dark::after {
+  /* Target div with both classes */
+  background-color: #fff !important; /* Intended white */
+  filter: invert(100%) !important; /* INVERT COLOR */
+  -webkit-filter: invert(100%) !important;
 }
-.header_theme_light .header__menu-icon::before,
-.header_theme_light .header__menu-icon::after {
-  background-color: #1a1b22;
+div.header__menu-icon.header_theme_light::before,
+div.header__menu-icon.header_theme_light::after {
+  /* Target div with both classes */
+  background-color: #1a1b22 !important;
+  filter: none !important; /* Ensure no invert on light theme */
+  -webkit-filter: none !important;
 }
 
-/* Close Icon State */
+/* Close Icon State (for mobile menu) */
 .header__menu-icon_close::before {
-  transform: translateY(calc(50% - 7px)) rotate(45deg);
+  transform: translateY(0) rotate(45deg);
   top: 50%;
+  margin-top: -1px;
 }
+
 .header__menu-icon_close::after {
-  transform: translateY(calc(-50% + 7px)) rotate(-45deg);
+  transform: translateY(0) rotate(-45deg);
   bottom: 50%;
+  margin-bottom: -1px;
 }
 
 /* Mobile Overlay */
@@ -127,14 +137,13 @@
 }
 
 .navigation__menu {
-  display: flex; /* Ensure navigation menu is visible */
-  align-items: center; /* Center navigation links vertically */
-  gap: 60px; /* Increased gap between navigation items for better spacing */
+  display: flex;
+  align-items: center;
+  gap: 30px;
   height: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-right: auto; /* Push navigation menu to the left */
 }
 .navigation__menu li {
   margin: 0;
@@ -145,9 +154,9 @@
 .navigation__link {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: 24px; /* Adjust font size for "Home" to match Figma */
+  font-size: 16px;
   line-height: 20px;
-  text-decoration: none !important; /* Force no underline */
+  text-decoration: none !important;
   padding: 0;
   border-radius: 0;
   height: 100%;
@@ -158,55 +167,67 @@
   transition: opacity 0.3s ease, color 0.3s ease;
 }
 
-/* Navigation Link Colors by Theme */
-.header_theme_dark .navigation__link {
-  color: rgba(255, 255, 255, 0.6);
+/* Navigation Link Color Overrides by Theme - APPLYING INVERT FILTER */
+a.navigation__link.header_theme_dark {
+  /* Target <a> with both classes */
+  color: rgba(
+    255,
+    255,
+    255,
+    0.6
+  ) !important; /* Lighter grey for inactive (Figma) */
+  filter: invert(100%) !important; /* INVERT COLOR */
+  -webkit-filter: invert(100%) !important;
 }
-.header_theme_dark .navigation__link:hover {
-  color: #fff;
+a.navigation__link.header_theme_dark:hover {
+  color: #fff !important; /* White on hover (Figma) */
 }
-.header_theme_dark .navigation__link.navigation__link_active {
-  color: #fff;
+a.navigation__link.navigation__link_active.header_theme_dark {
+  /* Target <a> with all classes */
+  color: #fff !important; /* White for active (Figma) */
 }
 
-.header_theme_light .navigation__link {
-  color: rgba(26, 27, 34, 0.6);
+a.navigation__link.header_theme_light {
+  /* Target <a> with both classes */
+  color: rgba(26, 27, 34, 0.6) !important;
+  filter: none !important; /* Ensure no invert on light theme */
+  -webkit-filter: none !important;
 }
-.header_theme_light .navigation__link:hover {
-  color: #1a1b22;
+a.navigation__link.header_theme_light:hover {
+  color: #1a1b22 !important;
 }
-.header_theme_light .navigation__link.navigation__link_active {
-  color: #1a1b22;
+a.navigation__link.navigation__link_active.header_theme_light {
+  /* Target <a> with all classes */
+  color: #1a1b22 !important;
 }
 
 /* Active Link Underline */
 .navigation__link_active::after {
   content: "";
   position: absolute;
-  bottom: -30px; /* Align the underline with the header border */
+  bottom: -1px;
   left: 0;
   width: 100%;
-  height: 4px; /* Ensure the thickness matches the header border */
+  height: 3px;
 }
 /* Underline Colors by Theme */
 .header_theme_dark .navigation__link_active::after {
-  background-color: #fff;
+  background-color: #fff !important;
 }
 .header_theme_light .navigation__link_active::after {
-  background-color: #1a1b22;
+  background-color: #1a1b22 !important;
 }
 
 /* Sign-in Button */
 .navigation__signin-button {
   height: 48px;
   min-width: 176px;
-  padding: 12px 24px; /* Adjust padding to match Figma button design */
+  padding: 0 20px;
   background-color: transparent;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
-  border: 2px solid #fff; /* Match Figma button border */
-  border-radius: 50px; /* Rounded corners for button */
+  border-radius: 100px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -214,24 +235,29 @@
   box-shadow: none;
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease, opacity 0.3s ease;
-  margin-left: 40px; /* Ensure spacing between "Saved articles" and "Sign in" */
 }
 
-/* Sign-in Button Colors by Theme */
-.header_theme_dark .navigation__signin-button {
-  color: #fff;
-  border: 1px solid #fff;
+/* Sign-in Button Colors by Theme - APPLYING INVERT FILTER */
+button.navigation__signin-button.header_theme_dark {
+  /* Target button with both classes */
+  color: #fff !important; /* Re-apply intended white text */
+  border: 1px solid #fff !important; /* Force white border */
+  filter: invert(100%) !important; /* INVERT COLOR */
+  -webkit-filter: invert(100%) !important;
 }
-.header_theme_dark .navigation__signin-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+button.navigation__signin-button.header_theme_dark:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-.header_theme_light .navigation__signin-button {
-  color: #1a1b22;
-  border: 1px solid #1a1b22;
+button.navigation__signin-button.header_theme_light {
+  /* Target button with both classes */
+  color: #1a1b22 !important;
+  border: 1px solid #1a1b22 !important;
+  filter: none !important; /* Ensure no invert on light theme */
+  -webkit-filter: none !important;
 }
-.header_theme_light .navigation__signin-button:hover {
-  background-color: rgba(26, 27, 34, 0.1);
+button.navigation__signin-button.header_theme_light:hover {
+  background-color: rgba(26, 27, 34, 0.1) !important;
 }
 
 /* User Button (Logged In) */
@@ -252,24 +278,30 @@
   transition: border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
-/* User Button Colors by Theme */
-.header_theme_dark .navigation__button_user {
-  color: #fff;
-  border: 1px solid #fff;
+/* User Button Colors by Theme - APPLYING INVERT FILTER */
+button.navigation__button_user.header_theme_dark {
+  /* Target button with both classes */
+  color: #fff !important; /* Re-apply intended white text */
+  border: 1px solid #fff !important; /* Force white border */
+  filter: invert(100%) !important; /* INVERT COLOR */
+  -webkit-filter: invert(100%) !important;
 }
-.header_theme_dark .navigation__button_user:hover {
-  opacity: 0.8;
-}
-
-.header_theme_light .navigation__button_user {
-  color: #1a1b22;
-  border: 1px solid #1a1b22;
-}
-.header_theme_light .navigation__button_user:hover {
-  opacity: 0.8;
+button.navigation__button_user.header_theme_dark:hover {
+  opacity: 0.8 !important;
 }
 
-/* Logout Icon */
+button.navigation__button_user.header_theme_light {
+  /* Target button with both classes */
+  color: #1a1b22 !important;
+  border: 1px solid #1a1b22 !important;
+  filter: none !important; /* Ensure no invert on light theme */
+  -webkit-filter: none !important;
+}
+button.navigation__button_user.header_theme_light:hover {
+  opacity: 0.8 !important;
+}
+
+/* Logout Icon - Using background-image for SVGs as preferred */
 .navigation__logout-icon {
   display: block;
   width: 24px;
@@ -283,18 +315,22 @@
   transition: opacity 0.3s ease;
 }
 
-/* Logout Icon Images by Theme */
+/* Logout Icon Images by Theme - APPLYING INVERT FILTER TO BACKGROUND IMAGE */
 .navigation__logout-icon_theme_white {
-  background-image: url("../../assets/images/logout_icon_white.svg");
+  background-image: url("../../assets/images/logout_icon_white.svg") !important;
+  filter: invert(100%) !important; /* INVERT COLOR OF SVG IMAGE */
+  -webkit-filter: invert(100%) !important;
 }
 .navigation__logout-icon_theme_black {
-  background-image: url("../../assets/images/logout_icon_black.svg");
+  background-image: url("../../assets/images/logout_icon_black.svg") !important;
+  filter: none !important; /* Ensure no invert on light theme */
+  -webkit-filter: none !important;
 }
 .navigation__logout-icon:hover {
-  opacity: 0.6;
+  opacity: 0.6 !important;
 }
 
-/* Mobile Menu Specific Styles */
+/* Mobile Menu Specific Styles (hidden on desktop, shown on mobile) */
 .navigation_open {
   transform: translateX(0);
   display: flex;
@@ -304,20 +340,20 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #1a1b22; /* Dark overlay for mobile menu */
+  background-color: #1a1b22 !important; /* Dark overlay for mobile menu */
   z-index: 10;
   justify-content: flex-start;
   padding-top: 56px;
   transition: transform 0.3s ease-in-out;
 }
 
-/* Hide desktop navigation on mobile by default */
+/* Hide desktop navigation and show hamburger on mobile */
 @media screen and (max-width: 768px) {
   .navigation {
-    display: none;
+    display: none !important;
   }
   .header__menu-icon {
-    display: block;
+    display: block !important;
   }
 }
 

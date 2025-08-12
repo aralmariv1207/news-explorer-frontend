@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NewsCard.css";
 
 function NewsCard({
@@ -7,10 +7,11 @@ function NewsCard({
   onSaveArticle,
   onDeleteArticle,
   isSavedNewsPage,
-  savedArticles,
 }) {
   const { urlToImage, publishedAt, title, description, source, url, keyword } =
     article;
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -19,12 +20,9 @@ function NewsCard({
 
   const formattedDate = formatDate(publishedAt);
 
-  const isBookmarked =
-    isSavedNewsPage ||
-    (isLoggedIn &&
-      savedArticles.some((savedArticle) => savedArticle.url === article.url));
-
   const handleBookmarkClick = () => {
+    setIsBookmarked(!isBookmarked);
+
     if (!isLoggedIn && !isSavedNewsPage) {
       console.log("Please sign in to save articles.");
       return;

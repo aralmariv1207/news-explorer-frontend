@@ -1,8 +1,8 @@
 import React from "react";
 import About from "../About/About";
 import NewsCardList from "../NewsCardList/NewsCardList";
-import Hero from "../Hero/Hero";
-import Preloader from "../Preloader/Preloader"; // Imports the Preloader component
+import Hero from "../Hero/Hero"; // Hero component is correctly imported and used
+import Preloader from "../Preloader/Preloader";
 
 import "./Main.css";
 
@@ -20,33 +20,29 @@ function Main({
 }) {
   return (
     <main className="main">
-      <Hero onSearch={onSearch} />
-
-      {hasSearched && ( // Only show search results/loading/nothing found if a search has been initiated
+      <Hero onSearch={onSearch} /> {/* Hero component is rendered here */}
+      {hasSearched && (
         <section className="results-section">
-          {isLoading ? ( // If isLoading is true, show preloader
+          {isLoading ? (
             <div className="preloader-container">
-              <Preloader /> {/* Renders the Preloader component */}
+              <Preloader />
               <p className="preloader-container__text">Searching for news...</p>
             </div>
-          ) : apiError && apiError !== "Nothing found" ? ( // If there's a general API error
+          ) : apiError && apiError !== "Nothing found" ? (
             <div className="not-found">
-              <div className="not-found__image"></div>{" "}
-              {/* Image loaded via CSS */}
+              <div className="not-found__image"></div>
               <h2 className="not-found__title">Error</h2>
               <p className="not-found__text">{apiError}</p>
             </div>
-          ) : newsData.length === 0 && !isLoading ? ( // If no results found after search completes
+          ) : newsData.length === 0 && !isLoading ? (
             <div className="not-found">
-              <div className="not-found__image"></div>{" "}
-              {/* Image loaded via CSS */}
+              <div className="not-found__image"></div>
               <h2 className="not-found__title">Nothing found</h2>
               <p className="not-found__text">
                 Sorry, but nothing matched your search terms.
               </p>
             </div>
           ) : (
-            // If search results are available
             <NewsCardList
               articles={newsData}
               isLoggedIn={isLoggedIn}
@@ -59,7 +55,6 @@ function Main({
           )}
         </section>
       )}
-
       <About />
     </main>
   );

@@ -62,6 +62,22 @@
   text-overflow: ellipsis;
 }
 
+.news-card__description {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.375;
+  color: #1a1b22;
+  margin-bottom: 18px;
+  flex-grow: 1;
+  display: -webkit-box; /* Add vendor prefix for compatibility */
+  -webkit-line-clamp: 3; /* Add vendor prefix for compatibility */
+  -webkit-box-orient: vertical; /* Add vendor prefix for compatibility */
+  line-clamp: 3; /* Standard property */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .news-card__source {
   font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
@@ -183,6 +199,21 @@
   font-size: inherit;
   line-height: inherit;
   white-space: normal;
+}
+
+/* Bookmark button styles */
+.news-card__bookmark {
+  width: 24px;
+  height: 24px;
+  background: url("../../assets/images/bookmark.svg") no-repeat center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}
+
+.news-card__bookmark_active {
+  background: url("../../assets/images/bookmark_active.svg") no-repeat center; /* Blue bookmark */
+  background-size: contain;
 }
 
 /* Media queries for responsiveness */

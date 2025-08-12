@@ -18,8 +18,14 @@ body {
   height: 100%;
 }
 
+/* Apply the full-page background image to the .app-container */
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url("./assets/images/background-image__georgia-de-lotz--UsJoNxLaNo-unsplash.png");
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed; /* Keep background fixed when scrolling */
 }

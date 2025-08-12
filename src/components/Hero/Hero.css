@@ -1,10 +1,8 @@
 .hero {
-  background-image: url("../../assets/images/background-image__georgia-de-lotz--UsJoNxLaNo-unsplash.png"); /* Your actual image path */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 400px; /* Adjust height as per Figma */
+  /* REMOVED background-image, background-size, background-position, background-repeat from here */
+  min-height: 560px; /* Adjusted to a common hero height for responsiveness */
   display: flex;
+  flex-direction: column; /* Changed to column to stack content */
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -50,7 +48,7 @@
 /* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
   .hero {
-    height: 350px;
+    min-height: 400px; /* Adjusted min-height for tablet */
     padding: 0 40px;
   }
   .hero__title {
@@ -65,7 +63,7 @@
 
 @media screen and (max-width: 768px) {
   .hero {
-    height: 300px;
+    min-height: 280px; /* Adjusted min-height for mobile */
     padding: 0 24px;
   }
   .hero__title {
@@ -80,7 +78,7 @@
 
 @media screen and (max-width: 500px) {
   .hero {
-    height: 250px;
+    min-height: 200px; /* Adjusted min-height for small mobile */
     padding: 0 16px;
   }
   .hero__title {

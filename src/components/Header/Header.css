@@ -40,13 +40,9 @@
 /* Logo Colors by Theme - DIRECT COLOR SETTING */
 a.header__logo.header_theme_dark {
   color: #fff !important; /* Set directly to white */
-  filter: none !important; /* REMOVE INVERT */
-  -webkit-filter: none !important;
 }
 a.header__logo.header_theme_light {
   color: #1a1b22 !important;
-  filter: none !important;
-  -webkit-filter: none !important;
 }
 
 /* Mobile Menu Icon (Hamburger/Close) - PURE CSS */
@@ -86,8 +82,6 @@ a.header__logo.header_theme_light {
 div.header__menu-icon.header_theme_dark::before,
 div.header__menu-icon.header_theme_dark::after {
   background-color: #fff !important; /* Set directly to white */
-  filter: none !important; /* REMOVE INVERT */
-  -webkit-filter: none !important;
 }
 div.header__menu-icon.header_theme_light::before,
 div.header__menu-icon.header_theme_light::after {
@@ -169,8 +163,6 @@ a.navigation__link.header_theme_dark {
     255,
     0.6
   ) !important; /* Lighter grey for inactive (Figma) */
-  filter: none !important; /* REMOVE INVERT */
-  -webkit-filter: none !important;
 }
 a.navigation__link.header_theme_dark:hover {
   color: #fff !important; /* White on hover (Figma) */
@@ -231,8 +223,6 @@ a.navigation__link.navigation__link_active.header_theme_light {
 button.navigation__signin-button.header_theme_dark {
   color: #fff !important; /* Set directly to white */
   border: 1px solid #fff !important; /* Set directly to white */
-  filter: none !important; /* REMOVE INVERT */
-  -webkit-filter: none !important;
 }
 button.navigation__signin-button.header_theme_dark:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
@@ -270,8 +260,6 @@ button.navigation__signin-button.header_theme_light:hover {
 button.navigation__button_user.header_theme_dark {
   color: #fff !important; /* Set directly to white */
   border: 1px solid #fff !important; /* Set directly to white */
-  filter: none !important; /* REMOVE INVERT */
-  -webkit-filter: none !important;
 }
 button.navigation__button_user.header_theme_dark:hover {
   opacity: 0.8 !important;
@@ -304,13 +292,9 @@ button.navigation__button_user.header_theme_light:hover {
 /* Logout Icon Images by Theme - DIRECTLY SETTING BACKGROUND IMAGE */
 .navigation__logout-icon_theme_white {
   background-image: url("../../assets/images/logout_icon_white.svg") !important; /* Use white SVG */
-  filter: none !important; /* REMOVE INVERT */
-  -webkit-filter: none !important;
 }
 .navigation__logout-icon_theme_black {
   background-image: url("../../assets/images/logout_icon_black.svg") !important; /* Use black SVG */
-  filter: none !important;
-  -webkit-filter: none !important;
 }
 .navigation__logout-icon:hover {
   opacity: 0.6 !important;

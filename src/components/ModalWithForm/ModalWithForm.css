@@ -68,6 +68,7 @@
   line-height: 28px;
   color: #000;
   margin-bottom: 25px; /* Consistent margin below title */
+  margin-top: 0;
 }
 
 .modal__form {
@@ -89,7 +90,6 @@
 .modal__input {
   width: 100%; /* Full width within container */
   height: 60px; /* Figma shows 60px height for inputs */
-  padding: 0 16px; /* Horizontal padding to precisely match Figma */
   background-color: transparent; /* Make background transparent */
   border: none; /* Removed full border */
   border-bottom: 1px solid #e6e8eb; /* Added only bottom border with gray color */
@@ -99,7 +99,6 @@
   line-height: 1.2;
   color: #1a1b22; /* Dark text color */
   box-sizing: border-box; /* Include padding/border in width/height */
-  margin-bottom: 20px; /* Space below each input field to match Figma */
   outline: none; /* Remove default outline */
 }
 
@@ -150,6 +149,7 @@
   text-align: center; /* Default to center for generic "or" link */
   padding-left: 0; /* No specific padding here */
   margin-top: 14px; /* Default margin-top */
+  margin-bottom: 0; /* No bottom margin */
   cursor: default; /* Default cursor for "or" text */
 }
 

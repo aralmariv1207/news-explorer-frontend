@@ -102,7 +102,7 @@ function NewsCard({
         <p className="news-card__date">{formattedDate}</p>
         <h3 className="news-card__title">{title}</h3>
         <p className="news-card__text">{description}</p>
-        <p className="news-card__source">{source.name}</p>
+        <p className="news-card__source">{sourceName}</p>
       </div>
     </div>
   );

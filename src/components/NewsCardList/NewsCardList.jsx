@@ -14,7 +14,11 @@ function NewsCardList({
 }) {
   // NEW: added onDeleteArticle prop
   return (
-    <div className="news-card-list">
+    <div
+      className={`news-card-list ${
+        isSavedNewsPage ? "news-card-list--saved-news" : ""
+      }`}
+    >
       {/* Conditionally show "Search results" title only on main page */}
       {!isSavedNewsPage && articles.length > 0 && (
         <h2 className="news-card-list__title">Search results</h2>

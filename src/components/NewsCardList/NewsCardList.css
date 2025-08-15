@@ -60,6 +60,10 @@
   opacity: 0.9;
 }
 
+.news-card-list--saved-news {
+  background-color: #f5f6f7;
+}
+
 /* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
   .news-card-list {

@@ -3,7 +3,7 @@
 .saved-news {
   display: flex;
   flex-direction: column;
-  padding: 0 0 40px; /* Match Figma design */
+  padding: 0 0 40px 0;
   box-sizing: border-box;
   width: 100%;
 }

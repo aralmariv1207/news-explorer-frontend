@@ -29,10 +29,6 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
           <h2 className="saved-news__no-articles-title">
             No saved articles yet
           </h2>
-          <h2 className="saved-news-header__heading">
-            {userName.slice(0, 1).toUpperCase() + userName.slice(1)}, you have{" "}
-            {articlesCount} saved articles.
-          </h2>
         </div>
       )}
     </section>

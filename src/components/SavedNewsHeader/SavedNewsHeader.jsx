@@ -32,7 +32,8 @@ function SavedNewsHeader({ articlesCount, currentUser, keywords }) {
     <div className="saved-news-header">
       <p className="saved-news-header__title">Saved articles</p>
       <h2 className="saved-news-header__heading">
-        {userName}, you have {articlesCount} saved articles
+        {userName.slice(0, 1).toUpperCase() + userName.slice(1)}, you have{" "}
+        {articlesCount} saved articles.
       </h2>
       <p className="saved-news-header__keywords">
         By keywords:{" "}

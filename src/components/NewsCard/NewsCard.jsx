@@ -7,11 +7,19 @@ function NewsCard({
   onSaveArticle,
   onDeleteArticle,
   isSavedNewsPage,
+  savedArticles,
 }) {
   const { urlToImage, publishedAt, title, description, source, url, keyword } =
     article;
 
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  // Safely get source name
+
+  const sourceName = source?.name || "Unknown Source";
+
+  // Check if article is saved by comparing URLs
+
+  const isBookmarked =
+    savedArticles?.some((saved) => saved.url === url) || false;
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -21,22 +29,21 @@ function NewsCard({
   const formattedDate = formatDate(publishedAt);
 
   const handleBookmarkClick = () => {
-    setIsBookmarked(!isBookmarked);
-
     if (!isLoggedIn && !isSavedNewsPage) {
       console.log("Please sign in to save articles.");
       return;
     }
 
-    if (isBookmarked && !isSavedNewsPage) {
-      // If bookmarked on main page, unsave it
-      onDeleteArticle(url);
-    } else if (isSavedNewsPage) {
+    if (isSavedNewsPage) {
       // If on saved page, clicking the button means delete
       onDeleteArticle(url);
     } else {
-      // If not bookmarked and logged in (on main page), save it
-      onSaveArticle(article);
+      // If on main page, toggle save/unsave
+      if (isBookmarked) {
+        onDeleteArticle(url);
+      } else {
+        onSaveArticle(article);
+      }
     }
   };
 

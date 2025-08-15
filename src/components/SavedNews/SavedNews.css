@@ -3,86 +3,15 @@
 .saved-news {
   display: flex;
   flex-direction: column;
-  padding: 0 104px 40px; /* Match Figma design */
+  padding: 0 0 40px; /* Match Figma design */
   box-sizing: border-box;
   width: 100%;
 }
 
-.saved-news__title {
-  font-size: 18px; /* Match Figma font size */
-  font-weight: 700; /* Bold title */
-  margin-bottom: 8px; /* Add spacing below title */
-}
-
-.saved-news__subtitle {
-  font-size: 18px; /* Match Figma font size */
-  color: #333; /* Darker text for better readability */
-  margin-bottom: 24px; /* Add spacing below subtitle */
-}
-
-.saved-news__empty-message {
-  font-size: 16px; /* Match Figma font size */
-  color: #666; /* Subtle text color for empty message */
-}
-
-.saved-news__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px; /* Spacing between articles */
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.saved-news__item {
-  width: 300px; /* Fixed width for articles */
-}
-
-.saved-news__card {
-  background-color: #fff; /* White background for items */
-  border: 1px solid #ddd; /* Light border for separation */
-  border-radius: 8px; /* Rounded corners */
-  overflow: hidden;
-}
-
-.saved-news__image {
+.saved-news__header__heading {
+  font-weight: 400px;
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-
-.saved-news__content {
-  padding: 16px;
-}
-
-.saved-news__keyword {
-  font-size: 14px;
-  font-weight: 700;
-  color: #007bff;
-  margin-bottom: 8px;
-}
-
-.saved-news__date {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 8px;
-}
-
-.saved-news__description {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 16px;
-}
-
-.saved-news__delete-button {
-  background-color: transparent;
-  border: none;
-  color: #ff0000;
-  cursor: pointer;
-}
-
-.saved-news__delete-button:hover {
-  text-decoration: underline;
+  max-width: 530px;
 }
 
 .saved-news__no-articles {
@@ -99,9 +28,6 @@
 @media screen and (max-width: 1024px) {
   .saved-news {
     padding: 0 40px 30px;
-  }
-  .saved-news__item {
-    width: 100%; /* Full width for smaller screens */
   }
 }
 

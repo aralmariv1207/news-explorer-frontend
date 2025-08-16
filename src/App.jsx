@@ -1,5 +1,5 @@
-import { useState, useLocation } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Main from "./components/Main/Main";
 import SavedNews from "./components/SavedNews/SavedNews";
 import Header from "./components/Header/Header";
@@ -167,7 +167,7 @@ function App() {
   // --- END REMOVED ESLint Fix for no-unused-vars ---
 
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <div className={appContainerClass}>
         <Header
           isLoggedIn={isLoggedIn}
@@ -207,7 +207,6 @@ function App() {
         </Routes>
         <Footer />
       </div>
-
       <LoginModal
         isOpen={isLoginModalOpen}
         onClose={closeAllModals}

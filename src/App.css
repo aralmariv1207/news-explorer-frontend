@@ -22,10 +22,14 @@ body {
 .app-container {
   display: flex;
   flex-direction: column;
-
   background-image: url("./assets/images/background-image__georgia-de-lotz--UsJoNxLaNo-unsplash.png");
   background-size: cover; /* Cover the entire area */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-attachment: fixed; /* Keep background fixed when scrolling */
+}
+
+/* Remove background image for saved-news page */
+.app-container--saved-news {
+  background-image: none;
 }

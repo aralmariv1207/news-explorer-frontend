@@ -150,6 +150,12 @@ function App() {
     setArticlesToShow((prevCount) => prevCount + 3);
   };
 
+  const location = useLocation();
+  const isSavedNewsPage = location.pathname === "/saved-news";
+  const appContainerClass = `app-container${
+    isSavedNewsPage ? " app-container--saved-news" : ""
+  }`;
+
   // --- REMOVED ESLint Fix for no-unused-vars that was causing this error ---
   // The 'showMoreButtonVisible' and 'handleShowMoreClick' are passed as props to Main,
   // which is how they are "used". ESLint's default configuration might sometimes
@@ -162,7 +168,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="app-container">
+      <div className={appContainerClass}>
         <Header
           isLoggedIn={isLoggedIn}
           currentUser={currentUser}

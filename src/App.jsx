@@ -167,7 +167,7 @@ function App() {
   // --- END REMOVED ESLint Fix for no-unused-vars ---
 
   return (
-    <>
+    <BrowserRouter>
       <AppContent />
       <div className={appContainerClass}>
         <Header
@@ -226,7 +226,7 @@ function App() {
         onClose={closeAllModals}
         onSignInClick={handleLoginClick}
       />
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -167,7 +167,7 @@ function App() {
   // --- END REMOVED ESLint Fix for no-unused-vars ---
 
   return (
-    <BrowserRouter >
+    <BrowserRouter>
       <div className={appContainerClass}>
         <Header
           isLoggedIn={isLoggedIn}

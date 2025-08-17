@@ -10,9 +10,9 @@ import RegisterSuccessModal from "./components/RegisterSuccessModal/RegisterSucc
 
 import { searchNews } from "./api/newsApi";
 
-import "./AppContent.css";
+import "./App.css";
 
-function AppContent() {
+function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [newsData, setNewsData] = useState([]);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -230,4 +230,4 @@ function AppContent() {
   );
 }
 
-export default AppContent;
+export default App;

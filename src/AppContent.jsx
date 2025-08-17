@@ -10,9 +10,9 @@ import RegisterSuccessModal from "./components/RegisterSuccessModal/RegisterSucc
 
 import { searchNews } from "./api/newsApi";
 
-import "./App.css";
+import "./AppContent.css";
 
-function App() {
+function AppContent() {
   const [isLoading, setIsLoading] = useState(false);
   const [newsData, setNewsData] = useState([]);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -167,7 +167,8 @@ function App() {
   // --- END REMOVED ESLint Fix for no-unused-vars ---
 
   return (
-    <BrowserRouter>
+    <>
+      <AppContent />
       <div className={appContainerClass}>
         <Header
           isLoggedIn={isLoggedIn}
@@ -225,8 +226,8 @@ function App() {
         onClose={closeAllModals}
         onSignInClick={handleLoginClick}
       />
-    </BrowserRouter>
+    </>
   );
 }
 
-export default App;
+export default AppContent;

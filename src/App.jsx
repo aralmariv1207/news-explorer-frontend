@@ -156,18 +156,10 @@ function AppContent() {
     isSavedNewsPage ? " app-container--saved-news" : ""
   }`;
 
-  // --- REMOVED ESLint Fix for no-unused-vars that was causing this error ---
-  // The 'showMoreButtonVisible' and 'handleShowMoreClick' are passed as props to Main,
-  // which is how they are "used". ESLint's default configuration might sometimes
-  // flag props as unused variables if not explicitly consumed within the component
-  // where they are defined. However, the 'if (false)' workaround caused a new,
-  // more direct ESLint warning. It's better to remove it and accept the
-  // 'no-unused-vars' if it reappears, or adjust the ESLint config if you have access.
-  // For now, removing the problematic constant condition.
-  // --- END REMOVED ESLint Fix for no-unused-vars ---
-
   return (
     <>
+      {/* CORRECTED: This div now correctly wraps Header, Routes, and Footer */}
+      <div className={appContainerClass}>
         <Header
           isLoggedIn={isLoggedIn}
           currentUser={currentUser}
@@ -206,6 +198,8 @@ function AppContent() {
         </Routes>
         <Footer />
       </div>
+
+      {/* Modals remain outside the main app-container div, as siblings */}
       <LoginModal
         isOpen={isLoginModalOpen}
         onClose={closeAllModals}
@@ -228,12 +222,13 @@ function AppContent() {
   );
 }
 
+// This outer App function correctly wraps AppContent with BrowserRouter
 function App() {
-return (
-   <BrowserRouter>
+  return (
+    <BrowserRouter>
       <AppContent />
-   </BrowserRouter>
-);
+    </BrowserRouter>
+  );
 }
 
 export default App;

@@ -91,3 +91,21 @@
     padding: 0; /* Remove padding as it's now full width */
   }
 }
+
+/* Styles for screens up to 768px wide (TABLET) */
+@media screen and (max-width: 768px) {
+  .search-results__cards-container {
+    gap: 12px;
+    padding: 0 24px;
+  }
+}
+
+/* Styles for screens up to 320px wide (MOBILE) */
+@media screen and (max-width: 320px) {
+  .search-results__cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 16px;
+  }
+}

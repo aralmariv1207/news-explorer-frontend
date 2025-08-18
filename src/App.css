@@ -33,3 +33,17 @@ body {
 .app-container--saved-news {
   background-image: none;
 }
+
+/* Styles for screens up to 768px wide (TABLET) */
+@media screen and (max-width: 768px) {
+  .page-container {
+    padding: 0 24px;
+  }
+}
+
+/* Styles for screens up to 320px wide (MOBILE) */
+@media screen and (max-width: 320px) {
+  .page-container {
+    padding: 0 16px;
+  }
+}

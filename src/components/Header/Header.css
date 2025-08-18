@@ -395,3 +395,35 @@ button.navigation__button_user.header_theme_light:hover {
     font-size: 16px;
   }
 }
+
+/* Styles for screens up to 768px wide (TABLET) */
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 24px;
+  }
+
+  .header_logo {
+    font-size: 16px;
+  }
+
+  .navigation_link,
+  .navigation_button_user {
+    font-size: 16px;
+  }
+}
+
+/* Styles for screens up to 320px wide (MOBILE) */
+@media screen and (max-width: 320px) {
+  .header {
+    padding: 0 16px;
+  }
+
+  .header_logo {
+    font-size: 14px;
+  }
+
+  .navigation_link,
+  .navigation_button_user {
+    font-size: 12px;
+  }
+}

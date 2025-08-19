@@ -17,14 +17,20 @@ function About() {
         <div className="about__text-container">
           <h2 className="about__title">About the author</h2>
           <p className="about__text">
-            This block describes the project author. Here you should indicate
-            your name, what you do, and which development technologies you know.
-            You can also talk about your experience with TripleTen, what you
-            learned there, and how you can help potential customers.
+            I am a full-stack software engineer and a graduate of the TripleTen
+            Software Engineering bootcamp program. This project is a
+            demonstration of my skills in building modern, responsive web
+            applications using React. Through this project, I had the
+            opportunity to apply my knowledge of React hooks, API integration,
+            and user authentication. I believe in the power of well-structured,
+            maintainable code and a great user experience. This final project is
+            a testament to my commitment to learning and building practical,
+            impactful applications.
           </p>
           <p className="about__text">
-            We believe in the power of information and its ability to connect
-            people and communities. Join us in exploring the world of news!
+            As my NewsExplorer project shows, I also believe in the power of
+            information and its ability to connect people and communities. Join
+            me now in exploring the vast world of news!
           </p>
         </div>
       </div>

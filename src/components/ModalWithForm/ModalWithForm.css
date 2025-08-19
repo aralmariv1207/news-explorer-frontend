@@ -240,3 +240,24 @@
     font-size: 12px; /* Smaller font for mobile "or" text */
   }
 }
+
+@media screen and (max-width: 768px) {
+  /*
+  This ensures the modal takes up the full width of the screen,
+  with the proper padding, on tablets and smaller devices.
+  */
+  .modal__container {
+    max-width: 70%; /* Adjusts the width for tablets */
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding is included in the total width */
+  }
+
+  /* Optional: Adjust modal content sizes inside the modal container */
+  .modal__header {
+    font-size: 20px;
+  }
+
+  .modal__form {
+    padding: 0 16px;
+  }
+}

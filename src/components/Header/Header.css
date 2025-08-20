@@ -17,13 +17,13 @@
 
 /* Header Theme: Dark (Home Page) - Transparent background, white border-bottom */
 .header.header_theme_dark {
-  background-color: transparent !important;
+  background-color: transparent;
   border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Header Theme: Light (Saved Articles Page) - White background, dark border-bottom */
 .header.header_theme_light {
-  background-color: #fff !important;
+  background-color: #fff;
   border-bottom-color: rgba(26, 27, 34, 0.2);
 }
 
@@ -39,10 +39,10 @@
 
 /* Logo Colors by Theme - DIRECT COLOR SETTING */
 a.header__logo.header_theme_dark {
-  color: #fff !important; /* Set directly to white */
+  color: #fff; /* Set directly to white */
 }
 a.header__logo.header_theme_light {
-  color: #1a1b22 !important;
+  color: #1a1b22;
 }
 
 /* Mobile Menu Icon (Hamburger/Close) - PURE CSS */
@@ -81,13 +81,13 @@ a.header__logo.header_theme_light {
 /* Menu Icon Colors by Theme - DIRECT COLOR SETTING */
 div.header__menu-icon.header_theme_dark::before,
 div.header__menu-icon.header_theme_dark::after {
-  background-color: #fff !important; /* Set directly to white */
+  background-color: #fff; /* Set directly to white */
 }
 div.header__menu-icon.header_theme_light::before,
 div.header__menu-icon.header_theme_light::after {
-  background-color: #1a1b22 !important;
-  filter: none !important;
-  -webkit-filter: none !important;
+  background-color: #1a1b22;
+  filter: none;
+  -webkit-filter: none;
 }
 
 /* Close Icon State (for mobile menu) */
@@ -144,7 +144,7 @@ div.header__menu-icon.header_theme_light::after {
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  text-decoration: none !important;
+  text-decoration: none;
   padding: 0;
   border-radius: 0;
   height: 100%;
@@ -157,30 +157,25 @@ div.header__menu-icon.header_theme_light::after {
 
 /* Navigation Link Color Overrides by Theme - DIRECT COLOR SETTING */
 a.navigation__link.header_theme_dark {
-  color: rgba(
-    255,
-    255,
-    255,
-    0.6
-  ) !important; /* Lighter grey for inactive (Figma) */
+  color: rgba(255, 255, 255, 0.6); /* Lighter grey for inactive (Figma) */
 }
 a.navigation__link.header_theme_dark:hover {
-  color: #fff !important; /* White on hover (Figma) */
+  color: #fff; /* White on hover (Figma) */
 }
 a.navigation__link.navigation__link_active.header_theme_dark {
-  color: #fff !important; /* White for active (Figma) */
+  color: #fff; /* White for active (Figma) */
 }
 
 a.navigation__link.header_theme_light {
-  color: rgba(26, 27, 34, 0.6) !important;
-  filter: none !important;
-  -webkit-filter: none !important;
+  color: rgba(26, 27, 34, 0.6);
+  filter: none;
+  -webkit-filter: none;
 }
 a.navigation__link.header_theme_light:hover {
-  color: #1a1b22 !important;
+  color: #1a1b22;
 }
 a.navigation__link.navigation__link_active.header_theme_light {
-  color: #1a1b22 !important;
+  color: #1a1b22;
 }
 
 /* Active Link Underline */
@@ -194,10 +189,10 @@ a.navigation__link.navigation__link_active.header_theme_light {
 }
 /* Underline Colors by Theme */
 .header_theme_dark .navigation__link_active::after {
-  background-color: #fff !important;
+  background-color: #fff;
 }
 .header_theme_light .navigation__link_active::after {
-  background-color: #1a1b22 !important;
+  background-color: #1a1b22;
 }
 
 /* Sign-in Button */
@@ -221,21 +216,21 @@ a.navigation__link.navigation__link_active.header_theme_light {
 
 /* Sign-in Button Colors by Theme - DIRECT COLOR SETTING */
 button.navigation__signin-button.header_theme_dark {
-  color: #fff !important; /* Set directly to white */
-  border: 1px solid #fff !important; /* Set directly to white */
+  color: #fff; /* Set directly to white */
+  border: 1px solid #fff; /* Set directly to white */
 }
 button.navigation__signin-button.header_theme_dark:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 button.navigation__signin-button.header_theme_light {
-  color: #1a1b22 !important;
-  border: 1px solid #1a1b22 !important;
-  filter: none !important;
-  -webkit-filter: none !important;
+  color: #1a1b22;
+  border: 1px solid #1a1b22;
+  filter: none;
+  -webkit-filter: none;
 }
 button.navigation__signin-button.header_theme_light:hover {
-  background-color: rgba(26, 27, 34, 0.1) !important;
+  background-color: rgba(26, 27, 34, 0.1);
 }
 
 /* User Button (Logged In) */
@@ -258,21 +253,21 @@ button.navigation__signin-button.header_theme_light:hover {
 
 /* User Button Colors by Theme - DIRECT COLOR SETTING */
 button.navigation__button_user.header_theme_dark {
-  color: #fff !important; /* Set directly to white */
-  border: 1px solid #fff !important; /* Set directly to white */
+  color: #fff; /* Set directly to white */
+  border: 1px solid #fff; /* Set directly to white */
 }
 button.navigation__button_user.header_theme_dark:hover {
-  opacity: 0.8 !important;
+  opacity: 0.8;
 }
 
 button.navigation__button_user.header_theme_light {
-  color: #1a1b22 !important;
-  border: 1px solid #1a1b22 !important;
-  filter: none !important;
-  -webkit-filter: none !important;
+  color: #1a1b22;
+  border: 1px solid #1a1b22;
+  filter: none;
+  -webkit-filter: none;
 }
 button.navigation__button_user.header_theme_light:hover {
-  opacity: 0.8 !important;
+  opacity: 0.8;
 }
 
 /* Logout Icon - Using background-image for SVGs */
@@ -291,13 +286,13 @@ button.navigation__button_user.header_theme_light:hover {
 
 /* Logout Icon Images by Theme - DIRECTLY SETTING BACKGROUND IMAGE */
 .navigation__logout-icon_theme_white {
-  background-image: url("../../assets/images/logout_icon_white.svg") !important; /* Use white SVG */
+  background-image: url("../../assets/images/logout_icon_white.svg"); /* Use white SVG */
 }
 .navigation__logout-icon_theme_black {
-  background-image: url("../../assets/images/logout_icon_black.svg") !important; /* Use black SVG */
+  background-image: url("../../assets/images/logout_icon_black.svg"); /* Use black SVG */
 }
 .navigation__logout-icon:hover {
-  opacity: 0.6 !important;
+  opacity: 0.6;
 }
 
 /* Mobile Menu Specific Styles (hidden on desktop, shown on mobile) */
@@ -310,7 +305,7 @@ button.navigation__button_user.header_theme_light:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #1a1b22 !important; /* Dark overlay for mobile menu */
+  background-color: #1a1b22; /* Dark overlay for mobile menu */
   z-index: 10;
   justify-content: flex-start;
   padding-top: 56px;
@@ -319,16 +314,13 @@ button.navigation__button_user.header_theme_light:hover {
 
 /* Hide desktop navigation and show hamburger on mobile */
 @media screen and (max-width: 768px) {
-  .navigation {
-    display: none !important;
-  }
-
   .navigation_open {
     display: flex;
   }
 }
 .header__menu-icon {
-  display: block !important;
+  
+  
 }
 
 /* Media Queries for Responsiveness */

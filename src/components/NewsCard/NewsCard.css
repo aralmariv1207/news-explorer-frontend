@@ -236,14 +236,18 @@
 
 @media screen and (max-width: 768px) {
   .news-card {
-    max-width: 300px;
+    width: 224px;
+    height: 420px;
   }
 
   .news-card__image {
-    height: 180px;
+    width: 224px;
+    height: 150px;
   }
 
   .news-card__title {
+    width: 192px;
+    height: 48px;
     font-size: 20px;
     line-height: 1.2;
     margin-bottom: 10px;

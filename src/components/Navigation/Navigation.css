@@ -184,6 +184,7 @@
 /* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
   .navigation__menu {
+    flex-direction: flex;
     gap: 20px;
   }
   .navigation__link {
@@ -196,6 +197,7 @@
 
 @media screen and (max-width: 768px) {
   .navigation__menu {
+    flex-direction: flex;
     gap: 15px;
   }
 
@@ -222,7 +224,7 @@
 
 @media screen and (max-width: 500px) {
   .navigation__menu {
-    flex-direction: column;
+    flex-direction: flex;
     width: 100%;
     margin-top: 10px;
     gap: 5px;

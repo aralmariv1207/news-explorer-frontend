@@ -322,9 +322,13 @@ button.navigation__button_user.header_theme_light:hover {
   .navigation {
     display: none !important;
   }
-  .header__menu-icon {
-    display: block !important;
+
+  .navigation_open {
+    display: flex;
   }
+}
+.header__menu-icon {
+  display: block !important;
 }
 
 /* Media Queries for Responsiveness */

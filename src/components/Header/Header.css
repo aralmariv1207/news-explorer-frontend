@@ -318,8 +318,6 @@ button.navigation__button_user.header_theme_light:hover {
     display: flex;
   }
 }
-.header__menu-icon {
-}
 
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 1024px) {

@@ -95,8 +95,8 @@
   }
 
   .news-card-list__grid {
-    grid-template-columns: 1fr; /* Single column on very small screens (phones) */
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-bottom: 0px;
   }
 
   .news-card-list__button-container {

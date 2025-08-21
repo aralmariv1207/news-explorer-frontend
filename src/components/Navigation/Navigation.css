@@ -184,7 +184,7 @@
 /* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
   .navigation__menu {
-    flex-direction: flex;
+    flex-direction: row;
     gap: 20px;
   }
   .navigation__link {
@@ -197,7 +197,7 @@
 
 @media screen and (max-width: 768px) {
   .navigation__menu {
-    flex-direction: flex;
+    flex-direction: row;
     gap: 15px;
   }
 
@@ -222,23 +222,13 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media (max-width: 320px) {
+  /* Your mobile navigation styles here */
   .navigation__menu {
-    flex-direction: flex;
-    width: 100%;
-    margin-top: 10px;
-    gap: 5px;
+    display: none;
   }
 
-  .navigation__link,
-  .navigation__signin-button,
-  .navigation__button_user {
-    width: 100%;
-    text-align: center;
-  }
-
-  .navigation__logout-icon {
-    margin-left: auto;
-    margin-right: 5px;
+  .navigation__hamburger {
+    display: block;
   }
 }

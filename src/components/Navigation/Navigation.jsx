@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink } from "react-router-dom"; // Removed useLocation import as it's not directly used for active links here
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
 function Navigation({
@@ -9,10 +9,11 @@ function Navigation({
   onSignInClick,
   isMainPage,
 }) {
-  // const location = useLocation(); // REMOVED: This line is no longer needed as NavLink's isActive prop is sufficient.
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <nav className="navigation">
+      {/* Existing desktop navigation */}
       <div className="navigation__menu">
         <NavLink
           to="/"
@@ -69,6 +70,41 @@ function Navigation({
           >
             Sign in
           </button>
+        )}
+      </div>
+
+      {/* NEW: Mobile burger menu */}
+      <div className="navigation__mobile">
+        <button
+          className={`navigation__burger-menu ${
+            isMobileMenuOpen ? "navigation__burger-menu_open" : ""
+          }`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <span className="navigation__burger-line"></span>
+          <span className="navigation__burger-line"></span>
+        </button>
+
+        {/* Mobile menu overlay */}
+        {isMobileMenuOpen && (
+          <div className="navigation__mobile-overlay">
+            <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
+              Home
+            </NavLink>
+            {isLoggedIn && (
+              <NavLink
+                to="/saved-news"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Saved articles
+              </NavLink>
+            )}
+            {isLoggedIn ? (
+              <button onClick={onLogout}>{currentUser?.name || "User"}</button>
+            ) : (
+              <button onClick={onSignInClick}>Sign in</button>
+            )}
+          </div>
         )}
       </div>
     </nav>

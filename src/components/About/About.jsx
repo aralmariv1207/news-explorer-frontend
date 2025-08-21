@@ -18,17 +18,17 @@ function About() {
           <h2 className="about__title">About the author</h2>
           <p className="about__text">
             I am a full-stack software engineer and a graduate of the TripleTen
-            Software Engineering bootcamp program. This project is a
+            Software Engineering bootcamp program. The NewsExplorer final project is a
             demonstration of my skills in building modern, responsive web
             applications using React. Through this project, I had the
             opportunity to apply my knowledge of React hooks, API integration,
             and user authentication. I believe in the power of well-structured,
-            maintainable code and a great user experience. This final project is
+            maintainable code and a great user experience. Moreover, this project is
             a testament to my commitment to learning and building practical,
             impactful applications.
           </p>
           <p className="about__text">
-            As my NewsExplorer project shows, I also believe in the power of
+            As my NewsExplorer final project shows, I also believe in the power of
             information and its ability to connect people and communities. Join
             me now in exploring the vast world of news!
           </p>

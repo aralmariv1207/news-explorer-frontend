@@ -223,12 +223,63 @@
 }
 
 @media (max-width: 450px) {
-  /* Your mobile navigation styles here */
+  /* Hide the desktop menu on mobile */
   .navigation__menu {
     display: none;
   }
 
-  .navigation__hamburger {
-    display: block;
+  /* Show the mobile burger menu container */
+  .navigation__mobile {
+    display: block; /* Make the container visible */
+  }
+
+  /* Style the burger button itself */
+  .navigation__burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px; /* Height for the three lines and space */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  /* Style each of the two lines within the burger button */
+  .navigation__burger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #fff; /* White color for the burger lines */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 2px;
+  }
+
+  /* Styles for the "open" state of the burger menu */
+  .navigation__burger-menu_open .navigation__burger-line:first-child {
+    transform: rotate(45deg) translate(5px, 5px); /* Rotates the top line to form an 'X' */
+    background-color: #000; /* Changes color to black */
+  }
+
+  .navigation__burger-menu_open .navigation__burger-line:last-child {
+    transform: rotate(-45deg) translate(5px, -5px); /* Rotates the bottom line to form an 'X' */
+    background-color: #000; /* Changes color to black */
+  }
+
+  /* Styles for the mobile menu overlay when it's open */
+  .navigation__mobile-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(26, 27, 34, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 100px; /* Space for the header */
+    z-index: 99;
   }
 }

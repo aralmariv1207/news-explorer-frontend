@@ -222,7 +222,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 450px) {
   /* Your mobile navigation styles here */
   .navigation__menu {
     display: none;

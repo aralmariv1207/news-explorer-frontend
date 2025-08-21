@@ -27,16 +27,22 @@ The final project for the TripleTen Software Engineering bootcamp program, NewsE
 - **Article Saving**: Allows authenticated users to save and unsave articles to their profiles.
 - **Responsive Design**: Adapts to different screen sizes through its layout, thus ensuring a great experience on any device.
 
+
 ### Links
 
-- Frontend: [https://github.com/aralmariv1207/news-explorer-frontend.git]
-- Backend: [TBD]
+- Link to the project design on Figma: [https://www.figma.com/design/3ottwMEhlBt95Dbn8dw1NH/Your-Final-Project?node-id=22618-925&t=kVrhnRxfGDHsxTX7-0]
+
+- Link to the project's frontend: [https://github.com/aralmariv1207/news-explorer-frontend.git]
+
+- Link to the project's backend: [TBD]
+
 
 ### Project Status
 
 The NewsExplorer project is a final, completed submission for the TripleTen Software Engineering bootcamp program.
 
 The project's backend is to be developed after approval of its frontend.
+
 
 ### Author
 

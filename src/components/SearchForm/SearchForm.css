@@ -76,16 +76,12 @@
   }
   .search-form__input {
     border-radius: 100px; /* Full rounded corners when stacked */
-    border-bottom-right-radius: 0; /* Remove bottom-right for input */
-    border-bottom-left-radius: 0; /* Remove bottom-left for input */
     height: 56px; /* Fixed height for mobile input */
     margin-bottom: 16px; /* Space between input and button */
     width: 100%; /* Full width */
   }
   .search-form__button {
     border-radius: 100px; /* Full rounded corners for button */
-    border-top-left-radius: 0; /* Remove top-left for button */
-    border-top-right-radius: 0; /* Remove top-right for button */
     height: 56px; /* Fixed height for mobile button */
     width: 100%; /* Full width */
     padding: 0; /* Remove padding as it's now full width */
@@ -100,8 +96,8 @@
   }
 }
 
-/* Styles for screens up to 320px wide (MOBILE) */
-@media screen and (max-width: 320px) {
+/* Styles for screens up to 450px wide (MOBILE) */
+@media screen and (max-width: 450px) {
   .search-results__cards-container {
     display: flex;
     flex-direction: column;

@@ -79,15 +79,17 @@
 @media screen and (max-width: 500px) {
   .hero {
     min-height: 200px; /* Adjusted min-height for small mobile */
-    padding: 0 16px;
+    padding: 0 16px 25px;
   }
   .hero__title {
     font-size: 32px;
     line-height: 36px;
+    text-align: left;
   }
   .hero__subtitle {
     font-size: 14px;
     line-height: 20px;
     margin-bottom: 16px;
+    text-align: left;
   }
 }

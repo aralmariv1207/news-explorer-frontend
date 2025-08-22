@@ -96,7 +96,6 @@
     flex-direction: column; /* Stack image and text vertically */
     text-align: center;
     gap: 24px; /* Adjust gap for stacked layout */
-
   }
   .about__image-container {
     width: 140px; /* Adjust for mobile */
@@ -129,9 +128,14 @@
   .about {
     padding: 16px;
   }
+
+  .about__image {
+    width: 272px;
+    height: 272px;
+  }
+
   .about__image-container {
-    width: 120px; /* Further adjust for small mobile */
-    height: 120px; /* Further adjust for small mobile */
+    width: 272px; /* Further adjust for small mobile */
+    height: 272px; /* Further adjust for small mobile */
   }
 }
-

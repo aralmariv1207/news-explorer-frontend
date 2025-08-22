@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Navigation from "../Navigation/Navigation"; // Re-import the Navigation component
+import Navigation from "../Navigation/Navigation";
 import "./Header.css";
 
 function Header({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
@@ -16,17 +16,14 @@ function Header({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Function to toggle the mobile menu state
   const handleToggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Function to close the mobile menu
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // Handlers for navigation actions, ensuring mobile menu closes
   const handleLogoutAndCloseMenu = () => {
     onLogout();
     closeMobileMenu();
@@ -37,6 +34,10 @@ function Header({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
     closeMobileMenu();
   };
 
+  const headerElementsMobileOpenClass = isMobileMenuOpen
+    ? "header__element_mobile-open"
+    : "";
+
   return (
     <header
       className={`header ${headerThemeClass} ${
@@ -45,55 +46,51 @@ function Header({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
     >
       <Link
         to="/"
-        className={`header__logo ${logoThemeClass}`}
+        className={`header__logo ${logoThemeClass} ${headerElementsMobileOpenClass}`}
         onClick={closeMobileMenu}
       >
         NewsExplorer
       </Link>
 
-      {/* The Burger Menu Icon - controlled by Header's state */}
       <button
         type="button"
-        className={`header__menu-icon ${headerThemeClass} ${
+        className={`header__menu-icon ${
           isMobileMenuOpen ? "header__menu-icon_close" : ""
-        }`}
+        } ${headerElementsMobileOpenClass}`}
         onClick={handleToggleMobileMenu}
-        aria-label="Open mobile menu"
+        aria-label={isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
       >
-        <span className="header__menu-icon-line"></span> {/* Line 1 */}
-        <span className="header__menu-icon-line"></span> {/* Line 2 */}
+        <span className="header__menu-icon-line"></span>
+        <span className="header__menu-icon-line"></span>
       </button>
 
-      {/* Mobile Overlay Backdrop - conditionally rendered */}
       {isMobileMenuOpen && (
         <div className="header__mobile-overlay" onClick={closeMobileMenu}>
-          {/* Mobile Navigation Content inside the overlay */}
           <nav
-            className="navigation navigation_mobile-open"
+            className="navigation_mobile-open"
             onClick={(e) => e.stopPropagation()}
           >
             <Navigation
               isLoggedIn={isLoggedIn}
               currentUser={currentUser}
-              onLogout={handleLogoutAndCloseMenu} // Use handlers that close the menu
-              onSignInClick={handleSignInAndCloseMenu} // Use handlers that close the menu
-              isMobile={true} // Indicate this Navigation is for the mobile view
-              closeMobileMenu={closeMobileMenu} // Pass close function
-              isSavedNewsPage={isSavedNewsPage} // Pass theme info
+              onLogout={handleLogoutAndCloseMenu}
+              onSignInClick={handleSignInAndCloseMenu}
+              isMobile={true}
+              closeMobileMenu={closeMobileMenu}
+              isSavedNewsPage={isSavedNewsPage}
             />
           </nav>
         </div>
       )}
 
-      {/* Desktop/Tablet Navigation Menu - always rendered, but hidden by CSS on mobile */}
-      <nav className="navigation navigation_desktop">
+      <nav className="navigation_desktop">
         <Navigation
           isLoggedIn={isLoggedIn}
           currentUser={currentUser}
-          onLogout={onLogout} // Desktop logout doesn't need to close mobile menu
-          onSignInClick={onSignInClick} // Desktop sign-in doesn't need to close mobile menu
-          isMobile={false} // Indicate this Navigation is for the desktop view
-          isSavedNewsPage={isSavedNewsPage} // Pass theme info
+          onLogout={onLogout}
+          onSignInClick={onSignInClick}
+          isMobile={false}
+          isSavedNewsPage={isSavedNewsPage}
         />
       </nav>
     </header>

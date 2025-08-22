@@ -1,16 +1,21 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
+import logoutIconWhite from "../../assets/images/logout_icon_white.svg";
+import logoutIconBlack from "../../assets/images/logout_icon_black.svg";
 
 function Navigation({
   isLoggedIn,
   currentUser,
   onLogout,
   onSignInClick,
-  isMobile, // Controls rendering for mobile vs. desktop
-  closeMobileMenu, // Function to close the mobile menu (passed from Header)
-  isSavedNewsPage, // Prop to determine theme
+  isMobile,
+  closeMobileMenu,
+  isSavedNewsPage,
 }) {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   const navLinkThemeClass = isSavedNewsPage
     ? "navigation__link_theme_light"
     : "navigation__link_theme_dark";
@@ -24,52 +29,54 @@ function Navigation({
     ? "navigation__logout-icon_theme_black"
     : "navigation__logout-icon_theme_white";
 
-  // Helper to get active class for NavLink, considering theme
-  const getNavLinkClassName = ({ isActive }) =>
-    `${navLinkThemeClass} ${isActive ? "navigation__link_active" : ""}`;
-
   if (isMobile) {
     return (
       <ul className="navigation__menu navigation__menu_mobile">
         <li>
-          <NavLink
+          <Link
             to="/"
-            className={getNavLinkClassName}
+            className={`navigation__link ${
+              currentPath === "/" ? "navigation__link_active" : ""
+            }`}
             onClick={closeMobileMenu}
           >
             Home
-          </NavLink>
+          </Link>
         </li>
         {isLoggedIn && (
           <li>
-            <NavLink
+            <Link
               to="/saved-news"
-              className={getNavLinkClassName}
+              className={`navigation__link ${
+                currentPath === "/saved-news" ? "navigation__link_active" : ""
+              }`}
               onClick={closeMobileMenu}
             >
               Saved articles
-            </NavLink>
+            </Link>
           </li>
         )}
         <li>
-          {!isLoggedIn ? (
+          {isLoggedIn ? (
             <button
               type="button"
-              className={`navigation__signin-button navigation__signin-button_mobile ${signInButtonThemeClass}`}
-              onClick={onSignInClick}
+              className={`navigation__button_user_mobile`}
+              onClick={onLogout}
             >
-              Sign in
+              {currentUser?.name || "User"}
+              <img
+                src={logoutIconWhite}
+                alt="Logout"
+                className={`navigation__logout-icon ${logoutIconThemeClass}`}
+              />
             </button>
           ) : (
             <button
               type="button"
-              className={`navigation__button_user navigation__button_user_mobile ${userButtonThemeClass}`}
-              onClick={onLogout}
+              className={`navigation__signin-button_mobile`}
+              onClick={onSignInClick}
             >
-              {currentUser?.name || "User"}
-              <span
-                className={`navigation__logout-icon ${logoutIconThemeClass}`}
-              ></span>
+              Sign in
             </button>
           )}
         </li>
@@ -80,36 +87,48 @@ function Navigation({
   return (
     <ul className="navigation__menu navigation__menu_desktop">
       <li>
-        <NavLink to="/" className={getNavLinkClassName}>
+        <Link
+          to="/"
+          className={`navigation__link ${navLinkThemeClass} ${
+            currentPath === "/" ? "navigation__link_active" : ""
+          }`}
+        >
           Home
-        </NavLink>
+        </Link>
       </li>
       {isLoggedIn && (
         <li>
-          <NavLink to="/saved-news" className={getNavLinkClassName}>
+          <Link
+            to="/saved-news"
+            className={`navigation__link ${navLinkThemeClass} ${
+              currentPath === "/saved-news" ? "navigation__link_active" : ""
+            }`}
+          >
             Saved articles
-          </NavLink>
+          </Link>
         </li>
       )}
       <li>
-        {!isLoggedIn ? (
+        {isLoggedIn ? (
           <button
             type="button"
-            className={`navigation__signin-button navigation__signin-button_desktop ${signInButtonThemeClass}`}
-            onClick={onSignInClick}
+            className={`navigation__button_user_desktop ${userButtonThemeClass}`}
+            onClick={onLogout}
           >
-            Sign in
+            {currentUser?.name || "User"}
+            <img
+              src={isSavedNewsPage ? logoutIconBlack : logoutIconWhite}
+              alt="Logout"
+              className={`navigation__logout-icon ${logoutIconThemeClass}`}
+            />
           </button>
         ) : (
           <button
             type="button"
-            className={`navigation__button_user navigation__button_user_desktop ${userButtonThemeClass}`}
-            onClick={onLogout}
+            className={`navigation__signin-button_desktop ${signInButtonThemeClass}`}
+            onClick={onSignInClick}
           >
-            {currentUser?.name || "User"}
-            <span
-              className={`navigation__logout-icon ${logoutIconThemeClass}`}
-            ></span>
+            Sign in
           </button>
         )}
       </li>

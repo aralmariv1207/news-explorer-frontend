@@ -1,18 +1,18 @@
 /* src/components/Navigation/Navigation.css */
 
-/* --- Base Navigation Menu Styles (applies to both desktop and mobile versions of Navigation) --- */
+/* --- Base Navigation Menu Styles --- */
 .navigation__menu {
-  list-style: none; /* Remove default list styling */
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* --- Desktop/Tablet Menu Content Styles (when isMobile=false) --- */
+/* --- Desktop/Tablet Menu Content Styles --- */
 .navigation__menu_desktop {
   display: flex;
   align-items: center;
-  gap: 30px; /* Spacing between desktop links/buttons */
-  height: 100%; /* Take full height of parent (Header) */
+  gap: 30px;
+  height: 100%;
 }
 
 /* Base Link Styling for desktop/tablet */
@@ -21,31 +21,29 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  text-decoration: none; /* No underline by default */
-  padding: 0; /* No vertical padding, height is handled by container */
+  text-decoration: none;
+  padding: 0;
   border-radius: 0;
   transition: opacity 0.3s ease, color 0.3s ease;
-  height: 100%; /* Take full height to align correctly */
+  height: 100%;
   display: flex;
-  align-items: center; /* Vertically center link text */
+  align-items: center;
   box-sizing: border-box;
-  position: relative; /* For active underline */
+  position: relative;
 }
 
-/* Link Colors based on theme (used by Header to pass theme class) */
+/* Link Colors based on theme */
 .navigation__link_theme_dark {
-  /* Links in dark header (homepage) */
-  color: rgba(255, 255, 255, 0.6); /* Lighter grey for inactive */
+  color: rgba(255, 255, 255, 0.6);
 }
 .navigation__link_theme_dark:hover {
-  color: #fff; /* White on hover */
+  color: #fff;
 }
 .navigation__link_theme_light {
-  /* Links in light header (saved-news) */
-  color: rgba(26, 27, 34, 0.6); /* Lighter grey for inactive */
+  color: rgba(26, 27, 34, 0.6);
 }
 .navigation__link_theme_light:hover {
-  color: #1a1b22; /* Black on hover */
+  color: #1a1b22;
 }
 
 /* Active link styling */
@@ -53,27 +51,27 @@
   font-weight: 500;
 }
 .navigation__link_active.navigation__link_theme_dark {
-  color: #fff; /* White for active in dark theme */
+  color: #fff;
 }
 .navigation__link_active.navigation__link_theme_light {
-  color: #1a1b22; /* Dark for active in light theme */
+  color: #1a1b22;
 }
 
 /* Underline for active link */
 .navigation__link_active::after {
   content: "";
   position: absolute;
-  bottom: -1px; /* Aligns with the header's bottom border */
+  bottom: -1px;
   left: 0;
   width: 100%;
   height: 3px;
 }
 /* Underline color based on theme */
 .navigation__link_active.navigation__link_theme_dark::after {
-  background-color: #fff; /* White underline for active in dark theme */
+  background-color: #fff;
 }
 .navigation__link_active.navigation__link_theme_light::after {
-  background-color: #1a1b22; /* Dark underline for active in light theme */
+  background-color: #1a1b22;
 }
 
 /* --- Desktop/Tablet Button Styles --- */
@@ -141,7 +139,7 @@
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.3s ease;
-  margin-left: 8px; /* Space between user name and icon */
+  margin-left: 8px;
 }
 
 /* Apply correct background-image for dark theme (white icon) */
@@ -160,32 +158,24 @@
 .navigation__menu_mobile {
   display: flex;
   flex-direction: column;
-  width: calc(
-    100% - 32px
-  ); /* Full width of overlay minus its horizontal padding */
+  width: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
-  align-items: center; /* Center items horizontally */
-  gap: 16px; /* Space between links/buttons in mobile menu */
-  background-color: #1a1b22; /* Dark background for the mobile menu content itself */
-  padding-bottom: 24px; /* Space at the bottom */
-  border-radius: 0 0 10px 10px; /* Rounded bottom corners to match Figma */
+  gap: 16px;
 }
 
 /* Mobile Link Styling */
 .navigation__menu_mobile .navigation__link {
-  color: #fff; /* Always white on dark mobile overlay */
+  color: #fff;
   width: 100%;
   text-align: center;
   padding: 15px 0;
   font-size: 18px;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-sizing: border-box;
-  display: flex; /* Make links flex for centering content */
-  justify-content: center; /* Center text */
-  height: auto; /* Allow height to adjust based on padding */
+  display: block;
 }
 .navigation__menu_mobile .navigation__link:last-of-type {
   border-bottom: none;
@@ -194,16 +184,14 @@
   opacity: 0.8;
 }
 .navigation__menu_mobile .navigation__link_active::after {
-  display: none; /* No underline in mobile menu */
+  display: none;
 }
 
 /* Mobile Button Styling */
 .navigation__signin-button_mobile,
 .navigation__button_user_mobile {
-  width: calc(
-    100% - 32px
-  ); /* Full width of mobile menu content minus its own padding */
-  margin-top: 20px; /* Space from last link */
+  width: 100%;
+  margin-top: 20px;
   color: #fff;
   border: 1px solid #fff;
   border-radius: 100px;
@@ -223,7 +211,7 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 .navigation__menu_mobile .navigation__logout-icon {
-  background-image: url("../../assets/images/logout_icon_white.svg"); /* Always white on dark mobile menu */
+  background-image: url("../../assets/images/logout_icon_white.svg");
 }
 
 /* --- Media Queries for Navigation Component --- */
@@ -234,7 +222,7 @@
     gap: 20px;
   }
   .navigation__link {
-    font-size: 14px; /* Smaller font for tablet links */
+    font-size: 14px;
   }
   .navigation__signin-button_desktop,
   .navigation__button_user_desktop {
@@ -248,10 +236,10 @@
 /* Smaller Tablet/Larger Mobile (max-width: 768px) */
 @media screen and (max-width: 768px) {
   .navigation__menu_desktop {
-    gap: 15px; /* Adjust desktop spacing further */
+    gap: 15px;
   }
   .navigation__link {
-    font-size: 13px; /* Even smaller font for tight tablet views */
+    font-size: 13px;
   }
   .navigation__signin-button_desktop,
   .navigation__button_user_desktop {
@@ -264,8 +252,7 @@
   }
 }
 
-/* Mobile (max-width: 500px) - General adjustments for smaller screens */
+/* Mobile (max-width: 500px) */
 @media screen and (max-width: 500px) {
-  /* No specific changes for mobile menu content here, as it's designed to be responsive */
-  /* The .navigation__menu_mobile rules already provide mobile-specific layout */
+  /* No specific changes for mobile menu content here */
 }

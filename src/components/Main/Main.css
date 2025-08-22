@@ -83,7 +83,8 @@
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
-  .results-section { /* Added responsiveness for results-section padding */
+  .results-section {
+    /* Added responsiveness for results-section padding */
     padding: 20px 0;
   }
   .preloader-container,
@@ -93,7 +94,8 @@
 }
 
 @media screen and (max-width: 500px) {
-  .results-section { /* Added responsiveness for results-section padding */
+  .results-section {
+    /* Added responsiveness for results-section padding */
     padding: 15px 0;
   }
   .preloader-container,

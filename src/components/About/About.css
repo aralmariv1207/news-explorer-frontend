@@ -5,6 +5,7 @@
   background-color: #fff; /* White background as per Figma */
   box-sizing: border-box; /* Ensure padding is included in element's total width/height */
   width: 100%; /* Ensure it spans full width */
+  border-bottom: none;
 }
 
 .about__content {
@@ -94,7 +95,6 @@
   }
   .about__content {
     flex-direction: column; /* Stack image and text vertically */
-    text-align: center;
     gap: 24px; /* Adjust gap for stacked layout */
   }
   .about__image-container {

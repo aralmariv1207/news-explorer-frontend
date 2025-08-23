@@ -10,6 +10,7 @@ function Header({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
   const headerThemeClass = isSavedNewsPage
     ? "header_theme_light"
     : "header_theme_dark";
+  // logoThemeClass is still useful for default logo color on desktop/closed mobile
   const logoThemeClass = isSavedNewsPage
     ? "header__logo_theme_light"
     : "header__logo_theme_dark";
@@ -34,10 +35,6 @@ function Header({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
     closeMobileMenu();
   };
 
-  const headerElementsMobileOpenClass = isMobileMenuOpen
-    ? "header__element_mobile-open"
-    : "";
-
   return (
     <header
       className={`header ${headerThemeClass} ${
@@ -46,7 +43,7 @@ function Header({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
     >
       <Link
         to="/"
-        className={`header__logo ${logoThemeClass} ${headerElementsMobileOpenClass}`}
+        className={`header__logo ${logoThemeClass}`} // Removed headerElementsMobileOpenClass here
         onClick={closeMobileMenu}
       >
         NewsExplorer
@@ -56,7 +53,7 @@ function Header({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
         type="button"
         className={`header__menu-icon ${
           isMobileMenuOpen ? "header__menu-icon_close" : ""
-        } ${headerElementsMobileOpenClass}`}
+        }`} // Removed headerElementsMobileOpenClass here
         onClick={handleToggleMobileMenu}
         aria-label={isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
       >

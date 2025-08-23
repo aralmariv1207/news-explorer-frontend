@@ -19,9 +19,8 @@ function About() {
           <p className="about__text">
             My name is Aldo Almánzar Rivera, and I am a full-stack software
             engineer and a graduate of the TripleTen Software Engineering
-            bootcamp program. The NewsExplorer final project is a demonstration
-            of my skills in building modern, responsive web applications using
-            React.
+            program. The NewsExplorer final project is a demonstration of my
+            skills in building modern, responsive web applications using React.
           </p>
           <p className="about__text">
             Through this project, I had the opportunity to apply my knowledge of

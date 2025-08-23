@@ -159,7 +159,7 @@
     left: 0;
     width: 100%;
     z-index: 1000; /* *** CRITICAL: Very high z-index for the header itself on mobile *** */
-    background-color: #fff; /* Default white background for mobile header */
+
     border-bottom-color: rgba(
       26,
       27,

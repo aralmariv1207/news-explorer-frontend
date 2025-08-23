@@ -1,4 +1,4 @@
-# NewsExplorer: TripleTen Software Engineering Bootcamp - Final Project
+# NewsExplorer: TripleTen Software Engineering Program - Final Project
 
 ## Overview
 
@@ -11,7 +11,7 @@
 
 ### Project Description
 
-The final project for the TripleTen Software Engineering bootcamp program, NewsExplorer is a responsive web application that allows users to search for news articles on any topic, powered by a third-party news API. Through it, users can sign in to save their favorite articles to a personal account, which they can access at any time. The application is designed to provide a seamless and intuitive user experience across a range of devices, from desktops to tablets and mobile phones.
+The final project for the TripleTen Software Engineering program, NewsExplorer is a responsive web application that allows users to search for news articles on any topic, powered by a third-party news API. Through it, users can sign in to save their favorite articles to a personal account, which they can access at any time. The application is designed to provide a seamless and intuitive user experience across a range of devices, from desktops to tablets and mobile phones.
 
 ### Technologies Used
 
@@ -27,7 +27,6 @@ The final project for the TripleTen Software Engineering bootcamp program, NewsE
 - **Article Saving**: Allows authenticated users to save and unsave articles to their profiles.
 - **Responsive Design**: Adapts to different screen sizes through its layout, thus ensuring a great experience on any device.
 
-
 ### Links
 
 - Link to the project design on Figma: [https://www.figma.com/design/3ottwMEhlBt95Dbn8dw1NH/Your-Final-Project?node-id=22618-925&t=kVrhnRxfGDHsxTX7-0]
@@ -36,13 +35,11 @@ The final project for the TripleTen Software Engineering bootcamp program, NewsE
 
 - Link to the project's backend: [TBD]
 
-
 ### Project Status
 
-The NewsExplorer project is a final, completed submission for the TripleTen Software Engineering bootcamp program.
+The NewsExplorer project is a final, completed submission for the TripleTen Software Engineering program.
 
 The project's backend is to be developed after approval of its frontend.
-
 
 ### Author
 

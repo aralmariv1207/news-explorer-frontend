@@ -103,9 +103,10 @@
   transition: opacity 0.3s ease, visibility 0.3s ease;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 56px; /* Matches mobile header height */
+  margin-top: 56px; /* Matches mobile header height */
   box-sizing: border-box;
   overflow-y: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* When mobile menu is open, show the overlay */

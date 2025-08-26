@@ -1,0 +1,49 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Apply the full-page background image to the .app-container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  background-image: url("./assets/images/background-image__georgia-de-lotz--UsJoNxLaNo-unsplash.png");
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed; /* Keep background fixed when scrolling */
+}
+
+/* Remove background image for saved-news page */
+.app-container--saved-news {
+  background-image: none;
+}
+
+/* Styles for screens up to 768px wide (TABLET) */
+@media screen and (max-width: 768px) {
+  .page-container {
+    padding: 0 24px;
+  }
+}
+
+/* Styles for screens up to 320px wide (MOBILE) */
+@media screen and (max-width: 320px) {
+  .page-container {
+    padding: 0 16px;
+  }
+}

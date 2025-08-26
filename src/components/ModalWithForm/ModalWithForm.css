@@ -1,0 +1,263 @@
+/* Styles for the modal overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+  display: flex;
+  justify-content: center; /* Adjusted: Perfectly centers the modal horizontally */
+  align-items: flex-start; /* Aligns to the top vertically */
+  padding-top: 150px; /* Vertical position of the entire modal */
+  /* Removed padding-left as justify-content: center handles horizontal centering */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0; /* Hidden by default */
+  transition: visibility 0s, opacity 0.3s ease;
+  z-index: 9999; /* Ensure it's on top of everything */
+}
+
+/* Class to make the modal visible when opened */
+.modal_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Styles for the modal container (the white box) */
+.modal__container {
+  position: relative; /* Essential for absolute positioning of its children */
+  background-color: #fff;
+  padding: 24px 36px 30px; /* Top padding for title space */
+  border-radius: 16px; /* Matches Figma's 16px radius for the modal container */
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  max-width: 430px; /* Back to Figma's exact 430px width */
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width calculation */
+  overflow: visible; /* Ensures nothing inside is clipped if it goes outside padding */
+  z-index: 100; /* Ensure it's above other content */
+}
+
+/* Styles for the close button (the 'X' icon) */
+.modal__close-button {
+  position: absolute;
+  top: -46px; /* Positioned outside the container */
+  right: -80px; /* Moved further to the right to match Figma's exact position */
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-image: url("../../assets/images/close_icon.svg"); /* Confirmed: close_icon.svg with underscore */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 101; /* Make sure it's above the modal container's default content */
+}
+
+.modal__close-button:hover {
+  opacity: 0.6;
+}
+
+/* Basic styling for title, form, and buttons inside the modal */
+.modal__title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000;
+  margin-bottom: 25px; /* Consistent margin below title */
+  margin-top: 0;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styles for labels within the modal forms */
+.modal__label {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #2f71e5; /* Blue color as per Figma */
+  margin-bottom: 8px; /* Space between label and input */
+  display: block; /* Ensures label takes full width */
+}
+
+/* Styles for input fields within the modal forms */
+.modal__input {
+  width: 100%; /* Full width within container */
+  height: 60px; /* Figma shows 60px height for inputs */
+  background-color: transparent; /* Make background transparent */
+  border: none; /* Removed full border */
+  border-bottom: 1px solid #e6e8eb; /* Added only bottom border with gray color */
+  border-radius: 0; /* Removed border-radius for line effect */
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #1a1b22; /* Dark text color */
+  box-sizing: border-box; /* Include padding/border in width/height */
+  outline: none; /* Remove default outline */
+}
+
+.modal__input::placeholder {
+  color: #b6bcbf; /* Lighter placeholder text color */
+}
+
+.modal__input:focus {
+  border-bottom-color: #000000; /* Black bottom border color on focus */
+  border-top-color: transparent; /* Ensure only bottom border is affected on focus */
+  border-left-color: transparent; /* Ensure only bottom border is affected on focus */
+  border-right-color: transparent; /* Ensure only bottom border is affected on focus */
+}
+
+/* Styles for the submit button */
+.modal__submit-button {
+  width: 100%;
+  height: 64px; /* Height as per Figma */
+  background-color: #2f71e5;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 100px; /* Rounded corners as per Figma */
+  cursor: pointer;
+  margin-top: 20px; /* Space from last input to button */
+  transition: background-color 0.3s ease;
+}
+
+.modal__submit-button:hover {
+  background-color: #347eff;
+}
+
+/* New style for disabled submit button */
+.modal__submit-button:disabled {
+  background-color: #e6e8eb; /* Lighter background as per Figma for inactive */
+  color: #b6bcbf; /* Lighter text color */
+  cursor: not-allowed; /* Indicate it's not clickable */
+}
+
+/* Styling for the "or" link at the bottom of the modals (generic, centered) */
+.modal__link-option {
+  font-family: "Inter", sans-serif; /* Use Inter as per Figma for this text */
+  font-size: 14px;
+  line-height: 22px;
+  color: #000; /* Default text color for "or" part */
+  text-align: center; /* Default to center for generic "or" link */
+  padding-left: 0; /* No specific padding here */
+  margin-top: 14px; /* Default margin-top */
+  margin-bottom: 0; /* No bottom margin */
+  cursor: default; /* Default cursor for "or" text */
+}
+
+.modal__link-option .modal__link-text {
+  color: #2f71e5; /* Blue color for the clickable link part */
+  cursor: pointer;
+  text-decoration: none; /* No underline by default, will add on hover */
+  transition: opacity 0.3s ease, text-decoration 0.3s ease;
+  margin-left: 5px; /* Small space between "or" and "Sign in/up" */
+  font-size: 18px; /* Explicitly set font size for the clickable link part */
+}
+
+.modal__link-option .modal__link-text:hover {
+  opacity: 0.7;
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* New style for error messages (client-side, per input) */
+.modal__error-message {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000; /* Red color for errors as per Figma */
+  margin-top: -15px; /* Adjust to position correctly below input */
+  margin-bottom: 10px; /* Space after error message */
+  text-align: left;
+  min-height: 15px; /* Reserve space to prevent layout shift */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal__error-message_visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* NEW STYLE: For server-side error messages (at bottom of form) */
+.modal__server-message {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000; /* Red color for errors as per Figma */
+  text-align: center; /* Adjusted: Centered as per Figma */
+  margin-top: 5px; /* Adjusted: Reduced top margin for tight fit */
+  margin-bottom: 5px; /* Adjusted: Reduced bottom margin for tight fit */
+  min-height: 15px; /* Reserve space to prevent layout shift */
+  display: block; /* Ensures it takes full width for centering */
+  opacity: 1; /* Always visible when present */
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 500px) {
+  .modal__container {
+    max-width: 100%;
+    width: 100%;
+    height: 100%; /* Full height on small screens */
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .modal__close-button {
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .modal__submit-button {
+    height: 60px; /* Slight adjustment for mobile */
+  }
+
+  .modal__label {
+    font-size: 10px; /* Smaller font for mobile labels */
+  }
+
+  .modal__input {
+    height: 48px; /* Smaller height for mobile inputs */
+    padding: 0 10px;
+  }
+
+  .modal__link-option {
+    font-size: 12px; /* Smaller font for mobile "or" text */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /*
+  This ensures the modal takes up the full width of the screen,
+  with the proper padding, on tablets and smaller devices.
+  */
+  .modal__container {
+    max-width: 70%; /* Adjusts the width for tablets */
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding is included in the total width */
+  }
+
+  /* Optional: Adjust modal content sizes inside the modal container */
+  .modal__header {
+    font-size: 20px;
+  }
+
+  .modal__form {
+    padding: 0 16px;
+  }
+}

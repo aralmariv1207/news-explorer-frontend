@@ -1,0 +1,205 @@
+/* src/components/Header/Header.css */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 104px; /* Desktop padding */
+  box-sizing: border-box;
+  width: 100%;
+  height: 80px; /* Desktop height */
+  position: relative; /* Default for desktop */
+  z-index: 10; /* Default z-index for desktop */
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+  border-bottom: 1px solid;
+}
+
+/* Header themes */
+.header_theme_dark {
+  background-color: transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.header_theme_light {
+  background-color: #fff;
+  border-bottom-color: rgba(26, 27, 34, 0.2);
+}
+
+.header__logo {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+  margin: 0;
+  cursor: pointer;
+  z-index: 20; /* Ensure logo is above default header content */
+}
+
+/* Logo colors based on theme */
+.header_theme_dark .header__logo {
+  color: #fff;
+}
+
+.header_theme_light .header__logo {
+  color: #1a1b22;
+}
+
+/* --- Burger Menu Icon (CSS-ONLY HAMBURGER) --- */
+.header__menu-icon {
+  display: none; /* Hidden by default on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 20; /* Ensure burger button is above default header content */
+  position: relative;
+}
+
+.header__menu-icon-line {
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Menu icon line colors based on theme */
+.header_theme_dark .header__menu-icon-line {
+  background-color: #fff;
+}
+
+.header_theme_light .header__menu-icon-line {
+  background-color: #1a1b22;
+}
+
+/* "Open" state of the burger menu (transforms to 'X') */
+.header__menu-icon_close .header__menu-icon-line:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+  background-color: #fff; /* White for the 'X' */
+}
+
+.header__menu-icon_close .header__menu-icon-line:last-child {
+  transform: rotate(-45deg) translate(5px, -5px);
+  background-color: #fff; /* White for the 'X' */
+}
+
+/* --- Mobile Overlay Backdrop --- */
+.header__mobile-overlay {
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(26, 27, 34, 0.9);
+  z-index: 99; /* This should be lower than header's z-index */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 56px; /* Matches mobile header height */
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* When mobile menu is open, show the overlay */
+.header_mobile-menu-open .header__mobile-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Styles for the mobile navigation content container */
+.navigation_mobile-open {
+  background-color: #1a1b22;
+  width: calc(100% - 32px);
+  max-width: 320px;
+  padding: 16px;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* --- Desktop Navigation Wrapper --- */
+.navigation_desktop {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px) {
+  .header {
+    height: 60px;
+    padding: 0 40px;
+  }
+  .header__logo {
+    font-size: 18px;
+  }
+  .header_mobile-menu-open .header__mobile-overlay {
+    padding-top: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Ensure header is fixed on mobile */
+  .header {
+    height: 56px;
+    padding: 0 16px;
+    flex-direction: row;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Base z-index for mobile header when closed */
+
+    border-bottom-color: rgba(
+      26,
+      27,
+      34,
+      0.2
+    ); /* Default light border for mobile header */
+  }
+
+  /* Show menu icon on mobile */
+  .header__menu-icon {
+    display: flex;
+    justify-content: unset;
+    gap: 5px;
+  }
+
+  /* Hide desktop navigation on mobile */
+  .navigation_desktop {
+    display: none;
+  }
+
+  /* Adjust overlay padding-top to match mobile header height */
+  .header__mobile-overlay {
+    padding-top: 56px; /* Match mobile header height */
+  }
+
+  /* --- Styles when mobile menu is OPEN --- */
+  .header_mobile-menu-open {
+    background-color: #1a1b22; /* Dark background for the header when menu is open */
+    border-bottom-color: transparent;
+    z-index: 1000; /* The highest z-index to ensure it's on top */
+  }
+
+  /* Logo color becomes white when menu is open */
+  .header_mobile-menu-open .header__logo {
+    color: #fff;
+  }
+
+  /* Menu icon lines become white when menu is open */
+  .header_mobile-menu-open .header__menu-icon-line {
+    background-color: #fff;
+  }
+}

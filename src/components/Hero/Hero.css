@@ -1,0 +1,95 @@
+.hero {
+  /* REMOVED background-image, background-size, background-position, background-repeat from here */
+  min-height: 560px; /* Adjusted to a common hero height for responsiveness */
+  display: flex;
+  flex-direction: column; /* Changed to column to stack content */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative; /* Essential for the pseudo-element overlay */
+  padding: 0 104px; /* Matches content padding */
+  box-sizing: border-box;
+  width: 100%; /* Ensure it spans full width */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* Dark overlay for text readability */
+  z-index: 1; /* Overlay should be above background, but below content */
+}
+
+.hero__content {
+  max-width: 600px; /* Adjust based on Figma for text width */
+  z-index: 2; /* Keep content above overlay */
+  position: relative; /* Ensure content stacks correctly over pseudo-element */
+}
+
+.hero__title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 60px; /* Adjust as per Figma */
+  line-height: 64px;
+  margin-bottom: 24px;
+}
+
+.hero__subtitle {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 48px; /* Space between subtitle and search form */
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px) {
+  .hero {
+    min-height: 400px; /* Adjusted min-height for tablet */
+    padding: 0 40px;
+  }
+  .hero__title {
+    font-size: 48px;
+    line-height: 52px;
+  }
+  .hero__subtitle {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    min-height: 280px; /* Adjusted min-height for mobile */
+    padding: 0 24px;
+  }
+  .hero__title {
+    font-size: 40px;
+    line-height: 44px;
+  }
+  .hero__subtitle {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hero {
+    min-height: 200px; /* Adjusted min-height for small mobile */
+    padding: 0 16px 25px;
+  }
+  .hero__title {
+    font-size: 32px;
+    line-height: 36px;
+    text-align: left;
+  }
+  .hero__subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+}

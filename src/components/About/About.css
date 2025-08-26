@@ -1,0 +1,141 @@
+/* src/components/About/About.css */
+
+.about {
+  padding: 80px 104px; /* Consistent padding with other sections */
+  background-color: #fff; /* White background as per Figma */
+  box-sizing: border-box; /* Ensure padding is included in element's total width/height */
+  width: 100%; /* Ensure it spans full width */
+  border-bottom: none;
+}
+
+.about__content {
+  max-width: 1232px; /* Match main content width from Figma */
+  margin: 0 auto; /* Center the content horizontally */
+  display: flex; /* Use flexbox for side-by-side layout */
+  gap: 56px; /* Space between image and text as per Figma */
+  align-items: center; /* Vertically center content within the flex container */
+  justify-content: center; /* Center horizontally if content doesn't fill max-width */
+}
+
+.about__image-container {
+  flex-shrink: 0; /* Prevent image from shrinking */
+  width: 464px; /* Adjusted: Larger width for image container as per Figma */
+  height: 464px; /* Adjusted: Larger height for image container as per Figma */
+  border-radius: 50%; /* Make it round */
+  overflow: hidden; /* Ensure image stays within bounds */
+  background-color: #f0f0f0; /* Placeholder background, might not be visible with an actual image */
+  display: flex; /* Use flex to center image if it's smaller than container */
+  align-items: center;
+  justify-content: center;
+}
+
+.about__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the container */
+  display: block; /* Remove extra space below image if it's inline */
+}
+
+.about__text-container {
+  flex-grow: 1; /* Allow text to take remaining space */
+  max-width: 600px; /* Limit text width for readability, as per Figma */
+}
+
+.about__title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1a1b22;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.about__text {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1a1b22;
+  margin-bottom: 16px; /* Space between paragraphs */
+}
+
+.about__text:last-child {
+  margin-bottom: 0;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px) {
+  .about {
+    padding: 40px 40px; /* Adjust padding for tablets */
+  }
+  .about__content {
+    gap: 40px; /* Adjust gap */
+  }
+  .about__image-container {
+    width: 180px; /* Adjust for tablet */
+    height: 180px; /* Adjust for tablet */
+  }
+  .about__title {
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 16px;
+  }
+  .about__text {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 24px 16px;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+  }
+  .about__content {
+    flex-direction: column; /* Stack image and text vertically */
+    gap: 24px; /* Adjust gap for stacked layout */
+  }
+  .about__image-container {
+    width: 140px; /* Adjust for mobile */
+    height: 140px; /* Adjust for mobile */
+  }
+  .about__title {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .about__text {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+  }
+
+  .about__image {
+    margin-bottom: 15px;
+    width: 232px;
+    height: 232px;
+  }
+
+  .about__text-container {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about {
+    padding: 16px;
+  }
+
+  .about__image {
+    width: 272px;
+    height: 272px;
+  }
+
+  .about__image-container {
+    width: 272px; /* Further adjust for small mobile */
+    height: 272px; /* Further adjust for small mobile */
+  }
+}

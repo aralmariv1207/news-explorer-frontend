@@ -1,0 +1,133 @@
+/* src/components/Footer/Footer.css */
+
+.footer {
+  background-color: #ffffff;
+  padding: 30px 0; /* Vertical padding, horizontal handled by .footer-container */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* Spreads copyright to left, right-section to right */
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 104px; /* Desktop horizontal padding */
+}
+
+.footer__copyright {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+  font-weight: 400;
+  white-space: nowrap; /* Prevent copyright from wrapping on desktop */
+  margin: 0; /* Reset margin */
+}
+
+.footer__right-section {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Gap between nav links group and social icons group */
+}
+
+.footer__nav-links {
+  display: flex;
+  gap: 40px; /* Gap between Home and TripleTen links */
+}
+
+.footer__link {
+  color: #1a1b22;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+
+.footer__link:hover {
+  opacity: 0.7;
+}
+
+.footer__social-icons {
+  display: flex; /* Ensure it's a flex container for desktop */
+  gap: 24px; /* Gap between social icons */
+}
+
+.footer__social-icon-link {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity 0.3s ease;
+}
+
+.footer__social-icon-link:hover {
+  opacity: 0.7;
+}
+
+.footer__social-icon-github {
+  background-image: url("../../assets/images/github_icon.svg");
+}
+
+.footer__social-icon-facebook {
+  background-image: url("../../assets/images/facebook_icon.svg");
+}
+
+/* --- Media Queries for responsiveness --- */
+
+/* Tablet styles (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    padding: 0 24px; /* Adjust for tablet global padding */
+  }
+  .footer__right-section {
+    gap: 30px; /* Adjust gap for tablet screens */
+  }
+  .footer__nav-links {
+    gap: 30px; /* Adjust gap for tablet nav links */
+  }
+}
+
+/* Mobile styles (max-width: 550px) */
+@media screen and (max-width: 550px) {
+  .footer-container {
+    flex-direction: column-reverse; /* Stacks items, moves copyright to bottom */
+    align-items: flex-start; /* Align all content to the LEFT */
+    padding: 20px 16px 14px; /* Mobile padding: top 20, sides 16, bottom 14 */
+    gap: 20px; /* Vertical gap between copyright and links/social section */
+  }
+
+  .footer__right-section {
+    align-items: flex-start; /* Align links and social icons groups to the LEFT */
+    width: 100%; /* Ensure this section spans the full mobile width */
+    gap: 16px; /* Gap between the nav links group and the social icons group */
+  }
+
+  .footer__nav-links {
+    flex-direction: column;
+    align-items: flex-start; /* Align "Home" and "TripleTen" links to the LEFT */
+    gap: 12px;
+  }
+
+  .footer__social-icons {
+    display: flex; /* *** KEY FIX: Make it a flex container *** */
+    flex-direction: row; /* Make icons horizontal */
+    gap: 16px;
+    /* No need for width: 100% here, let content dictate width */
+    padding-left: 300px;
+  }
+
+  .footer__copyright {
+    font-size: 12px;
+    line-height: 15px;
+    white-space: normal;
+    align-self: center;
+  }
+
+  .footer__link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

@@ -1,0 +1,112 @@
+/* src/components/Main/Main.css */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.results-section {
+  width: 100%;
+  /* Apply the background color for the results section here */
+  background-color: #f5f6f7; /* Light gray background for search results */
+  padding: 40px 0; /* Add some vertical padding to this section */
+  box-sizing: border-box;
+}
+
+/* Styles for the preloader container (the section around the spinner) */
+.preloader-container {
+  display: flex; /* Makes it a flex container to center its children */
+  flex-direction: column;
+  align-items: center; /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically */
+  padding: 40px 0; /* Adjust padding for consistency within results-section */
+  text-align: center;
+  width: 100%;
+  min-height: 250px; /* Ensures the container has enough height to be visible */
+  /* background-color: #f5f6f7; Removed as it's now on results-section */
+  box-sizing: border-box;
+}
+
+.preloader-container__text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+  margin-top: 24px; /* Space between spinner and text */
+}
+
+/* Styles for the "Nothing found" section */
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0; /* Adjust padding for consistency within results-section */
+  text-align: center;
+  width: 100%;
+  /* background-color: #f5f6f7; Removed as it's now on results-section */
+}
+
+.not-found__image {
+  width: 74px;
+  height: 74px;
+  margin-bottom: 24px;
+  background-image: url("../../assets/images/not-found_icon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.not-found__title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1a1b22;
+  margin-bottom: 16px;
+}
+
+.not-found__text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+  margin-top: 0;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .results-section {
+    /* Added responsiveness for results-section padding */
+    padding: 20px 0;
+  }
+  .preloader-container,
+  .not-found {
+    padding: 20px 0; /* Adjusted padding within results-section */
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .results-section {
+    /* Added responsiveness for results-section padding */
+    padding: 15px 0;
+  }
+  .preloader-container,
+  .not-found {
+    padding: 15px 0; /* Adjusted padding within results-section */
+  }
+  .preloader-container__text,
+  .not-found__text {
+    font-size: 16px;
+  }
+  .not-found__title {
+    font-size: 22px;
+  }
+}

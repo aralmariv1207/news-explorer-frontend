@@ -298,6 +298,8 @@
 
   .news-card__content {
     padding: 16px;
+    width: 288px;
+    height: 400px;
   }
 
   .news-card__title {

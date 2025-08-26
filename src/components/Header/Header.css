@@ -171,6 +171,8 @@
   /* Show menu icon on mobile */
   .header__menu-icon {
     display: flex;
+    justify-content: unset;
+    gap: 5px;
   }
 
   /* Hide desktop navigation on mobile */

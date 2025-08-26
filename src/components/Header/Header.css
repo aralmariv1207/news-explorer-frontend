@@ -189,7 +189,7 @@
   /* --- Styles when mobile menu is OPEN --- */
   .header_mobile-menu-open {
     background-color: #1a1b22; /* Dark background for the header when menu is open */
-    border-bottom-color: transparent;
+    border-bottom-color: gray;
     z-index: 1000; /* The highest z-index to ensure it's on top */
   }
 

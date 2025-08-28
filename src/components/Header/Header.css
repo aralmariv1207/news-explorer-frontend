@@ -81,14 +81,15 @@
 
 /* Define the open / close (X) state styles */
 
-.header__menu-icon_close .header__menu-icon-line:nth-child(1) {
+/* .header__menu-icon_close .header__menu-icon-line:nth-child(1) {
   transform: rotate(45deg);
-  top: 11px; /* Centered */
-}
-.header__menu-icon_close .header__menu-icon-line:nth-child(3) {
+  top: 11px; // centered
+} */
+
+/* .header__menu-icon_close .header__menu-icon-line:nth-child(3) {
   transform: rotate(-45deg);
-  top: 11px; /* Centered */
-}
+  top: 11px; // centered 
+} */
 
 /* Menu icon line colors based on theme */
 .header_theme_dark .header__menu-icon-line {
@@ -101,13 +102,19 @@
 
 /* "Open" state of the burger menu (transforms to 'X') */
 .header__menu-icon_close .header__menu-icon-line:first-child {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(1px, -5px);
   background-color: #fff; /* White for the 'X' */
+  top: 24px; /* centered */
+  bottom: 24px;
+  right: 24px;
 }
 
 .header__menu-icon_close .header__menu-icon-line:last-child {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(5px, -1px);
   background-color: #fff; /* White for the 'X' */
+  top: 24px; /* centered */
+  bottom: 24px;
+  right: 24px;
 }
 
 /* --- Mobile Overlay Backdrop --- */
@@ -171,7 +178,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   /* Ensure header is fixed on mobile */
   .header {
     height: 56px;

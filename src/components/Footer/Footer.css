@@ -116,7 +116,6 @@
     flex-direction: row; /* Make icons horizontal */
     gap: 16px;
     /* No need for width: 100% here, let content dictate width */
-    padding-left: 300px;
   }
 
   .footer__copyright {

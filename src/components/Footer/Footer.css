@@ -101,6 +101,7 @@
 
   .footer__right-section {
     align-items: flex-start; /* Align links and social icons groups to the LEFT */
+    justify-content: space-between;
     width: 100%; /* Ensure this section spans the full mobile width */
     gap: 16px; /* Gap between the nav links group and the social icons group */
   }

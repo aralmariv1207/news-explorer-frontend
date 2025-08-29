@@ -81,15 +81,15 @@
 
 /* Define the open / close (X) state styles */
 
-/* .header__menu-icon_close .header__menu-icon-line:nth-child(1) {
+.header__menu-icon_close .header__menu-icon-line:nth-child(1) {
   transform: rotate(45deg);
-  top: 11px; // centered
-} */
+  top: 11px; 
+}
 
-/* .header__menu-icon_close .header__menu-icon-line:nth-child(2) {
+.header__menu-icon_close .header__menu-icon-line:nth-child(2) {
   transform: rotate(-45deg);
-  top: 11px; // centered 
-} */
+top: 11px; 
+}
 
 /* Menu icon line colors based on theme */
 .header_theme_dark .header__menu-icon-line {

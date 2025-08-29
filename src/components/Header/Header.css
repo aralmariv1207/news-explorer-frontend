@@ -47,10 +47,10 @@
 
 /* --- Burger Menu Icon (CSS-ONLY HAMBURGER) --- */
 .header__menu-icon {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
-width: 24px;
+  width: 24px;
   height: 24px;
   background: none;
   border: none;
@@ -86,7 +86,7 @@ width: 24px;
   top: 11px; // centered
 } */
 
-/* .header__menu-icon_close .header__menu-icon-line:nth-child(3) {
+/* .header__menu-icon_close .header__menu-icon-line:nth-child(2) {
   transform: rotate(-45deg);
   top: 11px; // centered 
 } */

@@ -204,7 +204,6 @@
 /* Media queries for responsiveness */
 @media screen and (max-width: 500px) {
   .modal__container {
-    max-width: 100%;
     width: 100%;
     height: 100%; /* Full height on small screens */
     border-radius: 10px;
@@ -247,7 +246,7 @@
   with the proper padding, on tablets and smaller devices.
   */
   .modal__container {
-    max-width: 70%; /* Adjusts the width for tablets */
+    max-width: 100%; /* Adjusts the width for tablets */
     padding: 20px;
     box-sizing: border-box; /* Ensures padding is included in the total width */
   }

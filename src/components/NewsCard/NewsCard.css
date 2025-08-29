@@ -292,8 +292,22 @@
     display: flex;
   }
 
-  .news-card__content {
+  .news-card__title {
+    font-size: 18px;
+    line-height: 22px;
     padding: 0 0 16px 16px;
+  }
+
+  .news-card__content {
+    margin-bottom: 10px;
+  }
+
+  .news-card__text {
+    
+  }
+
+  .news-card__source {
+    padding: 0 16px 16px 16px;
   }
 
   /* KEYWORD TOOLTIP POSITION FOR MOBILE */

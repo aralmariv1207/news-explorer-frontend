@@ -95,7 +95,7 @@
   }
 
   .news-card-list__grid {
-    grid-template-columns: repeat(auto-fit, 288px);
+    /* grid-template-columns: repeat(auto-fit, 288px); */
     margin-bottom: 0px;
   }
 

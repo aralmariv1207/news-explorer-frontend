@@ -236,7 +236,6 @@
 
 @media screen and (max-width: 768px) {
   .news-card {
-    width: 224px;
     height: 420px;
   }
 
@@ -298,7 +297,7 @@
 
   .news-card__content {
     padding: 16px;
-    width: 288px;
+
     height: 400px;
   }
 
@@ -352,10 +351,12 @@
   }
 }
 
-/* Styles for screens up to 320px wide (MOBILE) */
-@media screen and (max-width: 320px) {
+/* Styles for screens up to 500px wide (MOBILE) */
+@media screen and (max-width: 500px) {
   .news-card {
     max-width: 100%;
+
+    height: 440px;
   }
 
   .news-card__image {

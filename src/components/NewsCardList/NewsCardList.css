@@ -23,7 +23,7 @@
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(350px, 1fr)
+    350px
   ); /* Figma: 3 columns (roughly 350px each) */
   gap: 16px; /* Figma: 16px gap between cards */
   width: 100%;
@@ -95,7 +95,7 @@
   }
 
   .news-card-list__grid {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fit, 288px);
     margin-bottom: 0px;
   }
 

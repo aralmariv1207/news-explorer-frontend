@@ -104,8 +104,8 @@
   }
 
   .news-card-list__show-more-button {
-    max-width: 288px;
-    max-height: 56px;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 

@@ -295,15 +295,20 @@
   .news-card__title {
     font-size: 18px;
     line-height: 22px;
-    padding: 0 0 16px 16px;
+    padding: 0 0 0 16px;
   }
 
   .news-card__content {
     margin-bottom: 10px;
+    padding: 0;
   }
 
   .news-card__text {
-    
+    padding: 0 0 16px 16px;
+  }
+
+  .news-card__date {
+    padding: 0 0 0 16px;
   }
 
   .news-card__source {

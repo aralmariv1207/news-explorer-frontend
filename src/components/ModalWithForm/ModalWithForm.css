@@ -25,7 +25,6 @@
 
 /* Styles for the modal container (the white box) */
 .modal__container {
-  position: relative; /* Essential for absolute positioning of its children */
   background-color: #fff;
   padding: 24px 36px 30px; /* Top padding for title space */
   border-radius: 16px; /* Matches Figma's 16px radius for the modal container */
@@ -208,10 +207,11 @@
     height: 100%; /* Full height on small screens */
     border-radius: 10px;
     padding: 16px;
+    top: 20px;
   }
 
   .modal__close-button {
-    top: 16px;
+    top: 106px;
     right: 16px;
     width: 24px;
     height: 24px;

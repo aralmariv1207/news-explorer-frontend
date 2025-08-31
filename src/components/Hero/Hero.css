@@ -36,6 +36,7 @@
   font-size: 60px; /* Adjust as per Figma */
   line-height: 64px;
   margin-bottom: 24px;
+  text-align: left;
 }
 
 .hero__subtitle {

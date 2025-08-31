@@ -17,6 +17,7 @@ function Main({
   showMoreButtonVisible,
   onSaveArticle,
   savedArticles,
+  onDeleteArticle,
 }) {
   return (
     <main className="main">
@@ -51,6 +52,7 @@ function Main({
               isSavedNewsPage={false}
               onSaveArticle={onSaveArticle}
               savedArticles={savedArticles}
+              onDeleteArticle={onDeleteArticle}
             />
           )}
         </section>

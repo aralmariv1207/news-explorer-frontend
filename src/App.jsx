@@ -181,6 +181,7 @@ function AppContent() {
                 savedArticles={savedArticles}
                 showMoreButtonVisible={showMoreButtonVisible}
                 onShowMoreClick={handleShowMoreClick}
+                onDeleteArticle={handleDeleteArticle}
               />
             }
           />

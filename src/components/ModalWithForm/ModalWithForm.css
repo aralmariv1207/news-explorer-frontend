@@ -246,7 +246,6 @@
   with the proper padding, on tablets and smaller devices.
   */
   .modal__container {
-    max-width: 100%; /* Adjusts the width for tablets */
     padding: 20px;
     box-sizing: border-box; /* Ensures padding is included in the total width */
   }

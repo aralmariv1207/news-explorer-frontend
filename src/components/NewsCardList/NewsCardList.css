@@ -1,5 +1,4 @@
 .news-card-list {
-  padding: 80px 104px; /* Figma: Section padding */
   background-color: #f5f6f7; /* Light gray background */
   display: flex;
   flex-direction: column;
@@ -23,7 +22,7 @@
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    350px
+    400px
   ); /* Figma: 3 columns (roughly 350px each) */
   gap: 16px; /* Figma: 16px gap between cards */
   width: 100%;
@@ -65,22 +64,6 @@
 }
 
 /* Media queries for responsiveness */
-@media screen and (max-width: 1024px) {
-  .news-card-list {
-    padding: 40px 40px;
-  }
-
-  .news-card-list__title {
-    font-size: 32px;
-    line-height: 38px;
-    margin-bottom: 40px;
-  }
-
-  .news-card-list__grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    margin-bottom: 40px;
-  }
-}
 
 @media screen and (max-width: 768px) {
   .news-card-list {
@@ -95,8 +78,9 @@
   }
 
   .news-card-list__grid {
-    /* grid-template-columns: repeat(auto-fit, 288px); */
+    grid-template-columns: repeat(auto-fit, 230px);
     margin-bottom: 0px;
+    gap: 10px;
   }
 
   .news-card-list__button-container {

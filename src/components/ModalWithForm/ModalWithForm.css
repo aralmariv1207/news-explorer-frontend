@@ -224,7 +224,7 @@
 
 @media screen and (max-width: 500px) {
   .modal {
-    padding-top: 60px;
+    padding-top: 40px;
   }
 
   .modal__container {
@@ -233,11 +233,11 @@
     border-radius: 10px;
     padding: 16px;
     top: 20px;
+    position: relative;
   }
 
   .modal__close-button {
-    top: 106px;
-    right: 16px;
+    right: 8px;
     width: 24px;
     height: 24px;
   }

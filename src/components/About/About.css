@@ -5,7 +5,6 @@
   background-color: #fff; /* White background as per Figma */
   box-sizing: border-box; /* Ensure padding is included in element's total width/height */
   width: 100%; /* Ensure it spans full width */
-  border-bottom: none;
   position: relative; /* For positioning child elements if needed */
 }
 

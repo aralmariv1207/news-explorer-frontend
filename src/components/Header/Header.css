@@ -235,9 +235,9 @@
 }
 
 @media screen and (max-width: 500px) {
-  .header__menu-icon {
+  /* .header__menu-icon {
     display: none;
-  }
+  } */
 
   .header__menu-icon-close {
     background-image: url(../../assets/images/close_icon.svg);

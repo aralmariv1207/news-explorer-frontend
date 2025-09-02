@@ -71,6 +71,7 @@
     align-items: center;
     padding: 0 40px;
     position: relative;
+    border-bottom: none;
   }
 
   /* .about__container {
@@ -82,11 +83,13 @@
   } */
 
   .about__content {
+    display: flex;
     flex-direction: column; /* Stack image and text vertically */
     gap: 24px; /* Adjust gap for stacked layout */
-    display: flex;
+    margin: 0 auto; /* Center the content */
     position: relative;
     align-items: center;
+    justify-content: center;
   }
 
   .about__image-container {
@@ -99,6 +102,7 @@
     top: 0;
     transform: translateX(-50%, -50%);
     z-index: 10;
+    position: relative;
   }
 
   .about__image {
@@ -118,7 +122,7 @@
   .about__text-container {
     margin-top: 116px;
     max-width: 420px;
-    text-align: center;
+    flex-direction: column;
   }
 
   .about__text {

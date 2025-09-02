@@ -79,6 +79,10 @@
 
 /* Tablet styles (max-width: 768px) */
 @media screen and (max-width: 768px) {
+  .footer {
+    border-top: none;
+  }
+
   .footer-container {
     padding: 0 24px; /* Adjust for tablet global padding */
   }

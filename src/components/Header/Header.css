@@ -83,12 +83,12 @@
 
 .header__menu-icon_close .header__menu-icon-line:nth-child(1) {
   transform: rotate(45deg);
-  top: 11px; 
+  top: 11px;
 }
 
 .header__menu-icon_close .header__menu-icon-line:nth-child(2) {
   transform: rotate(-45deg);
-top: 11px; 
+  top: 11px;
 }
 
 /* Menu icon line colors based on theme */
@@ -232,24 +232,28 @@ top: 11px;
   .header_mobile-menu-open .header__menu-icon-line {
     background-color: #fff;
   }
+}
 
-  @media screen and (max-width: 500px) {
-    .header__menu-icon-close {
-      background-image: url(../../assets/images/close_icon.svg);
-      background-color: #fff; /* White for the 'X' */
-      top: 24px; /* centered */
-      bottom: 24px;
-      right: 24px;
-      justify-content: center;
-      align-items: center;
-      width: 24px;
-      height: 24px;
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      z-index: 20; /* Ensure burger button is above default header content */
-      position: relative;
-    }
+@media screen and (max-width: 500px) {
+  .header__menu-icon {
+    display: none;
+  }
+
+  .header__menu-icon-close {
+    background-image: url(../../assets/images/close_icon.svg);
+    background-color: #fff; /* White for the 'X' */
+    top: 24px; /* centered */
+    bottom: 24px;
+    right: 24px;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 20; /* Ensure burger button is above default header content */
+    position: relative;
   }
 }

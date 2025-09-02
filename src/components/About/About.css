@@ -84,12 +84,9 @@
 
   .about__content {
     display: flex;
-    flex-direction: column; /* Stack image and text vertically */
     gap: 24px; /* Adjust gap for stacked layout */
     margin: 0 auto; /* Center the content */
-    position: relative;
     align-items: center;
-    justify-content: center;
   }
 
   .about__image-container {
@@ -97,12 +94,11 @@
     height: 232px; /* Adjust for mobile */
     border-radius: 50%; /* Make it round */
     overflow: hidden; /* Ensure image stays within bounds */
-    position: absolute;
+
     left: 50%;
     top: 0;
     transform: translateX(-50%, -50%);
     z-index: 10;
-    position: relative;
   }
 
   .about__image {
@@ -116,12 +112,13 @@
     font-size: 26px;
     line-height: 30px;
     margin-bottom: 10px;
-    text-align: left;
+    text-align: center;
   }
 
   .about__text-container {
     margin-top: 116px;
     max-width: 420px;
+    text-align: center;
     flex-direction: column;
   }
 

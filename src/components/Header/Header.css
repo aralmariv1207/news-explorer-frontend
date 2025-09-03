@@ -164,20 +164,25 @@
   height: 100%;
 }
 
-/* Media queries for responsiveness */
-@media screen and (max-width: 1024px) {
-  .header {
-    height: 60px;
-    padding: 0 40px;
-  }
-  .header__logo {
-    font-size: 18px;
-  }
-  .header_mobile-menu-open .header__mobile-overlay {
-    padding-top: 60px;
-    height: 100%;
-  }
+/* Apply the full-page background image to the .app-container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  background-image: url("./assets/images/background-image__georgia-de-lotz--UsJoNxLaNo-unsplash.png");
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed; /* Keep background fixed when scrolling */
 }
+
+/* Remove background image for saved-news page */
+.app-container--saved-news {
+  background-image: none;
+}
+
+/* Media queries for responsiveness */
+
+/* Styles for screens up to 768px wide (TABLET) */
 
 @media screen and (max-width: 768px) {
   /* Ensure header is fixed on mobile */
@@ -232,7 +237,13 @@
   .header_mobile-menu-open .header__menu-icon-line {
     background-color: #fff;
   }
+
+  .page-container {
+    padding: 0 24px;
+  }
 }
+
+/* Styles for screens up to 320px wide (MOBILE) */
 
 @media screen and (max-width: 500px) {
   /* .header__menu-icon {

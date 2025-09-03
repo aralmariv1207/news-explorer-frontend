@@ -153,7 +153,7 @@
 .navigation_mobile-open {
   background-color: #1a1b22;
   width: calc(100% - 32px);
-  max-width: 320px;
+  width: 100%;
   padding: 16px;
   border-radius: 0 0 10px 10px;
   display: flex;
@@ -206,7 +206,7 @@
 
   /* Adjust overlay padding-top to match mobile header height */
   .header__mobile-overlay {
-    padding-top: 56px; /* Match mobile header height */
+    margin: 0;
   }
 
   /* --- Styles when mobile menu is OPEN --- */

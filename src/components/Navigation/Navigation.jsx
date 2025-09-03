@@ -42,25 +42,8 @@ function Navigation({
           >
             NewsExplorer
           </Link>
-        
-        <li>
-        
-          <Link
-            to="/"
-            className={`navigation__link ${
-              currentPath === "/" ? "navigation__link_active" : ""
-            }`}
-            onClick={closeMobileMenu}
-          >
-            Home
-          </Link>
         </li>
-              currentPath === "/" ? "navigation__link_active" : ""
-            }
-            onClick={closeMobileMenu}
-          >
-            Home
-          </Link>
+
         <li>
           <Link
             to="/"

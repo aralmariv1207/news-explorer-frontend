@@ -11,7 +11,7 @@
   padding: 0 104px; /* Matches content padding */
   box-sizing: border-box;
   width: 100%; /* Ensure it spans full width */
-  background-image: url("./assets/images/background-image__georgia-de-lotz--UsJoNxLaNo-unsplash.png");
+  background-image: url("../../assets/images/background-image__georgia-de-lotz--UsJoNxLaNo-unsplash.png");
   background-size: cover; /* Cover the entire area */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */

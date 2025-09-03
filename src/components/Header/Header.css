@@ -12,7 +12,7 @@
   z-index: 10; /* Default z-index for desktop */
   transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
   border-bottom: 1px solid;
-  background-image: url("./assets/images/background-image__georgia-de-lotz--UsJoNxLaNo-unsplash.png");
+  background-image: url("../../assets/images/background-image__georgia-de-lotz--UsJoNxLaNo-unsplash.png");
   background-size: cover; /* Cover the entire area */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */

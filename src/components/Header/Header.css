@@ -131,7 +131,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: rgba(26, 27, 34, 0.9);
   z-index: 99; /* This should be lower than header's z-index */
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -256,4 +256,6 @@
     z-index: 20; /* Ensure burger button is above default header content */
     position: relative;
   }
+
+
 }

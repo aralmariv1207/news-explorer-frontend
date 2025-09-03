@@ -3,14 +3,19 @@ import { Link, useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import "./Header.css";
 
-function Header({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
+function Header({
+  isLoggedIn,
+  currentUser,
+  onLogout,
+  onSignInClick,
+  isAnyModalOpen, // added
+}) {
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
 
   const headerThemeClass = isSavedNewsPage
     ? "header_theme_light"
     : "header_theme_dark";
-  // logoThemeClass is still useful for default logo color on desktop/closed mobile
   const logoThemeClass = isSavedNewsPage
     ? "header__logo_theme_light"
     : "header__logo_theme_dark";
@@ -43,23 +48,27 @@ function Header({ isLoggedIn, currentUser, onLogout, onSignInClick }) {
     >
       <Link
         to="/"
-        className={`header__logo ${logoThemeClass}`} // Removed headerElementsMobileOpenClass here
+        className={`header__logo ${logoThemeClass}`}
         onClick={closeMobileMenu}
       >
         NewsExplorer
       </Link>
 
-      <button
-        type="button"
-        className={`header__menu-icon ${
-          isMobileMenuOpen ? "header__menu-icon_close" : ""
-        }`} // Removed headerElementsMobileOpenClass here
-        onClick={handleToggleMobileMenu}
-        aria-label={isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
-      >
-        <span className="header__menu-icon-line"></span>
-        <span className="header__menu-icon-line"></span>
-      </button>
+      {!isAnyModalOpen && (
+        <button
+          type="button"
+          className={`header__menu-icon ${
+            isMobileMenuOpen ? "header__menu-icon_close" : ""
+          }`}
+          onClick={handleToggleMobileMenu}
+          aria-label={
+            isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"
+          }
+        >
+          <span className="header__menu-icon-line"></span>
+          <span className="header__menu-icon-line"></span>
+        </button>
+      )}
 
       {isMobileMenuOpen && (
         <div className="header__mobile-overlay" onClick={closeMobileMenu}>

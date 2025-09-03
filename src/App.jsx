@@ -165,7 +165,13 @@ function AppContent() {
           currentUser={currentUser}
           onLogout={handleLogout}
           onSignInClick={handleLoginClick}
+          isAnyModalOpen={
+            isLoginModalOpen ||
+            isRegisterModalOpen ||
+            isRegisterSuccessModalOpen
+          }
         />
+
         <Routes>
           <Route
             path="/"

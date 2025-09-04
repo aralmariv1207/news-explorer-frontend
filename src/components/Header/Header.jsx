@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
+import closeIcon from "../../assets/images/close_icon.svg";
 import "./Header.css";
 
 function Header({
@@ -8,7 +9,7 @@ function Header({
   currentUser,
   onLogout,
   onSignInClick,
-  isAnyModalOpen, // added
+  isAnyModalOpen,
 }) {
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
@@ -46,6 +47,7 @@ function Header({
         isMobileMenuOpen ? "header_mobile-menu-open" : ""
       }`}
     >
+      {/* This logo is for the main header, outside the overlay */}
       <Link
         to="/"
         className={`header__logo ${logoThemeClass}`}
@@ -72,6 +74,25 @@ function Header({
 
       {isMobileMenuOpen && (
         <div className="header__mobile-overlay" onClick={closeMobileMenu}>
+          {/* NEW: Container for the logo and close button within the overlay */}
+          <div
+            className={`header__mobile-overlay-header ${headerThemeClass}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* The logo for the mobile overlay */}
+            <Link to="/" className={`header__logo ${logoThemeClass}`}>
+              NewsExplorer
+            </Link>
+            {/* The dedicated close button */}
+            <button
+              className="header__menu-icon header__menu-icon_close"
+              type="button"
+              onClick={closeMobileMenu}
+              aria-label="Close mobile menu"
+            >
+              <img src={closeIcon} alt="Close" />
+            </button>
+          </div>
           <nav
             className="navigation_mobile-open"
             onClick={(e) => e.stopPropagation()}

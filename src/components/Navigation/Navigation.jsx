@@ -32,18 +32,7 @@ function Navigation({
   if (isMobile) {
     return (
       <ul className="navigation__menu navigation__menu_mobile">
-        <li>
-          <Link
-            to="/"
-            className={`navigation__link ${
-              currentPath === "/" ? "navigation__link_active" : ""
-            }`}
-            onClick={closeMobileMenu}
-          >
-            NewsExplorer
-          </Link>
-        </li>
-
+        {/* Removed the 'NewsExplorer' link here */}
         <li>
           <Link
             to="/"

@@ -199,6 +199,10 @@
     gap: 5px;
   }
 
+  .header__menu-icon {
+    display: none;
+  }
+
   /* Hide desktop navigation on mobile */
   .navigation_desktop {
     display: none;
@@ -235,10 +239,6 @@
 /* Styles for screens up to 320px wide (MOBILE) */
 
 @media screen and (max-width: 500px) {
-  /* .header__menu-icon {
-    display: none;
-  } */
-
   .header__menu-icon-close {
     background-image: url(../../assets/images/close_icon.svg);
     background-color: #fff; /* White for the 'X' */
@@ -255,5 +255,10 @@
     cursor: pointer;
     z-index: 20; /* Ensure burger button is above default header content */
     position: relative;
+  }
+
+  .header__menu-icon {
+    display: block;
+    margin-right: 16px;
   }
 }

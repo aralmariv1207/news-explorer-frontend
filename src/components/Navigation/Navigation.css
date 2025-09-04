@@ -216,23 +216,6 @@
 
 /* --- Media Queries for Navigation Component --- */
 
-/* Tablet-specific styles (max-width: 1024px) */
-@media screen and (max-width: 1024px) {
-  .navigation__menu_desktop {
-    gap: 20px;
-  }
-  .navigation__link {
-    font-size: 14px;
-  }
-  .navigation__signin-button_desktop,
-  .navigation__button_user_desktop {
-    height: 40px;
-    padding: 0 16px;
-    min-width: unset;
-    font-size: 16px;
-  }
-}
-
 /* Smaller Tablet/Larger Mobile (max-width: 768px) */
 @media screen and (max-width: 768px) {
   .navigation__menu_desktop {

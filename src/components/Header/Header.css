@@ -22,7 +22,7 @@
 /* Header themes */
 .header_theme_dark {
   background-color: transparent;
-  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 10.2);
 }
 
 .header_theme_light {
@@ -149,26 +149,6 @@
   opacity: 1;
 }
 
-/* Styles for the mobile navigation content container */
-.navigation_mobile-open {
-  background-color: #1a1b22;
-  width: calc(100% - 32px);
-  width: 100%;
-  padding: 16px;
-  border-radius: 0 0 10px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-/* --- Desktop Navigation Wrapper --- */
-.navigation_desktop {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
 /* Media queries for responsiveness */
 
 /* Styles for screens up to 768px wide (TABLET) */
@@ -193,6 +173,11 @@
     ); /* Default light border for mobile header */
   }
 
+  /* .header_theme_dark {
+    background-color: transparent;
+    border-bottom-color: rgba(255, 255, 255, 10.2);
+  } */
+
   /* Show menu icon on mobile */
   .header__menu-icon {
     display: flex;
@@ -200,11 +185,6 @@
   }
 
   .header__menu-icon {
-    display: none;
-  }
-
-  /* Hide desktop navigation on mobile */
-  .navigation_desktop {
     display: none;
   }
 
@@ -259,6 +239,7 @@
 
   .header__menu-icon {
     display: block;
-    margin-right: 16px; 
+    margin-left: auto;
+    margin-right: 16px;
   }
 }

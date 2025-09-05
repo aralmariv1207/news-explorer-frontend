@@ -7,6 +7,13 @@
   padding: 0;
 }
 
+/* --- Desktop Navigation Wrapper --- */
+.navigation_desktop {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 /* --- Desktop/Tablet Menu Content Styles --- */
 .navigation__menu_desktop {
   display: flex;
@@ -229,6 +236,10 @@
     font-size: 14px;
     padding: 0 10px;
     width: 152px;
+    height: 40px;
+    margin-right: 40px;
+    margin-top: 14px;
+    margin-bottom: 12px;
   }
   .navigation__logout-icon {
     width: 20px;
@@ -237,6 +248,23 @@
 }
 
 /* Mobile (max-width: 500px) */
+
 @media screen and (max-width: 500px) {
-  /* No specific changes for mobile menu content here */
+  /* Hide desktop navigation on mobile */
+  .navigation__menu_desktop {
+    display: none;
+  }
+
+  /* Styles for the mobile navigation content container */
+  .navigation_mobile-open {
+    background-color: #1a1b22;
+    width: calc(100% - 32px);
+    width: 100%;
+    padding: 16px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
 }

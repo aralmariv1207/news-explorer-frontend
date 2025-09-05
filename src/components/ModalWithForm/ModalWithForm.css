@@ -34,6 +34,7 @@
   box-sizing: border-box; /* Include padding in width calculation */
   overflow: visible; /* Ensures nothing inside is clipped if it goes outside padding */
   z-index: 100; /* Ensure it's above other content */
+  position: relative; /* For positioning the close button */
 }
 
 /* Styles for the close button (the 'X' icon) */

@@ -124,7 +124,7 @@
 
 /* --- Mobile Overlay Backdrop --- */
 .header__mobile-overlay {
-  display: flex;
+  display: none;
   visibility: hidden;
   opacity: 0;
   position: fixed;
@@ -191,6 +191,7 @@
   /* Adjust overlay padding-top to match mobile header height */
   .header__mobile-overlay {
     margin: 0;
+    display: block;
   }
 
   /* --- Styles when mobile menu is OPEN --- */

@@ -22,7 +22,7 @@
 /* Header themes */
 .header_theme_dark {
   background-color: transparent;
-  border-bottom-color: rgba(255, 255, 255, 10.2);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 
 .header_theme_light {

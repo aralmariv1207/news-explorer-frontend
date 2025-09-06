@@ -123,9 +123,11 @@
   font-size: 18px;
   font-weight: 500;
   border: none;
+  padding-top: 10px;
+  margin-top: 10px;
   border-radius: 100px; /* Rounded corners as per Figma */
   cursor: pointer;
-  margin-top: 20px; /* Space from last input to button */
+
   transition: background-color 0.3s ease;
 }
 

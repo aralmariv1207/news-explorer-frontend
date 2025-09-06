@@ -40,8 +40,8 @@
 /* Styles for the close button (the 'X' icon) */
 .modal__close-button {
   position: absolute;
-  top: -46px; /* Positioned outside the container */
-  right: -80px; /* Moved further to the right to match Figma's exact position */
+  top: -45px; /* Positioned outside the container */
+  right: -55px; /* Moved further to the right to match Figma's exact position */
   width: 40px;
   height: 40px;
   background-color: transparent;

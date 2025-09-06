@@ -212,6 +212,17 @@
     background-color: #fff;
   }
 
+  /* Header themes */
+  .header_theme_dark {
+    background-color: transparent;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .header_theme_light {
+    background-color: #fff;
+    border-bottom-color: rgba(26, 27, 34, 0.2);
+  }
+
   .page-container {
     padding: 0 24px;
   }
@@ -242,5 +253,16 @@
     display: block;
     margin-left: auto;
     margin-right: 16px;
+  }
+
+  /* Header themes */
+  .header_theme_dark {
+    background-color: transparent;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .header_theme_light {
+    background-color: #fff;
+    border-bottom-color: rgba(26, 27, 34, 0.2);
   }
 }

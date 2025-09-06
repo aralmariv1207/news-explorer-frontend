@@ -68,8 +68,9 @@
 .navigation__link_active::after {
   content: "";
   position: absolute;
-  bottom: -20px;
+  top: 48px;
   left: 0;
+  right: 0;
   width: 100%;
   height: 3px;
 }
@@ -230,6 +231,17 @@
   }
   .navigation__link {
     font-size: 13px;
+  }
+
+  /* Underline for active link */
+  .navigation__link_active::after {
+    content: "";
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
   }
   .navigation__signin-button_desktop,
   .navigation__button_user_desktop {

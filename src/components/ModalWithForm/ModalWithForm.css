@@ -84,6 +84,7 @@
   color: #2f71e5; /* Blue color as per Figma */
   margin-bottom: 8px; /* Space between label and input */
   display: block; /* Ensures label takes full width */
+  position: relative; /* For positioning error messages */
 }
 
 /* Styles for input fields within the modal forms */
@@ -182,11 +183,13 @@
   visibility: hidden; /* Hidden by default */
   opacity: 0;
   transition: opacity 0.3s ease;
+  position: absolute;
 }
 
 .modal__error-message_visible {
   visibility: visible;
   opacity: 1;
+  position: relative;
 }
 
 /* NEW STYLE: For server-side error messages (at bottom of form) */

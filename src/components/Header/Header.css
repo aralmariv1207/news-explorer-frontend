@@ -28,6 +28,7 @@
 .header_theme_light {
   background-color: #fff;
   border-bottom-color: rgba(26, 27, 34, 0.2);
+  background-image: none;
 }
 
 .header__logo {

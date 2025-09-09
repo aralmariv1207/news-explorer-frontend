@@ -82,6 +82,7 @@
   font-size: 12px;
   line-height: 16px;
   color: #2f71e5; /* Blue color as per Figma */
+  margin-top: 8px;
   margin-bottom: 8px; /* Space between label and input */
   display: block; /* Ensures label takes full width */
   position: relative; /* For positioning error messages */
@@ -125,7 +126,7 @@
   font-weight: 500;
   border: none;
   padding-top: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
   border-radius: 100px; /* Rounded corners as per Figma */
   cursor: pointer;
 
@@ -189,7 +190,9 @@
 .modal__error-message_visible {
   visibility: visible;
   opacity: 1;
-  position: relative;
+  top: 90px;
+  right: 70px;
+  left: 0;
 }
 
 /* NEW STYLE: For server-side error messages (at bottom of form) */

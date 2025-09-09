@@ -253,8 +253,9 @@
   .header__menu-icon {
     display: block;
     margin-left: auto;
-    margin-right: 16px;
+    margin-right: 32px;
   }
+
 
   /* Header themes */
   .header_theme_dark {

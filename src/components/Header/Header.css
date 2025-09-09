@@ -267,4 +267,10 @@
     background-color: #fff;
     border-bottom-color: rgba(26, 27, 34, 0.2);
   }
+
+  .header__mobile-overlay {
+    width: 100%;
+    height: 100%;
+
+  }
 }

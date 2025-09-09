@@ -289,30 +289,39 @@
 
   .news-card__image {
     height: 200px;
-    display: flex;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    margin: 5px;
+  }
+
+  .news-card__content {
+    margin-bottom: 10px;
+    padding: 0;
+    display: block;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .news-card__date {
+    padding: 0 0 0 16px;
+    margin: 0;
   }
 
   .news-card__title {
     font-size: 18px;
     line-height: 22px;
     padding: 0 0 0 16px;
-  }
-
-  .news-card__content {
-    margin-bottom: 10px;
-    padding: 0;
+    margin: 0;
   }
 
   .news-card__text {
     padding: 0 0 16px 16px;
   }
 
-  .news-card__date {
-    padding: 0 0 0 16px;
-  }
-
   .news-card__source {
-    padding: 0 16px 16px 16px;
+    padding: 0 16px 0 16px;
+    margin: 0;
   }
 
   /* KEYWORD TOOLTIP POSITION FOR MOBILE */

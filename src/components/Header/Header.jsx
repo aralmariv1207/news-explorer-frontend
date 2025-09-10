@@ -80,9 +80,9 @@ function Header({
             onClick={(e) => e.stopPropagation()}
           >
             {/* The logo for the mobile overlay */}
-            <Link to="/" className={`header__logo ${logoThemeClass}`}>
+            {/* <Link to="/" className={`header__logo ${logoThemeClass}`}>
               NewsExplorer
-            </Link>
+            </Link> */}
             {/* The dedicated close button */}
             <button
               className="header__menu-icon header__menu-icon_close"

@@ -215,7 +215,6 @@
   }
 
   /* Header themes */
-  
 
   .header_theme_light {
     background-color: #fff;
@@ -252,6 +251,7 @@
     display: block;
     margin-left: auto;
     margin-right: 32px;
+    margin-top: 12px;
   }
 
   /* Header themes */

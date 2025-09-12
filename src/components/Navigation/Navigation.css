@@ -257,10 +257,13 @@
     width: 20px;
     height: 20px;
   }
+
+  .navigation_desktop {
+    display: none;
+  }
 }
 
 /* Mobile (max-width: 500px) */
-
 @media screen and (max-width: 500px) {
   /* Hide desktop navigation on mobile */
   .navigation__menu_desktop {
@@ -289,5 +292,9 @@
     margin: 0;
     padding: 0;
     gap: 16px;
+  } */
+
+  /* .navigation_desktop {
+    display: none;
   } */
 }

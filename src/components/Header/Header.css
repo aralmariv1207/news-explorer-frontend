@@ -39,7 +39,7 @@
   text-decoration: none;
   margin: 0;
   cursor: pointer;
-  position: fixed;
+  position: relative;
   z-index: 100; /* Ensure logo is above default header content */
 }
 

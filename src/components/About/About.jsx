@@ -29,11 +29,6 @@ function About() {
             experience. Moreover, this project is a testament to my commitment
             to learning and building practical, impactful applications.
           </p>
-          <p className="about__text">
-            As my NewsExplorer final project shows, I also believe in the power
-            of information and its ability to connect people and communities.
-            Join me now in exploring the vast world of news!
-          </p>
         </div>
       </div>
     </section>

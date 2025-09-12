@@ -76,7 +76,7 @@ function Header({
         <div className="header__mobile-overlay" onClick={closeMobileMenu}>
           {/* NEW: Container for the logo and close button within the overlay */}
           <div
-            className={`header__mobile-overlay-header ${headerThemeClass}`}
+            // className={`header__mobile-overlay-header ${headerThemeClass}`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* The logo for the mobile overlay */}

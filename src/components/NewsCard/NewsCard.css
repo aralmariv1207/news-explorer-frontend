@@ -292,7 +292,6 @@
     width: 100%;
     display: block;
     object-fit: cover;
-    margin: 5px;
   }
 
   .news-card__content {

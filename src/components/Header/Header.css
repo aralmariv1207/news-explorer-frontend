@@ -181,6 +181,10 @@
     border-bottom-color: rgba(255, 255, 255, 10.2);
   } */
 
+  .header__logo {
+    margin-left: 40px;
+  }
+
   /* Show menu icon on mobile */
   .header__menu-icon {
     display: flex;

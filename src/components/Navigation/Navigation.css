@@ -3,7 +3,6 @@
 /* --- Base Navigation Menu Styles --- */
 .navigation__menu {
   list-style: none;
-  margin-left: 1000px;
   padding: 0;
 }
 
@@ -258,9 +257,9 @@
     height: 20px;
   }
 
-  .navigation_desktop {
+  /* .navigation_desktop {
     display: none;
-  }
+  } */
 }
 
 /* Mobile (max-width: 500px) */
@@ -282,6 +281,10 @@
     align-items: center;
     box-sizing: border-box;
   }
+
+  /* .navigation__menu_desktop {
+    margin: -30px;
+  } */
 
   /* .navigation__menu_mobile {
     display: flex;

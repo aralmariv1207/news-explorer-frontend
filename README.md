@@ -29,6 +29,8 @@ The final project for the TripleTen Software Engineering program, NewsExplorer i
 
 ### Links
 
+- Link to the project's GitHub Pages site: [https://aralmariv1207.github.io/news-explorer-frontend/]
+
 - Link to the project design on Figma: [https://www.figma.com/design/3ottwMEhlBt95Dbn8dw1NH/Your-Final-Project?node-id=22618-925&t=kVrhnRxfGDHsxTX7-0]
 
 - Link to the project's frontend: [https://github.com/aralmariv1207/news-explorer-frontend.git]

@@ -162,7 +162,6 @@
     padding: 0 16px;
     flex-direction: row;
 
-
     top: 0;
     left: 0;
     width: 100%;
@@ -234,6 +233,9 @@
 /* Styles for screens up to 320px wide (MOBILE) */
 
 @media screen and (max-width: 500px) {
+  .header__logo {
+    margin-left: 0;
+  }
   .header__menu-icon-close {
     background-image: url(../../assets/images/close_icon.svg);
     background-color: #fff; /* White for the 'X' */

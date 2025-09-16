@@ -232,7 +232,7 @@ function AppContent() {
 // This outer App function correctly wraps AppContent with BrowserRouter
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/news-explorer-frontend/">
       <AppContent />
     </BrowserRouter>
   );

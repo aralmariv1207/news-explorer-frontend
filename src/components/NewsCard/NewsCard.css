@@ -283,8 +283,10 @@
 /* Styles for screens up to 500px wide (MOBILE) */
 @media screen and (max-width: 500px) {
   .news-card {
-    max-width: 100%;
+    width: 288px;
+    max-width: 288px;
     border-radius: 20px;
+    margin: 0 auto;
   }
 
   .news-card__image {

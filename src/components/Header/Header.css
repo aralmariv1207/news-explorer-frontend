@@ -230,7 +230,7 @@
   }
 }
 
-/* Styles for screens up to 320px wide (MOBILE) */
+/* Styles for screens up to 500px wide (MOBILE) */
 
 @media screen and (max-width: 500px) {
   .header__logo {

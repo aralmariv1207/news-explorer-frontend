@@ -13,7 +13,7 @@ function Footer() {
         <div className="footer__right-section">
           {" "}
           {/* New wrapper for nav links and social icons */}
-          <div className="footer__nav-links">
+          <nav className="footer__nav-links">
             <a href="/" className="footer__link">
               Home
             </a>
@@ -25,8 +25,8 @@ function Footer() {
             >
               TripleTen
             </a>
-          </div>
-          <div className="footer__social-icons">
+          </nav>
+          <nav className="footer__social-icons">
             <a
               href="https://github.com"
               target="_blank"
@@ -43,7 +43,7 @@ function Footer() {
             >
               {/* Facebook icon will be set via CSS background-image */}
             </a>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>

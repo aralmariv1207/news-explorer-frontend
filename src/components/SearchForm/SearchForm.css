@@ -5,6 +5,7 @@
   height: 64px; /* Height for the search bar */
   margin: 0 auto; /* Center the form within hero__content */
   box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.1); /* Subtle shadow for the search bar */
+  position: relative;
 }
 
 .search-form__input {
@@ -12,8 +13,7 @@
   padding: 0 24px; /* Padding inside the input field */
   border: 1px solid #e8e8e8; /* Light border */
   border-right: none; /* No right border for seamless connection with button */
-  border-top-left-radius: 100px; /* Rounded left corner */
-  border-bottom-left-radius: 100px; /* Rounded left corner */
+  border-radius: 100px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 22px;
@@ -41,6 +41,10 @@
   border: none;
   border-top-right-radius: 100px; /* Rounded right corner */
   border-bottom-right-radius: 100px; /* Rounded right corner */
+  border-top-left-radius: 100px; /* Rounded left corner */
+  border-bottom-left-radius: 100px; /* Rounded left corner */
+  position: absolute;
+  right: -30px;
   padding: 0 30px; /* Horizontal padding for button text */
   cursor: pointer;
   transition: background-color 0.3s ease, opacity 0.3s ease;
@@ -85,23 +89,11 @@
     height: 56px; /* Fixed height for mobile button */
     width: 100%; /* Full width */
     padding: 0; /* Remove padding as it's now full width */
+    position: unset;
   }
-}
 
-/* Styles for screens up to 768px wide (TABLET) */
-@media screen and (max-width: 768px) {
   .search-results__cards-container {
     gap: 12px;
     padding: 0 24px;
-  }
-}
-
-/* Styles for screens up to 450px wide (MOBILE) */
-@media screen and (max-width: 450px) {
-  .search-results__cards-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 0 16px;
   }
 }

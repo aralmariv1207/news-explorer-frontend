@@ -7,7 +7,7 @@
 }
 
 /* --- Desktop/Tablet Menu Content Styles --- */
-.navigation__menu_desktop {
+.navigation__menu_type_desktop {
   display: flex;
   align-items: center;
   gap: 30px;
@@ -155,7 +155,7 @@
 }
 
 /* --- Mobile Menu Content Styles (when isMobile=true) --- */
-.navigation__menu_mobile {
+.navigation__menu_type_mobile {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -166,7 +166,7 @@
 }
 
 /* Mobile Link Styling */
-.navigation__menu_mobile .navigation__link {
+.navigation__menu_type_mobile .navigation__link {
   color: #fff;
   width: 100%;
   text-align: left;
@@ -177,13 +177,13 @@
   box-sizing: border-box;
   display: block;
 }
-.navigation__menu_mobile .navigation__link:last-of-type {
+.navigation__menu_type_mobile .navigation__link:last-of-type {
   border-bottom: none;
 }
-.navigation__menu_mobile .navigation__link:hover {
+.navigation__menu_type_mobile .navigation__link:hover {
   opacity: 0.8;
 }
-.navigation__menu_mobile .navigation__link_active::after {
+.navigation__menu_type_mobile .navigation__link_active::after {
   display: none;
 }
 
@@ -210,7 +210,7 @@
 .navigation__button_user_mobile:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-.navigation__menu_mobile .navigation__logout-icon {
+.navigation__menu_type_mobile .navigation__logout-icon {
   background-image: url("../../assets/images/logout_icon_white.svg");
 }
 
@@ -218,7 +218,7 @@
 
 /* Smaller Tablet/Larger Mobile (max-width: 768px) */
 @media screen and (max-width: 768px) {
-  .navigation__menu_desktop {
+  .navigation__menu_type_desktop {
     gap: 15px;
   }
   .navigation__link {
@@ -253,7 +253,7 @@
   /* Mobile (max-width: 500px) */
   @media screen and (max-width: 500px) {
     /* Hide desktop navigation on mobile */
-    .navigation__menu_desktop {
+    .navigation__menu_type_desktop {
       display: none;
     }
 
@@ -270,11 +270,11 @@
       box-sizing: border-box;
     }
 
-    /* .navigation__menu_desktop {
+    /* .navigation__menu_type_desktop {
     margin: -30px;
   } */
 
-    /* .navigation__menu_mobile {
+    /* .navigation__menu_type_mobile {
     display: flex;
     flex-direction: column;
     width: 100%;

@@ -31,7 +31,7 @@ function Navigation({
 
   if (isMobile) {
     return (
-      <ul className="navigation__menu navigation__menu_mobile">
+      <ul className="navigation__menu navigation__menu_type_mobile">
         {/* Removed the 'NewsExplorer' link here */}
         <li>
           <Link
@@ -86,7 +86,7 @@ function Navigation({
   }
 
   return (
-    <ul className="navigation__menu navigation__menu_desktop">
+    <ul className="navigation__menu navigation__menu_type_desktop">
       <li>
         <Link
           to="/"

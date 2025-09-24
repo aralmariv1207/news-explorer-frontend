@@ -94,9 +94,11 @@
     height: 232px; /* Adjust for mobile */
     border-radius: 50%; /* Make it round */
     overflow: hidden; /* Ensure image stays within bounds */
-    left: -15px;
+    position: absolute;
     top: 0;
-    transform: translateX(-50%, -50%);
+    /* left: -15px; */
+    transform: translateX(50%);
+    transform: translateX(15px);
     z-index: 10;
   }
 

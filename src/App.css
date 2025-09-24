@@ -1,6 +1,6 @@
-* {
+/* * {
   outline: 1px solid red; /* Debugging outline, remove in production */
-}
+/* } */ 
 
 html,
 body {
@@ -8,6 +8,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 body {

@@ -1,0 +1,100 @@
+.search-form {
+  display: flex;
+  width: 100%; /* Ensure it takes full width of its parent (.hero__content) */
+  max-width: 600px; /* Max width as per Figma for the input + button group */
+  height: 64px; /* Height for the search bar */
+  margin: 0 auto; /* Center the form within hero__content */
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.1); /* Subtle shadow for the search bar */
+  position: relative;
+}
+
+.search-form__input {
+  flex-grow: 1; /* Allows input to take up available space */
+  padding: 0 24px; /* Padding inside the input field */
+  border: 1px solid #e8e8e8; /* Light border */
+  border-right: none; /* No right border for seamless connection with button */
+  border-radius: 100px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1a1b22; /* Dark text color */
+  outline: none; /* Remove default focus outline */
+  box-sizing: border-box; /* Include padding/border in width */
+  height: 100%; /* Match parent height */
+  background-color: #ffffff; /* White background */
+}
+
+.search-form__input::placeholder {
+  color: #b6bcbf; /* Placeholder color */
+}
+
+.search-form__input:focus {
+  border-color: #2f71e5; /* Blue border on focus */
+}
+
+.search-form__button {
+  background-color: #2f71e5; /* Blue button color */
+  color: #fff; /* White text */
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  border: none;
+  border-top-right-radius: 100px; /* Rounded right corner */
+  border-bottom-right-radius: 100px; /* Rounded right corner */
+  border-top-left-radius: 100px; /* Rounded left corner */
+  border-bottom-left-radius: 100px; /* Rounded left corner */
+  position: absolute;
+  right: -30px;
+  padding: 0 30px; /* Horizontal padding for button text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  height: 100%; /* Match parent height */
+}
+
+.search-form__button:hover {
+  background-color: #347eff; /* Lighter blue on hover */
+  opacity: 0.9;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .search-form {
+    max-width: 450px; /* Smaller max-width for tablets */
+    height: 56px;
+  }
+  .search-form__input {
+    padding: 0 16px;
+    font-size: 14px;
+  }
+  .search-form__button {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .search-form {
+    flex-direction: column; /* Stack input and button vertically */
+    height: auto; /* Auto height for stacked elements */
+    max-width: 100%; /* Full width on mobile */
+  }
+  .search-form__input {
+    border-radius: 100px; /* Full rounded corners when stacked */
+    height: 56px; /* Fixed height for mobile input */
+    margin-bottom: 16px; /* Space between input and button */
+    width: 100%; /* Full width */
+  }
+  .search-form__button {
+    border-radius: 100px; /* Full rounded corners for button */
+    height: 56px; /* Fixed height for mobile button */
+    width: 100%; /* Full width */
+    padding: 0; /* Remove padding as it's now full width */
+    position: unset;
+  }
+
+  .search-results__cards-container {
+    gap: 12px;
+    padding: 0 24px;
+  }
+}

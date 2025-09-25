@@ -1,0 +1,279 @@
+/* src/components/Header/Header.css */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 104px; /* Desktop padding */
+  box-sizing: border-box;
+  width: 100%;
+  height: 80px; /* Desktop height */
+  position: relative; /* Default for desktop */
+  z-index: 10; /* Default z-index for desktop */
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+  border-bottom: 1px solid;
+  background-image: url("../../assets/images/background-image__georgia-de-lotz--UsJoNxLaNo-unsplash.png");
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed; /* Keep background fixed when scrolling */
+}
+
+/* Header themes */
+.header_theme_dark {
+  background-color: transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.header_theme_light {
+  background-color: #fff;
+  border-bottom-color: rgba(26, 27, 34, 0.2);
+  background-image: none;
+}
+
+.header__logo {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 100; /* Ensure logo is above default header content */
+}
+
+/* Logo colors based on theme */
+.header_theme_dark .header__logo {
+  color: #fff;
+}
+
+.header_theme_light .header__logo {
+  color: #1a1b22;
+}
+
+/* --- Burger Menu Icon (CSS-ONLY HAMBURGER) --- */
+.header__menu-icon {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 20; /* Ensure burger button is above default header content */
+  position: relative;
+}
+
+.header__menu-icon-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #1a1b22;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+/* Place each line initially (burger-like look) */
+
+.header__menu-icon-line:nth-child(1) {
+  top: 6px;
+}
+
+.header__menu-icon-line:nth-child(2) {
+  top: 13px;
+}
+
+/* Define the open / close (X) state styles */
+
+.header__menu-icon_close .header__menu-icon-line:nth-child(1) {
+  transform: rotate(45deg);
+  top: 11px;
+}
+
+.header__menu-icon_close .header__menu-icon-line:nth-child(2) {
+  transform: rotate(-45deg);
+  top: 11px;
+}
+
+/* Menu icon line colors based on theme */
+.header_theme_dark .header__menu-icon-line {
+  background-color: #fff;
+}
+
+.header_theme_light .header__menu-icon-line {
+  background-color: #1a1b22;
+}
+
+/* "Open" state of the burger menu (transforms to 'X')
+.header__menu-icon_close .header__menu-icon-line:first-child {
+  transform: rotate(45deg) translate(1px, -5px);
+  background-color: #fff; /* White for the 'X' */
+/* top: 24px; /* centered */
+/* bottom: 24px;
+  right: 24px; */
+/* } */
+
+/* .header__menu-icon_close .header__menu-icon-line:last-child {
+  transform: rotate(-45deg) translate(5px, -1px);
+  background-color: #fff; /* White for the 'X' */
+/* top: 24px; /* centered */
+/* bottom: 24px;
+  right: 24px;
+} */
+
+/* --- Mobile Overlay Backdrop --- */
+.header__mobile-overlay {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 27, 34, 0.9);
+  z-index: 99; /* This should be lower than header's z-index */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 56px; /* Matches mobile header height */
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* When mobile menu is open, show the overlay */
+.header_mobile-menu-open .header__mobile-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Media queries for responsiveness */
+
+/* Styles for screens up to 768px wide (TABLET) */
+
+@media screen and (max-width: 768px) {
+  /* Ensure header is fixed on mobile */
+  .header {
+    height: 56px;
+    padding: 0 16px;
+    flex-direction: row;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Base z-index for mobile header when closed */
+
+    /* border-bottom-color: rgba(
+      26,
+      27,
+      34,
+      0.2
+    ); Default light border for mobile header */
+  }
+
+  /* .header_theme_dark {
+    background-color: transparent;
+    border-bottom-color: rgba(255, 255, 255, 10.2);
+  } */
+
+  .header__logo {
+    margin-left: 40px;
+  }
+
+  /* Show menu icon on mobile */
+  .header__menu-icon {
+    display: flex;
+    gap: 5px;
+  }
+
+  .header__menu-icon {
+    display: none;
+  }
+
+  /* Adjust overlay padding-top to match mobile header height */
+  .header__mobile-overlay {
+    margin: 0;
+    display: block;
+  }
+
+  /* --- Styles when mobile menu is OPEN --- */
+  .header_mobile-menu-open {
+    background-color: #1a1b22; /* Dark background for the header when menu is open */
+    border-bottom-color: gray;
+    z-index: 1000; /* The highest z-index to ensure it's on top */
+    position: sticky;
+  }
+
+  /* Logo color becomes white when menu is open */
+  .header_mobile-menu-open .header__logo {
+    color: #fff;
+  }
+
+  /* Menu icon lines become white when menu is open */
+  .header_mobile-menu-open .header__menu-icon-line {
+    background-color: #fff;
+  }
+
+  /* Header themes */
+
+  .header_theme_light {
+    background-color: #fff;
+    border-bottom-color: rgba(26, 27, 34, 0.2);
+  }
+
+  .page-container {
+    padding: 0 24px;
+  }
+}
+
+/* Styles for screens up to 500px wide (MOBILE) */
+
+@media screen and (max-width: 500px) {
+  .header__logo {
+    margin-left: 0;
+  }
+  .header__menu-icon-close {
+    background-image: url(../../assets/images/close_icon.svg);
+    background-color: #fff; /* White for the 'X' */
+    top: 24px; /* centered */
+    bottom: 24px;
+    right: 24px;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 20; /* Ensure burger button is above default header content */
+    position: relative;
+  }
+
+  .header__menu-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: 16px;
+    margin-top: 16px;
+  }
+
+  /* Header themes */
+  .header_theme_dark {
+    background-color: transparent;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .header_theme_light {
+    background-color: #fff;
+    border-bottom-color: rgba(26, 27, 34, 0.2);
+  }
+
+  .header__mobile-overlay {
+    width: 100%;
+    height: 100%;
+  }
+}

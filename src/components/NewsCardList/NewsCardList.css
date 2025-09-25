@@ -1,0 +1,115 @@
+.news-card-list {
+  background-color: #f5f6f7; /* Light gray background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0; /* Ensure no extra space below the section */
+}
+
+.news-card-list__title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1a1b22;
+  margin-bottom: 64px; /* Space below the title */
+  text-align: left;
+  width: 100%;
+  max-width: 1232px; /* Max width to align with grid */
+}
+
+.news-card-list__grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    400px
+  ); /* Figma: 3 columns (roughly 350px each) */
+  gap: 16px; /* Figma: 16px gap between cards */
+  width: 100%;
+  max-width: 1232px; /* Max width for the grid */
+  margin-bottom: 64px; /* Space before the show more button */
+  justify-content: center; /* Center cards if they don't fill a row */
+}
+
+.news-card-list__button-container {
+  width: 100%;
+  max-width: 288px; /* Figma: Button width */
+  margin-top: 20px; /* Space above button */
+  margin-bottom: 0; /* Ensure no extra margin */
+  text-align: center; /* Center the button in its container */
+}
+
+.news-card-list__show-more-button {
+  width: 100%;
+  height: 64px; /* Figma: 64px height */
+  background-color: #fff; /* White background */
+  color: #1a1b22; /* Dark text */
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 100px; /* Pill shape */
+  cursor: pointer;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.15); /* Subtle shadow */
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.news-card-list__show-more-button:hover {
+  background-color: #e8e8e8; /* Lighter white on hover */
+  opacity: 0.9;
+}
+
+.news-card-list--saved-news {
+  background-color: #f5f6f7;
+}
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+  .news-card-list {
+    padding: 32px 16px;
+  }
+
+  .news-card-list__title {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .news-card-list__grid {
+    grid-template-columns: repeat(auto-fit, 230px);
+    margin-bottom: 0px;
+    gap: 10px;
+  }
+
+  .news-card-list__button-container {
+    max-width: 100%;
+  }
+
+  .news-card-list__show-more-button {
+    max-width: 240px;
+    max-height: 56px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .news-card-list {
+    padding: 24px 16px;
+  }
+
+  .news-card-list__grid {
+    grid-template-columns: repeat(auto-fit, 400px);
+  }
+
+  .news-card-list__title {
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 0;
+  }
+
+  .news-card-list__show-more-button {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

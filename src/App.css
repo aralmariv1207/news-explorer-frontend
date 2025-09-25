@@ -1,0 +1,47 @@
+/* * {
+  outline: 1px solid red; /* Debugging outline, remove in production */
+/* } */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Include padding/border in element's total width/height */
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Apply the full-page background image to the .app-container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove background image for saved-news page */
+/* .app-container--saved-news {
+  background-image: none;
+} */

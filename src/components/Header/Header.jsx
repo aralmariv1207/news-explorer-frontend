@@ -110,7 +110,7 @@ function Header({
         </div>
       )}
 
-      <nav className="navigation_desktop">
+      <nav className="navigation">
         <Navigation
           isLoggedIn={isLoggedIn}
           currentUser={currentUser}

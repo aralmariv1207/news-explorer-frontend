@@ -94,7 +94,7 @@
     height: 232px; /* Adjust for mobile */
     border-radius: 50%; /* Make it round */
     overflow: hidden; /* Ensure image stays within bounds */
-    position: absolute;
+
     top: 0;
     /* left: -15px; */
     transform: translateX(50%, 50%);

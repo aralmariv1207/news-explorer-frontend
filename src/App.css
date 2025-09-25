@@ -1,6 +1,12 @@
 /* * {
   outline: 1px solid red; /* Debugging outline, remove in production */
-/* }  */
+/* } */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Include padding/border in element's total width/height */
+}
 
 html,
 body {
@@ -8,7 +14,6 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 body {
@@ -16,6 +21,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: block;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
 }
 
 #root {
